@@ -432,7 +432,7 @@ Public Class F01_Personal
 
     Private Sub P_prArmarCombos()
         P_prArmarComboTipoPersonal()
-        P_prComboAlmacenDiAvi()
+        p_prcomboalmacendiavi()
     End Sub
     Private Sub p_prcomboalmacendiavi()
         Dim dt As New DataTable
@@ -477,7 +477,7 @@ Public Class F01_Personal
 
                 CbAlmacen.Clear()
                 If (CType(CbAlmacen.DataSource, DataTable).Rows.Count > 0) Then
-                    CbAlmacen.SelectedText = .Cells("cbreloj").Value.ToString
+                    CbAlmacen.SelectedText = .Cells("Ruta").Value.ToString
                 Else
                     CbAlmacen.Text = ""
                 End If
@@ -597,7 +597,9 @@ Public Class F01_Personal
         With Dgj1Busqueda.RootTable.Columns("cbuact")
             .Visible = False
         End With
-
+        With Dgj1Busqueda.RootTable.Columns("Ruta")
+            .Visible = False
+        End With
         'Habilitar Filtradores
         With Dgj1Busqueda
             .GroupByBoxVisible = False
