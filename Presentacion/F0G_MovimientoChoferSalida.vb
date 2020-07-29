@@ -679,6 +679,10 @@ Public Class F0G_MovimientoChoferSalida
                 'P_prAyudaChofer()
                 P_prAyudaChoferNuevo()
             End If
+            If e.KeyData = Keys.Control + Keys.R Then
+                'P_prAyudaChofer()
+                P_prAyudaRutaNuevo()
+            End If
         End If
     End Sub
     Public Sub _prObtenerNumiConciliacionTI0022()
@@ -1210,7 +1214,51 @@ salirIf:
             End If
         End If
     End Sub
+    Private Sub P_prAyudaRutaNuevo()
+        Dim dt As DataTable
 
+        dt = L_prListarChoferesRutas()
+        '   a.cbnumi ,a.cbdesc ,a.cbci ,a.cbfnac
+
+        Dim listEstCeldas As New List(Of Modelo.MCelda)
+        listEstCeldas.Add(New Modelo.MCelda("cbnumi,", True, "CÓDIGO", 70))
+        listEstCeldas.Add(New Modelo.MCelda("cbdesc", True, "NOMBRE", 280))
+        listEstCeldas.Add(New Modelo.MCelda("descrip", False, "RUTA", 250))
+
+        Dim ef = New Efecto
+        ef.tipo = 3
+        ef.dt = dt
+        ef.SeleclCol = 2
+        ef.listEstCeldas = listEstCeldas
+        ef.alto = 50
+        ef.ancho = 350
+        ef.Context = "Seleccione Chofer/Ruta".ToUpper
+        ef.ShowDialog()
+        Dim bandera As Boolean = False
+        bandera = ef.band
+        If (bandera = True) Then
+            Dim Row As Janus.Windows.GridEX.GridEXRow = ef.Row
+
+            _codChofer = Row.Cells("cbnumi").Value
+            tbChofer.Text = Row.Cells("cbdesc").Value
+            '_fechapedido = Row.Cells("oafdoc").Value
+            cbConcepto.Focus()
+
+            _prCargarDetalleVenta(-1)
+            _prAddDetalleVenta()
+            'With grdetalle.RootTable.Columns("img")
+            '    .Width = 80
+            '    .Caption = "Eliminar".ToUpper
+            '    .CellStyle.ImageHorizontalAlignment = ImageHorizontalAlignment.Center
+            '    .Visible = True
+            'End With
+            _prObtenerNumiConciliacionTI0022()
+
+            If (P_Global.gb_despacho) Then
+                CargarDespachoDeChoferRuta(_codChofer)
+            End If
+        End If
+    End Sub
     Private Sub CargarDespachoDeChofer(codChofer As Integer)
         Try
             Dim listResult = New LPedido().ListarDespachoXProductoDeChoferSalida(codChofer)
@@ -1232,6 +1280,40 @@ salirIf:
                         CType(grdetalle.DataSource, DataTable).Rows(i).Item("producto") = item.cadesc
 
                         CType(grdetalle.DataSource, DataTable).Rows(i).Item("iccant") = item.obpcant
+                        i += 1
+                    Next
+                    _prCargarProductos()
+                End If
+            Else
+                Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+                ToastNotification.Show(Me, "No existe productos de despacho para el chofer".ToUpper, img, 3000, eToastGlowColor.Red, eToastPosition.TopCenter)
+                'MBtGrabar.Enabled = False
+            End If
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+        End Try
+    End Sub
+    Private Sub CargarDespachoDeChoferRuta(codChofer As Integer)
+        Try
+            Dim dt As DataTable = L_prListarProductosRutas(codChofer)
+            If (dt.Rows.Count > 0) Then
+                Dim info As New TaskDialogInfo("¿desea carga los producto de ruta del chofer?".ToUpper,
+                                       eTaskDialogIcon.Information, "pregunta".ToUpper,
+                                       "esta a punto de sobreescribir todo los productos".ToUpper _
+                                       + vbCrLf + "Desea continuar?".ToUpper,
+                                       eTaskDialogButton.Yes Or eTaskDialogButton.Cancel,
+                                       eTaskDialogBackgroundColor.Blue)
+                Dim result As eTaskDialogResult = TaskDialog.Show(info)
+                Dim Reg As DataRow
+                If result = eTaskDialogResult.Yes Then
+                    CType(grdetalle.DataSource, DataTable).Clear()
+                    Dim i = 0
+                    For Each Reg In dt.Rows
+                        _prAddDetalleVenta()
+                        CType(grdetalle.DataSource, DataTable).Rows(i).Item("iccprod") = Reg("canumi")
+                        CType(grdetalle.DataSource, DataTable).Rows(i).Item("cacod") = Reg("cacod")
+                        CType(grdetalle.DataSource, DataTable).Rows(i).Item("producto") = Reg("cadesc")
+                        CType(grdetalle.DataSource, DataTable).Rows(i).Item("iccant") = Reg("obpcant")
                         i += 1
                     Next
                     _prCargarProductos()
@@ -1321,5 +1403,9 @@ salirIf:
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+
+    Private Sub tbChofer_TextChanged(sender As Object, e As EventArgs) Handles tbChofer.TextChanged
+
     End Sub
 End Class
