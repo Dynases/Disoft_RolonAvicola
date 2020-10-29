@@ -45,6 +45,7 @@ Public Class Form2
         Mt32.Text = Archivo(6).Split(";")(1).Trim
         Mt33.Text = Archivo(7).Split(";")(1).Trim
         Mt34.Text = Archivo(8).Split(";")(1).Trim
+
     End Sub
 
     Private Sub Mt21_Click(sender As Object, e As EventArgs) Handles Mt21.Click
@@ -53,6 +54,7 @@ Public Class Form2
     End Sub
 
     Private Sub mT22_Click(sender As Object, e As EventArgs) Handles mT22.Click
+
 
     End Sub
 

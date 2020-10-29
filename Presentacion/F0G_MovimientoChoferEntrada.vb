@@ -828,8 +828,8 @@ Public Class F0G_MovimientoChoferEntrada
         Next
         TablaPrincipal.Columns.Add("ID_TO1", Type.GetType("System.String"))
         TablaPrincipal.Columns.Add("MOVIL")
-        TablaPrincipal.Columns.Add("DEVOLUCION")
         TablaPrincipal.Columns.Add("TOTAL")
+        TablaPrincipal.Columns.Add("DEVOLUCION")
         TablaPrincipal.Columns.Add("TOTALCOPIA")
         TablaPrincipal.Columns.Add("estado")
         TablaPrincipal.Columns.Add("icid")
@@ -977,19 +977,19 @@ Public Class F0G_MovimientoChoferEntrada
             .Caption = "MOVIL"
             .CellStyle.BackColor = Color.CadetBlue
         End With
-        With grdetalle.RootTable.Columns("DEVOLUCION")
-            .Width = 150
-            .Visible = True
-            .FormatString = "0.00"
-            .TextAlignment = TextAlignment.Far
-            .Caption = "DEVOLUCIÓN"
-        End With
         With grdetalle.RootTable.Columns("TOTAL")
             .Width = 150
             .Visible = True
             .FormatString = "0.00"
             .TextAlignment = TextAlignment.Far
-            .Caption = "ENTREGADO"
+            .Caption = "VENDIDO"
+        End With
+        With grdetalle.RootTable.Columns("DEVOLUCION")
+            .Width = 150
+            .Visible = True
+            .FormatString = "0.00"
+            .TextAlignment = TextAlignment.Far
+            .Caption = "SALDO"
         End With
         With grdetalle.RootTable.Columns("TOTALCOPIA")
             .Width = 150

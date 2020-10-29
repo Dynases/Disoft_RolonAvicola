@@ -81,8 +81,8 @@ Public Class P_Principal
         btVentRepEquipoPrestadoVsUltimaVenta.Visible = False
         btVentRepPrestamoVsVentas.Visible = False
         btNotaVenta.Visible = False
-        btnPedidoProCobrar.Visible = False
-        btVentRepCuentaPorCobrar.Visible = False
+        'btnPedidoProCobrar.Visible = False
+        'btVentRepCuentaPorCobrar.Visible = False
         btVentRepSaldoCreditoCliente.Visible = False
         ItemContainerConfTransacciones.Refresh()
         If gs_puerto <> "0" Then

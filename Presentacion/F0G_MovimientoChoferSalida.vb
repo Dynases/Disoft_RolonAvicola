@@ -1295,7 +1295,7 @@ salirIf:
     End Sub
     Private Sub CargarDespachoDeChoferRuta(codChofer As Integer)
         Try
-            Dim dt As DataTable = L_prListarProductosRutas(codChofer)
+            Dim dt As DataTable = L_prListarProductosRutas(codChofer, lbConciliacion.Text)
             If (dt.Rows.Count > 0) Then
                 Dim info As New TaskDialogInfo("¿desea carga los producto de ruta del chofer?".ToUpper,
                                        eTaskDialogIcon.Information, "pregunta".ToUpper,

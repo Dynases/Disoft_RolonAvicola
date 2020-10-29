@@ -7287,13 +7287,14 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
-    Public Shared Function L_prListarProductosRutas(_Chof As String) As DataTable
+    Public Shared Function L_prListarProductosRutas(_Chof As String, _Conci As String) As DataTable
         Dim _Tabla As DataTable
 
         Dim _listParam As New List(Of Datos.DParametro)
 
         _listParam.Add(New Datos.DParametro("@tipo", 28))
         _listParam.Add(New Datos.DParametro("@ibidchof", _Chof))
+        _listParam.Add(New Datos.DParametro("@ibidconcil", _Conci))
         _listParam.Add(New Datos.DParametro("@ibuact", L_Usuario))
 
         _Tabla = D_ProcedimientoConParam("sp_Mam_TM001SalidaChofer", _listParam)

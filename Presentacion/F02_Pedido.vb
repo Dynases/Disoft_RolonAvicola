@@ -375,7 +375,7 @@ Public Class F02_Pedido
             .AggregateFunction = AggregateFunction.Sum
         End With
         With JGr_DetallePedido.RootTable.Columns(6)
-            .Visible = True
+            .Visible = False
             .Caption = "Descuento"
             .Key = "Descuento"
             .Width = 90
@@ -385,7 +385,7 @@ Public Class F02_Pedido
             .FormatString = "0.00"
         End With
         With JGr_DetallePedido.RootTable.Columns(7)
-            .Visible = True
+            .Visible = False
             .Caption = "Total Bs."
             .Key = "Total"
             .Width = 90
@@ -1470,14 +1470,14 @@ Public Class F02_Pedido
                     cant = JGr_DetallePedido.CurrentRow.Cells("Cantidad").Value
                     precio = JGr_DetallePedido.CurrentRow.Cells("Precio").Value
                     subTotal = JGr_DetallePedido.CurrentRow.Cells("Monto").Value
-                    desc = IIf(IsDBNull(JGr_DetallePedido.CurrentRow.Cells("Descuento").Value), 0, JGr_DetallePedido.CurrentRow.Cells("Descuento").Value)
-                    total = IIf(IsDBNull(JGr_DetallePedido.CurrentRow.Cells("Total").Value), JGr_DetallePedido.CurrentRow.Cells("Monto").Value, JGr_DetallePedido.CurrentRow.Cells("Total").Value)
+                    desc = 0 'IIf(IsDBNull(JGr_DetallePedido.CurrentRow.Cells("Descuento").Value), 0, JGr_DetallePedido.CurrentRow.Cells("Descuento").Value)
+                    total = subTotal 'IIf(IsDBNull(JGr_DetallePedido.CurrentRow.Cells("Total").Value), JGr_DetallePedido.CurrentRow.Cells("Monto").Value, JGr_DetallePedido.CurrentRow.Cells("Total").Value)
                     flia = JGr_DetallePedido.CurrentRow.Cells("Familia").Value
 
                     L_PedidoDetalle_Grabar(Tb_Id.Text, codProd, cant, precio, subTotal, desc, total, flia)
 
                     'adiciono un objeto detalle
-                    objListDetalle.Add(New RequestDetail(Tb_Id.Text, codProd, cant, precio, subTotal, L_ClaseGetProducto(codProd))) 'webLuis
+                    'objListDetalle.Add(New RequestDetail(Tb_Id.Text, codProd, cant, precio, subTotal, L_ClaseGetProducto(codProd))) 'webLuis
                 Next
 
                 'VERIFICAR SI EL CLIENTE ESTABA PASIVO
@@ -1532,31 +1532,31 @@ Public Class F02_Pedido
                 ''    L_GrabarModificarCliente("ccprconsu=" + Str(prom), "ccnumi=" + Str(Tb_CliCod.Text))
                 ''End If
 
-                If (gi_notiPed = 1) Then
-                    'webLuis-----------------'MANDAR LA NOTIFICACION DEL PEDIDO 'webLuis-----------------------------------------------
-                    Dim objResult As New Result
-                    Dim dtRepartidor As DataTable = L_ZonaDetalleRepartidor_General(-1, Tb_CliCodZona.Text).Tables(0)
-                    Dim codRep As String = "-1"
-                    If dtRepartidor.Rows.Count > 0 Then
-                        codRep = dtRepartidor.Rows(0).Item("lccbnumi")
-                    End If
-                    'Dim objPedido As New RequestHeader(Tb_Id.Text, Date.Now.Date.ToString("yyyy/MM/dd"), Tb_Hora.Text, Tb_CliCod.Text, Tb_CliCodZona.Text, codRep, Tb_Observaciones.Text, "", IIf(_nuevoBasePeriodico = True, "10", "1"), "1", "0", Date.Now.Date.ToString("yyyy/MM/dd"), Now.Hour.ToString + ":" + Now.Minute.ToString, gs_user, objListDetalle, L_ClaseGetCliente(Tb_CliCod.Text))
-                    Dim objPedido As New RequestHeader(Tb_Id.Text, Date.Now.Date.ToString("yyyy-MM-dd"), Tb_Hora.Text, Tb_CliCod.Text, Tb_CliCodZona.Text, codRep, Tb_Observaciones.Text, "", IIf(_nuevoBasePeriodico = True, "10", "1"), "1", "0", Date.Now.Date.ToString("yyyy-MM-dd"), Now.Hour.ToString + ":" + Now.Minute.ToString, gs_user, objListDetalle, L_ClaseGetCliente(Tb_CliCod.Text))
-                    Dim dtLlave As DataTable = L_TC0022General(codRep)
-                    If dtLlave.Rows.Count > 0 Then
-                        Dim llaveRep As String = dtLlave(0).Item("ckidfsm")
-                        objResult.fcmToken = llaveRep
-                        objResult.mRequestHeader = objPedido
-                        Dim respuesta As Boolean = JsonApiClient._prMandarNotificacion(objResult) 'objResult
-                        If respuesta = False Then
-                            ''ToastNotification.Show(Me, "El Pedido no se pudo enviar a la app del repartidor".ToUpper, My.Resources.WARNING, 10000, eToastGlowColor.Red, eToastPosition.TopCenter)
-                        End If
-                    Else
-                        ''ToastNotification.Show(Me, "no se pudo enviar el pedido al repartidor!!! , ".ToUpper + "el repartidor con codigo: ".ToUpper + codRep + " no tiene grabado su llave en la tabla TC0022", My.Resources.WARNING, 10000, eToastGlowColor.Red, eToastPosition.TopCenter)
-                    End If
-                    '---------------------------------------'webLuis-------------------------------------------------------------------
+                'If (gi_notiPed = 1) Then
+                '    'webLuis-----------------'MANDAR LA NOTIFICACION DEL PEDIDO 'webLuis-----------------------------------------------
+                '    Dim objResult As New Result
+                '    Dim dtRepartidor As DataTable = L_ZonaDetalleRepartidor_General(-1, Tb_CliCodZona.Text).Tables(0)
+                '    Dim codRep As String = "-1"
+                '    If dtRepartidor.Rows.Count > 0 Then
+                '        codRep = dtRepartidor.Rows(0).Item("lccbnumi")
+                '    End If
+                '    'Dim objPedido As New RequestHeader(Tb_Id.Text, Date.Now.Date.ToString("yyyy/MM/dd"), Tb_Hora.Text, Tb_CliCod.Text, Tb_CliCodZona.Text, codRep, Tb_Observaciones.Text, "", IIf(_nuevoBasePeriodico = True, "10", "1"), "1", "0", Date.Now.Date.ToString("yyyy/MM/dd"), Now.Hour.ToString + ":" + Now.Minute.ToString, gs_user, objListDetalle, L_ClaseGetCliente(Tb_CliCod.Text))
+                '    Dim objPedido As New RequestHeader(Tb_Id.Text, Date.Now.Date.ToString("yyyy-MM-dd"), Tb_Hora.Text, Tb_CliCod.Text, Tb_CliCodZona.Text, codRep, Tb_Observaciones.Text, "", IIf(_nuevoBasePeriodico = True, "10", "1"), "1", "0", Date.Now.Date.ToString("yyyy-MM-dd"), Now.Hour.ToString + ":" + Now.Minute.ToString, gs_user, objListDetalle, L_ClaseGetCliente(Tb_CliCod.Text))
+                '    Dim dtLlave As DataTable = L_TC0022General(codRep)
+                '    If dtLlave.Rows.Count > 0 Then
+                '        Dim llaveRep As String = dtLlave(0).Item("ckidfsm")
+                '        objResult.fcmToken = llaveRep
+                '        objResult.mRequestHeader = objPedido
+                '        Dim respuesta As Boolean = JsonApiClient._prMandarNotificacion(objResult) 'objResult
+                '        If respuesta = False Then
+                '            ''ToastNotification.Show(Me, "El Pedido no se pudo enviar a la app del repartidor".ToUpper, My.Resources.WARNING, 10000, eToastGlowColor.Red, eToastPosition.TopCenter)
+                '        End If
+                '    Else
+                '        ''ToastNotification.Show(Me, "no se pudo enviar el pedido al repartidor!!! , ".ToUpper + "el repartidor con codigo: ".ToUpper + codRep + " no tiene grabado su llave en la tabla TC0022", My.Resources.WARNING, 10000, eToastGlowColor.Red, eToastPosition.TopCenter)
+                '    End If
+                '    '---------------------------------------'webLuis-------------------------------------------------------------------
 
-                End If
+                'End If
 
                 'ACTUALIZAR GRILLA DE BUSQUEDA
                 ''AC******************************_PCargarBuscador()
@@ -1593,8 +1593,8 @@ Public Class F02_Pedido
                     cant = JGr_DetallePedido.CurrentRow.Cells("Cantidad").Value
                     precio = JGr_DetallePedido.CurrentRow.Cells("Precio").Value
                     subTotal = JGr_DetallePedido.CurrentRow.Cells("Monto").Value
-                    desc = JGr_DetallePedido.CurrentRow.Cells("Descuento").Value
-                    total = JGr_DetallePedido.CurrentRow.Cells("Total").Value
+                    desc = 0 'JGr_DetallePedido.CurrentRow.Cells("Descuento").Value
+                    total = subTotal 'JGr_DetallePedido.CurrentRow.Cells("Total").Value
                     flia = JGr_DetallePedido.CurrentRow.Cells("Familia").Value
                     L_PedidoDetalle_Grabar(Tb_Id.Text, codProd, cant, precio, subTotal, desc, total, flia)
                 Next
@@ -1648,7 +1648,7 @@ Public Class F02_Pedido
     Private Sub _PNuevoRegistro()
         _PHabilitar()
         'BBtn_Nuevo.Enabled = True
-        MBtNuevo.Enabled = True
+        'MBtNuevo.Enabled = True
 
         _PLimpiar()
         Tb_Fecha.Focus()
@@ -1917,7 +1917,7 @@ Public Class F02_Pedido
             ''Tb_CantProd.Focus()
             'e.SuppressKeyPress = True
 
-            btAplicarDesc.Focus()
+            Btn_TerminarAdd.Focus()
             e.SuppressKeyPress = True
 
         End If
