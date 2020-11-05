@@ -136,6 +136,7 @@ Public Class F0_CreditosPedidos
             .Caption = "Total"
             .Width = 100
             .TextAlignment = TextAlignment.Far
+            .FormatString = "0.00"
             .Visible = True
         End With
         With grcobranza.RootTable.Columns("tefact")
@@ -581,6 +582,35 @@ Public Class F0_CreditosPedidos
             dt.Rows(i).Item("img") = _fnBytesArchivo(My.Resources.delete, 28, 28)
         Next
     End Sub
+    Private Sub P_GenerarReporte()
+        Dim dt As DataTable = L_fnCobranzasReporte(tbnrodoc.Text)
+        Dim total As Double = dt.Compute("SUM(importe)", "")
+        If Not IsNothing(P_Global.Visualizador) Then
+            P_Global.Visualizador.Close()
+        End If
+        Dim ParteEntera As Long
+        Dim ParteDecimal As Double
+        ParteEntera = Int(total)
+        ParteDecimal = CDbl(Math.Round((total - ParteEntera), 2)) * 100
+
+        Dim li As String = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(ParteEntera)) + "  " +
+        IIf(ParteDecimal.ToString.Equals("0"), "00", ParteDecimal.ToString) + "/100 Bolivianos"
+
+        P_Global.Visualizador = New Visualizador
+
+        Dim objrep As New R_ReporteCobranzas
+        '' GenerarNro(_dt)
+        ''objrep.SetDataSource(Dt1Kardex)
+        objrep.SetDataSource(dt)
+        objrep.SetParameterValue("total", li)
+        objrep.SetParameterValue("usuario", gs_user)
+        P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+        P_Global.Visualizador.Show() 'Comentar
+        P_Global.Visualizador.BringToFront() 'Comentar
+
+
+    End Sub
+
 #End Region
 
 
@@ -1193,9 +1223,9 @@ Public Class F0_CreditosPedidos
 
             End If
         Else
-
             _modulo.Select()
             '_tab.Close()
+            Close()
 
         End If
     End Sub
@@ -1275,5 +1305,11 @@ Public Class F0_CreditosPedidos
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+
+    Private Sub MBtImprimir_Click(sender As Object, e As EventArgs) Handles MBtImprimir.Click
+        If (Not _fnAccesible()) Then
+            P_GenerarReporte()
+        End If
     End Sub
 End Class
