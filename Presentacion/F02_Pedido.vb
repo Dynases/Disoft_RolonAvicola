@@ -1135,7 +1135,9 @@ Public Class F02_Pedido
             Tb_CliTelef.Text = ""
             Tb_Estado.Value = True
             Tb_CantProd.Text = ""
-
+            tbLimiteCred.Text = "0"
+            tbMontoPagado.Text = "0"
+            tbMontoDisponible.Text = "0"
             If _nuevoBasePeriodico = True Then
                 CheckBoxX1.Checked = False
                 CheckBoxX2.Checked = False
