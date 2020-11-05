@@ -1427,7 +1427,7 @@ Public Class F02_Pedido
 
             For i = 0 To JGr_DetallePedido.RowCount - 1
                 JGr_DetallePedido.Row = i
-                If IsNumeric(JGr_DetallePedido.CurrentRow.Cells("Total").Value) = False Or JGr_DetallePedido.CurrentRow.Cells("Total").Value = 0 Then
+                If IsNumeric(JGr_DetallePedido.CurrentRow.Cells("Monto").Value) = False Or JGr_DetallePedido.CurrentRow.Cells("Monto").Value = 0 Then
                     ToastNotification.Show(Me, "Falta calcular el total en algún producto del detalle, por favor presione el botón aplicar descuentos".ToUpper, My.Resources.WARNING, 5500, eToastGlowColor.Green, eToastPosition.BottomCenter)
                     _Error = True
                 End If

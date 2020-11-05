@@ -69,10 +69,9 @@ Partial Class ModeloR01
         Me.MPnUsuario.Controls.Add(Me.MLblHora)
         Me.MPnUsuario.Controls.Add(Me.MLblFecha)
         Me.MPnUsuario.Controls.Add(Me.MLblUsuario)
-        Me.MPnUsuario.Location = New System.Drawing.Point(909, 188)
-        Me.MPnUsuario.Margin = New System.Windows.Forms.Padding(4)
+        Me.MPnUsuario.Location = New System.Drawing.Point(682, 153)
         Me.MPnUsuario.Name = "MPnUsuario"
-        Me.MPnUsuario.Size = New System.Drawing.Size(293, 123)
+        Me.MPnUsuario.Size = New System.Drawing.Size(220, 100)
         Me.MPnUsuario.TabIndex = 28
         Me.MPnUsuario.TabStop = True
         Me.MPnUsuario.Visible = False
@@ -81,10 +80,9 @@ Partial Class ModeloR01
         '
         Me.MLbHora.AutoSize = True
         Me.MLbHora.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MLbHora.Location = New System.Drawing.Point(153, 80)
-        Me.MLbHora.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.MLbHora.Location = New System.Drawing.Point(115, 65)
         Me.MLbHora.Name = "MLbHora"
-        Me.MLbHora.Size = New System.Drawing.Size(98, 24)
+        Me.MLbHora.Size = New System.Drawing.Size(79, 18)
         Me.MLbHora.TabIndex = 6
         Me.MLbHora.Text = "USUARIO:"
         '
@@ -92,10 +90,9 @@ Partial Class ModeloR01
         '
         Me.MLbFecha.AutoSize = True
         Me.MLbFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MLbFecha.Location = New System.Drawing.Point(153, 52)
-        Me.MLbFecha.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.MLbFecha.Location = New System.Drawing.Point(115, 42)
         Me.MLbFecha.Name = "MLbFecha"
-        Me.MLbFecha.Size = New System.Drawing.Size(98, 24)
+        Me.MLbFecha.Size = New System.Drawing.Size(79, 18)
         Me.MLbFecha.TabIndex = 5
         Me.MLbFecha.Text = "USUARIO:"
         '
@@ -103,10 +100,9 @@ Partial Class ModeloR01
         '
         Me.MLbUsuario.AutoSize = True
         Me.MLbUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MLbUsuario.Location = New System.Drawing.Point(153, 23)
-        Me.MLbUsuario.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.MLbUsuario.Location = New System.Drawing.Point(115, 19)
         Me.MLbUsuario.Name = "MLbUsuario"
-        Me.MLbUsuario.Size = New System.Drawing.Size(98, 24)
+        Me.MLbUsuario.Size = New System.Drawing.Size(79, 18)
         Me.MLbUsuario.TabIndex = 4
         Me.MLbUsuario.Text = "USUARIO:"
         '
@@ -114,10 +110,9 @@ Partial Class ModeloR01
         '
         Me.MLblHora.AutoSize = True
         Me.MLblHora.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MLblHora.Location = New System.Drawing.Point(41, 80)
-        Me.MLblHora.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.MLblHora.Location = New System.Drawing.Point(31, 65)
         Me.MLblHora.Name = "MLblHora"
-        Me.MLblHora.Size = New System.Drawing.Size(75, 24)
+        Me.MLblHora.Size = New System.Drawing.Size(60, 18)
         Me.MLblHora.TabIndex = 2
         Me.MLblHora.Text = "HORA:"
         '
@@ -125,10 +120,9 @@ Partial Class ModeloR01
         '
         Me.MLblFecha.AutoSize = True
         Me.MLblFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MLblFecha.Location = New System.Drawing.Point(41, 53)
-        Me.MLblFecha.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.MLblFecha.Location = New System.Drawing.Point(31, 43)
         Me.MLblFecha.Name = "MLblFecha"
-        Me.MLblFecha.Size = New System.Drawing.Size(86, 24)
+        Me.MLblFecha.Size = New System.Drawing.Size(68, 18)
         Me.MLblFecha.TabIndex = 1
         Me.MLblFecha.Text = "FECHA:"
         '
@@ -136,10 +130,9 @@ Partial Class ModeloR01
         '
         Me.MLblUsuario.AutoSize = True
         Me.MLblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MLblUsuario.Location = New System.Drawing.Point(41, 23)
-        Me.MLblUsuario.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.MLblUsuario.Location = New System.Drawing.Point(31, 19)
         Me.MLblUsuario.Name = "MLblUsuario"
-        Me.MLblUsuario.Size = New System.Drawing.Size(106, 24)
+        Me.MLblUsuario.Size = New System.Drawing.Size(87, 18)
         Me.MLblUsuario.TabIndex = 0
         Me.MLblUsuario.Text = "USUARIO:"
         '
@@ -151,9 +144,8 @@ Partial Class ModeloR01
         Me.MPnSuperior.DisabledBackColor = System.Drawing.Color.Empty
         Me.MPnSuperior.Dock = System.Windows.Forms.DockStyle.Top
         Me.MPnSuperior.Location = New System.Drawing.Point(0, 0)
-        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnSuperior.Name = "MPnSuperior"
-        Me.MPnSuperior.Size = New System.Drawing.Size(400, 86)
+        Me.MPnSuperior.Size = New System.Drawing.Size(300, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnSuperior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -167,10 +159,9 @@ Partial Class ModeloR01
         '
         Me.MPanelToolBarAccion.Controls.Add(Me.MBtSalir)
         Me.MPanelToolBarAccion.Controls.Add(Me.MBtGenerar)
-        Me.MPanelToolBarAccion.Location = New System.Drawing.Point(67, 0)
-        Me.MPanelToolBarAccion.Margin = New System.Windows.Forms.Padding(4)
+        Me.MPanelToolBarAccion.Location = New System.Drawing.Point(50, 0)
         Me.MPanelToolBarAccion.Name = "MPanelToolBarAccion"
-        Me.MPanelToolBarAccion.Size = New System.Drawing.Size(265, 86)
+        Me.MPanelToolBarAccion.Size = New System.Drawing.Size(199, 70)
         Me.MPanelToolBarAccion.TabIndex = 7
         '
         'MBtSalir
@@ -181,10 +172,9 @@ Partial Class ModeloR01
         Me.MBtSalir.Image = Global.Modelo.My.Resources.Resources.I512x512_return
         Me.MBtSalir.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.MBtSalir.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.MBtSalir.Location = New System.Drawing.Point(143, 0)
-        Me.MBtSalir.Margin = New System.Windows.Forms.Padding(4)
+        Me.MBtSalir.Location = New System.Drawing.Point(107, 0)
         Me.MBtSalir.Name = "MBtSalir"
-        Me.MBtSalir.Size = New System.Drawing.Size(96, 86)
+        Me.MBtSalir.Size = New System.Drawing.Size(72, 70)
         Me.MBtSalir.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.MBtSalir.TabIndex = 10
         Me.MBtSalir.Text = "SALIR"
@@ -198,10 +188,9 @@ Partial Class ModeloR01
         Me.MBtGenerar.Image = Global.Modelo.My.Resources.Resources.I512x512_analytics_42
         Me.MBtGenerar.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.MBtGenerar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.MBtGenerar.Location = New System.Drawing.Point(25, 0)
-        Me.MBtGenerar.Margin = New System.Windows.Forms.Padding(4)
+        Me.MBtGenerar.Location = New System.Drawing.Point(19, 0)
         Me.MBtGenerar.Name = "MBtGenerar"
-        Me.MBtGenerar.Size = New System.Drawing.Size(96, 86)
+        Me.MBtGenerar.Size = New System.Drawing.Size(72, 70)
         Me.MBtGenerar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.MBtGenerar.TabIndex = 9
         Me.MBtGenerar.Text = "GENERAR"
@@ -214,10 +203,9 @@ Partial Class ModeloR01
         Me.MPnInferior.Controls.Add(Me.MPanelToolBarUsuario)
         Me.MPnInferior.DisabledBackColor = System.Drawing.Color.Empty
         Me.MPnInferior.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.MPnInferior.Location = New System.Drawing.Point(0, 646)
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4)
+        Me.MPnInferior.Location = New System.Drawing.Point(0, 625)
         Me.MPnInferior.Name = "MPnInferior"
-        Me.MPnInferior.Size = New System.Drawing.Size(1312, 44)
+        Me.MPnInferior.Size = New System.Drawing.Size(984, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -232,10 +220,9 @@ Partial Class ModeloR01
         Me.MPanelToolBarUsuario.Controls.Add(Me.MBubbleBarUsuario)
         Me.MPanelToolBarUsuario.Controls.Add(Me.MTbUsuario)
         Me.MPanelToolBarUsuario.Dock = System.Windows.Forms.DockStyle.Right
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(1045, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4)
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(784, 0)
         Me.MPanelToolBarUsuario.Name = "MPanelToolBarUsuario"
-        Me.MPanelToolBarUsuario.Size = New System.Drawing.Size(267, 44)
+        Me.MPanelToolBarUsuario.Size = New System.Drawing.Size(200, 36)
         Me.MPanelToolBarUsuario.TabIndex = 24
         '
         'MBubbleBarUsuario
@@ -263,12 +250,11 @@ Partial Class ModeloR01
         Me.MBubbleBarUsuario.Dock = System.Windows.Forms.DockStyle.Left
         Me.MBubbleBarUsuario.ImageSizeNormal = New System.Drawing.Size(24, 24)
         Me.MBubbleBarUsuario.Location = New System.Drawing.Point(0, 0)
-        Me.MBubbleBarUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MBubbleBarUsuario.MouseOverTabColors.BorderColor = System.Drawing.SystemColors.Highlight
         Me.MBubbleBarUsuario.Name = "MBubbleBarUsuario"
         Me.MBubbleBarUsuario.SelectedTab = Me.BubbleBarTabUsuario
         Me.MBubbleBarUsuario.SelectedTabColors.BorderColor = System.Drawing.Color.Black
-        Me.MBubbleBarUsuario.Size = New System.Drawing.Size(67, 44)
+        Me.MBubbleBarUsuario.Size = New System.Drawing.Size(50, 36)
         Me.MBubbleBarUsuario.TabIndex = 15
         Me.MBubbleBarUsuario.Tabs.Add(Me.BubbleBarTabUsuario)
         Me.MBubbleBarUsuario.TabsVisible = False
@@ -295,11 +281,10 @@ Partial Class ModeloR01
         'MTbUsuario
         '
         Me.MTbUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MTbUsuario.Location = New System.Drawing.Point(79, 6)
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
+        Me.MTbUsuario.Location = New System.Drawing.Point(59, 5)
         Me.MTbUsuario.Multiline = True
         Me.MTbUsuario.Name = "MTbUsuario"
-        Me.MTbUsuario.Size = New System.Drawing.Size(179, 32)
+        Me.MTbUsuario.Size = New System.Drawing.Size(135, 27)
         Me.MTbUsuario.TabIndex = 14
         '
         'MEP
@@ -319,9 +304,8 @@ Partial Class ModeloR01
         Me.MPnLeft.DisabledBackColor = System.Drawing.Color.Empty
         Me.MPnLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.MPnLeft.Location = New System.Drawing.Point(0, 0)
-        Me.MPnLeft.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnLeft.Name = "MPnLeft"
-        Me.MPnLeft.Size = New System.Drawing.Size(400, 646)
+        Me.MPnLeft.Size = New System.Drawing.Size(300, 625)
         Me.MPnLeft.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnLeft.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.MPnLeft.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -339,10 +323,9 @@ Partial Class ModeloR01
         Me.MGpFiltro.DisabledBackColor = System.Drawing.Color.Empty
         Me.MGpFiltro.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MGpFiltro.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MGpFiltro.Location = New System.Drawing.Point(0, 86)
-        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(4)
+        Me.MGpFiltro.Location = New System.Drawing.Point(0, 70)
         Me.MGpFiltro.Name = "MGpFiltro"
-        Me.MGpFiltro.Size = New System.Drawing.Size(400, 560)
+        Me.MGpFiltro.Size = New System.Drawing.Size(300, 555)
         '
         '
         '
@@ -378,10 +361,9 @@ Partial Class ModeloR01
         '
         Me.MPbPublicidad.BackColor = System.Drawing.Color.Transparent
         Me.MPbPublicidad.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.MPbPublicidad.Location = New System.Drawing.Point(0, 449)
-        Me.MPbPublicidad.Margin = New System.Windows.Forms.Padding(4)
+        Me.MPbPublicidad.Location = New System.Drawing.Point(0, 463)
         Me.MPbPublicidad.Name = "MPbPublicidad"
-        Me.MPbPublicidad.Size = New System.Drawing.Size(394, 86)
+        Me.MPbPublicidad.Size = New System.Drawing.Size(294, 70)
         Me.MPbPublicidad.TabIndex = 11
         Me.MPbPublicidad.TabStop = False
         '
@@ -392,10 +374,9 @@ Partial Class ModeloR01
         Me.MPnReporte.Controls.Add(Me.MCrReporte)
         Me.MPnReporte.DisabledBackColor = System.Drawing.Color.Empty
         Me.MPnReporte.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.MPnReporte.Location = New System.Drawing.Point(400, 0)
-        Me.MPnReporte.Margin = New System.Windows.Forms.Padding(4)
+        Me.MPnReporte.Location = New System.Drawing.Point(300, 0)
         Me.MPnReporte.Name = "MPnReporte"
-        Me.MPnReporte.Size = New System.Drawing.Size(912, 646)
+        Me.MPnReporte.Size = New System.Drawing.Size(684, 625)
         Me.MPnReporte.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnReporte.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.MPnReporte.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -413,23 +394,21 @@ Partial Class ModeloR01
         Me.MCrReporte.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MCrReporte.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MCrReporte.Location = New System.Drawing.Point(0, 0)
-        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(4)
         Me.MCrReporte.Name = "MCrReporte"
-        Me.MCrReporte.Size = New System.Drawing.Size(912, 646)
+        Me.MCrReporte.Size = New System.Drawing.Size(684, 625)
         Me.MCrReporte.TabIndex = 0
         Me.MCrReporte.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'ModeloR01
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1312, 690)
+        Me.ClientSize = New System.Drawing.Size(984, 661)
         Me.Controls.Add(Me.MPnUsuario)
         Me.Controls.Add(Me.MPnReporte)
         Me.Controls.Add(Me.MPnLeft)
         Me.Controls.Add(Me.MPnInferior)
         Me.KeyPreview = True
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "ModeloR01"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "{...TITULO...}"
