@@ -1203,7 +1203,7 @@ Public Class AccesoLogica
         "oaest =" + _estado + ", " +
         "oafact = '" + Date.Now.Date.ToString("yyyy/MM/dd") + "', " +
         "oahact = '" + Now.Hour.ToString + ":" + Now.Minute.ToString + "', " +
-        "oauact = '" + "CARLOS" + "'"
+        "oauact = '" + L_Usuario + "'"
 
         _where = "oanumi = " + _numi
         _Err = D_Modificar_Datos("TO001", Sql, _where)
@@ -1373,7 +1373,7 @@ Public Class AccesoLogica
         "lblongi =" + _longitud + ", " +
         "lbfact = '" + Date.Now.Date.ToString("yyyy/MM/dd") + "', " +
         "lbhact = '" + Now.Hour.ToString + ":" + Now.Minute.ToString + "', " +
-        "lbuact = '" + "DANNY" + "'"
+        "lbuact = '" + L_Usuario + "'"
 
         _where = "lbnumi = " + _id
         _Err = D_Modificar_Datos("TL0013", Sql, _where)
@@ -2595,7 +2595,41 @@ Public Class AccesoLogica
         _Ds.Tables.Add(_Tabla)
         Return _Ds
     End Function
-
+    Public Shared Function L_ObtenerLimitePedidoYSaldos(idCliente As String, ByRef limiteCred As String, ByRef montoPagado As String, ByRef montoDisponible As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        montoPagado = 0
+        _listParam.Add(New Datos.DParametro("@tipo", 15))
+        _listParam.Add(New Datos.DParametro("@ccnumi", idCliente))
+        _listParam.Add(New Datos.DParametro("@ccuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_go_TC004", _listParam)
+        If _Tabla.Rows.Count() > 0 Then
+            For Each a As DataRow In _Tabla.Rows
+                montoPagado += Convert.ToDecimal(a.Item("pendiente"))
+            Next
+            limiteCred = Convert.ToDecimal(_Tabla.Rows(0).Item("limiteCred"))
+            'montoPagado = Convert.ToDecimal(_Tabla.Rows(0).Item("pendiente"))
+            montoDisponible = Convert.ToDecimal(_Tabla.Rows(0).Item("montoDisponible"))
+        End If
+        Return _Tabla
+    End Function
+    Public Shared Function L_ExisteCreditoCliente(idCliente As Integer) As Boolean
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 16))
+        _listParam.Add(New Datos.DParametro("@ccnumi", idCliente))
+        _listParam.Add(New Datos.DParametro("@ccuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_go_TC004", _listParam)
+        If _Tabla.Rows.Count() > 0 Then
+            If _Tabla.Rows(0).Item(0) = 0 Then
+                Return False
+            Else
+                Return True
+            End If
+        Else
+            Return False
+        End If
+    End Function
     Public Shared Function L_GetClientesSimple(_CodZona As String, _CodRep As String) As DataSet
         Dim _Tabla As DataTable
         Dim _Ds As New DataSet
