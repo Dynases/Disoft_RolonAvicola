@@ -1370,9 +1370,13 @@ Public Class F02_Pedido
                 sumTotal = sumTotal + dt.Rows(i).Item(5)
             Next
             If (swTipoVenta.Value = False) Then
+                If tbLimiteCred.Text = String.Empty Or tbLimiteCred.Text = 0 Then
+                    ToastNotification.Show(Me, "Debe introducir un limite de crédito para el cliente".ToUpper, My.Resources.WARNING, 3000, eToastGlowColor.Green, eToastPosition.BottomCenter)
+                    _Error = True
+                End If
                 If (tbMontoCredito.Text.Length > 0) Then
                     Dim MontoCredito As Double = Double.Parse(tbMontoCredito.Text)
-                    If sumTotal > tbMontoCredito.Text Then
+                    If sumTotal > tbMontoDisponible.Text Then
                         ToastNotification.Show(Me, "La monto total es mayor al limite de crédito".ToUpper, My.Resources.WARNING, 3000, eToastGlowColor.Green, eToastPosition.BottomCenter)
                         _Error = True
                     End If
@@ -1538,7 +1542,7 @@ Public Class F02_Pedido
 
 
                 'grabar estado del pedido
-                L_PedidoEstados_Grabar(Tb_Id.Text, IIf(_nuevoBasePeriodico = True, "10", "1"), Date.Now.Date.ToString("yyyy/MM/dd"), Tb_Hora.Text, gs_user)
+                L_PedidoEstados_Grabar(Tb_Id.Text, IIf(_nuevoBasePeriodico = True, "10", "2"), Date.Now.Date.ToString("yyyy/MM/dd"), Tb_Hora.Text, gs_user)
 
                 ''actualizar el promedio de pedidos del cliente
                 ''If _nuevoBasePeriodico = False Then

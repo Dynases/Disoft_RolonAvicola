@@ -2595,24 +2595,38 @@ Public Class AccesoLogica
         _Ds.Tables.Add(_Tabla)
         Return _Ds
     End Function
-    Public Shared Function L_ObtenerLimitePedidoYSaldos(idCliente As String, ByRef limiteCred As String, ByRef montoPagado As String, ByRef montoDisponible As String) As DataTable
+    Public Shared Sub L_ObtenerLimitePedidoYSaldos(idCliente As String, ByRef limiteCred As String, ByRef montoPagado As String, ByRef montoDisponible As String)
         Dim _Tabla As DataTable
+        Dim _Tabla2 As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
+        limiteCred = 0
         montoPagado = 0
-        _listParam.Add(New Datos.DParametro("@tipo", 15))
+        'SALDO PENDIENTE
+        _listParam.Add(New Datos.DParametro("@tipo", 18))
         _listParam.Add(New Datos.DParametro("@ccnumi", idCliente))
         _listParam.Add(New Datos.DParametro("@ccuact", L_Usuario))
         _Tabla = D_ProcedimientoConParam("sp_go_TC004", _listParam)
+
+        'CREDITO
+        Dim _listParam2 As New List(Of Datos.DParametro)
+        montoPagado = 0
+        _listParam2.Add(New Datos.DParametro("@tipo", 17))
+        _listParam2.Add(New Datos.DParametro("@ccnumi", idCliente))
+        _listParam2.Add(New Datos.DParametro("@ccuact", L_Usuario))
+        _Tabla2 = D_ProcedimientoConParam("sp_go_TC004", _listParam2)
+
         If _Tabla.Rows.Count() > 0 Then
             For Each a As DataRow In _Tabla.Rows
                 montoPagado += Convert.ToDecimal(a.Item("pendiente"))
             Next
-            limiteCred = Convert.ToDecimal(_Tabla.Rows(0).Item("limiteCred"))
-            'montoPagado = Convert.ToDecimal(_Tabla.Rows(0).Item("pendiente"))
-            montoDisponible = Convert.ToDecimal(_Tabla.Rows(0).Item("montoDisponible"))
         End If
-        Return _Tabla
-    End Function
+
+        If _Tabla2.Rows.Count() > 0 Then
+            limiteCred = Convert.ToDecimal(_Tabla2.Rows(0).Item("limiteCred"))
+        End If
+
+        montoDisponible = limiteCred - montoPagado
+    End Sub
     Public Shared Function L_ExisteCreditoCliente(idCliente As Integer) As Boolean
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
@@ -2630,6 +2644,7 @@ Public Class AccesoLogica
             Return False
         End If
     End Function
+
     Public Shared Function L_GetClientesSimple(_CodZona As String, _CodRep As String) As DataSet
         Dim _Tabla As DataTable
         Dim _Ds As New DataSet
