@@ -67,6 +67,7 @@ Partial Class F0_MCaja
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.TbCodigo = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.btnCierreDirecto = New DevComponents.DotNetBar.ButtonX()
         Me.PanelSuperior.SuspendLayout()
         Me.PanelInferior.SuspendLayout()
         CType(Me.BubbleBarUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -113,6 +114,7 @@ Partial Class F0_MCaja
         '
         'PanelSuperior
         '
+        Me.PanelSuperior.Controls.Add(Me.btnCierreDirecto)
         Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelSuperior.Size = New System.Drawing.Size(1284, 72)
         Me.PanelSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
@@ -124,6 +126,9 @@ Partial Class F0_MCaja
         Me.PanelSuperior.Style.GradientAngle = 90
         Me.PanelSuperior.StyleMouseDown.BackColor1.Color = System.Drawing.Color.Gray
         Me.PanelSuperior.StyleMouseDown.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
+        Me.PanelSuperior.Controls.SetChildIndex(Me.PanelToolBar1, 0)
+        Me.PanelSuperior.Controls.SetChildIndex(Me.PanelToolBar2, 0)
+        Me.PanelSuperior.Controls.SetChildIndex(Me.btnCierreDirecto, 0)
         '
         'PanelInferior
         '
@@ -1052,6 +1057,24 @@ Partial Class F0_MCaja
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'btnCierreDirecto
+        '
+        Me.btnCierreDirecto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnCierreDirecto.BackColor = System.Drawing.Color.Transparent
+        Me.btnCierreDirecto.ColorTable = DevComponents.DotNetBar.eButtonColor.Orange
+        Me.btnCierreDirecto.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnCierreDirecto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCierreDirecto.Image = Global.Presentacion.My.Resources.Resources.BONOS_DESC
+        Me.btnCierreDirecto.ImageFixedSize = New System.Drawing.Size(48, 48)
+        Me.btnCierreDirecto.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnCierreDirecto.Location = New System.Drawing.Point(1072, 0)
+        Me.btnCierreDirecto.Name = "btnCierreDirecto"
+        Me.btnCierreDirecto.Size = New System.Drawing.Size(132, 72)
+        Me.btnCierreDirecto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnCierreDirecto.TabIndex = 16
+        Me.btnCierreDirecto.Text = "CIERRE DIRECTO"
+        Me.btnCierreDirecto.TextColor = System.Drawing.Color.Black
+        '
         'F0_MCaja
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1060,6 +1083,7 @@ Partial Class F0_MCaja
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "F0_MCaja"
         Me.Text = "F0_MCaja"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
         Me.Controls.SetChildIndex(Me.PanelPrincipal, 0)
         Me.PanelSuperior.ResumeLayout(False)
         Me.PanelInferior.ResumeLayout(False)
@@ -1152,4 +1176,5 @@ Partial Class F0_MCaja
     Friend WithEvents Tb_TipoCambio As DevComponents.Editors.DoubleInput
     Friend WithEvents LabelX14 As DevComponents.DotNetBar.LabelX
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents btnCierreDirecto As DevComponents.DotNetBar.ButtonX
 End Class
