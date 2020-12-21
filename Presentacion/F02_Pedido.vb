@@ -1018,7 +1018,7 @@ Public Class F02_Pedido
         'Tb_Observaciones.Enabled = True
         Tb_Observaciones.ReadOnly = False
         Tb_CantProd.ReadOnly = False
-        swTipoVenta.IsReadOnly = True
+        swTipoVenta.IsReadOnly = False
         tbMontoCredito.ReadOnly = True
         MBtNuevo.Enabled = False
         MBtModificar.Enabled = False
@@ -1073,7 +1073,7 @@ Public Class F02_Pedido
         Tb_PromCosumo.ReadOnly = True
         Tb_TotalPedidos3Meses.ReadOnly = True
         swTipoVenta.IsReadOnly = True
-        tbMontoCredito.ReadOnly = True
+
         cbDistribuidor.ReadOnly = True
         cbPreVendedor.ReadOnly = True
 

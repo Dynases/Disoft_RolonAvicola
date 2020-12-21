@@ -1140,8 +1140,8 @@ Public Class F02_PedidoNuevo
         'Tb_Observaciones.Enabled = True
         Tb_Observaciones.ReadOnly = False
         Tb_CantProd.ReadOnly = False
-        swTipoVenta.IsReadOnly = False
-        tbMontoCredito.ReadOnly = False
+        'swTipoVenta.IsReadOnly = False
+        tbMontoCredito.ReadOnly = True
         MBtNuevo.Enabled = False
         MBtModificar.Enabled = False
         MBtEliminar.Enabled = False
@@ -1255,7 +1255,9 @@ Public Class F02_PedidoNuevo
         Tb_CliTelef.Text = ""
         Tb_Estado.Value = True
         Tb_CantProd.Text = ""
-
+        tbLimiteCred.Text = "0"
+        tbMontoPagado.Text = "0"
+        tbMontoDisponible.Text = "0"
         If _nuevoBasePeriodico = True Then
             CheckBoxX1.Checked = False
             CheckBoxX2.Checked = False
@@ -1328,7 +1330,27 @@ Public Class F02_PedidoNuevo
             Else
                 Tb_Estado.Value = True
             End If
+            tbMontoCredito.Text = .GetValue("montocredito")
+            'Controla los datos del limite de credito por  cliente
+            If L_ExisteCreditoCliente(.GetValue("oaccli")) Then
+                tbLimiteCred.Visible = True
+                tbMontoPagado.Visible = True
+                tbMontoDisponible.Visible = True
+                lblLimiteCred.Visible = True
+                lblMontoDisponible.Visible = True
+                lblMontoPagado.Visible = True
+                L_ObtenerLimitePedidoYSaldos(.GetValue("oaccli"), tbLimiteCred.Text, tbMontoPagado.Text, tbMontoDisponible.Text)
+                swTipoVenta.Value = False
 
+            Else
+                tbLimiteCred.Visible = False
+                tbMontoPagado.Visible = False
+                tbMontoDisponible.Visible = False
+                lblLimiteCred.Visible = False
+                lblMontoDisponible.Visible = False
+                lblMontoPagado.Visible = False
+                swTipoVenta.Value = True
+            End If
             'Controla y muestra si el pedido está vigente o anulado
             If .GetValue("oaap") = 2 Then
                 MRlAccion.Text = "ANULADO"
@@ -1478,11 +1500,15 @@ Public Class F02_PedidoNuevo
                 End If
             Next
             If (swTipoVenta.Value = False) Then
+                If tbLimiteCred.Text = String.Empty Or tbLimiteCred.Text = 0 Then
+                    ToastNotification.Show(Me, "Debe introducir un limite de crédito para el cliente".ToUpper, My.Resources.WARNING, 3000, eToastGlowColor.Green, eToastPosition.BottomCenter)
+                    _Error = True
+                End If
                 If (tbMontoCredito.Text.Length > 0) Then
                     Dim MontoCredito As Double = Double.Parse(tbMontoCredito.Text)
 
-                    If (MontoCredito > sumTotal) Then
-                        ToastNotification.Show(Me, "El monto del Credito es Mayor al del pedido".ToUpper, My.Resources.WARNING, 3000, eToastGlowColor.Green, eToastPosition.BottomCenter)
+                    If sumTotal > tbMontoDisponible.Text Then
+                        ToastNotification.Show(Me, "La monto total es mayor al limite de crédito".ToUpper, My.Resources.WARNING, 3000, eToastGlowColor.Green, eToastPosition.BottomCenter)
                         _Error = True
                     End If
                 Else
@@ -1946,7 +1972,16 @@ Public Class F02_PedidoNuevo
     Private Sub MBtNuevo_Click(sender As Object, e As EventArgs) Handles MBtNuevo.Click
         _PNuevoRegistro()
     End Sub
-
+    Private Sub CalcularTotalCredito()
+        If swTipoVenta.Value = False Then
+            Dim totalCredito As Double = 0
+            For i = 0 To JGr_DetallePedido.RowCount - 1
+                JGr_DetallePedido.Row = i
+                totalCredito += JGr_DetallePedido.CurrentRow.Cells("Monto").Value
+            Next
+            tbMontoCredito.Text = totalCredito.ToString()
+        End If
+    End Sub
     Private Sub BBtn_NuevoPedBasePeriodico_Click(sender As Object, e As ClickEventArgs)
         _PNuevoRegistro()
     End Sub
@@ -1994,6 +2029,27 @@ Public Class F02_PedidoNuevo
                 End If
             End If
 
+            swTipoVenta.Value = IIf(tbLimiteCred.Visible, True, False)
+
+            If L_ExisteCreditoCliente(Tb_CliCod.Text) Then
+                tbLimiteCred.Visible = True
+                tbMontoPagado.Visible = True
+                tbMontoDisponible.Visible = True
+                lblLimiteCred.Visible = True
+                lblMontoDisponible.Visible = True
+                lblMontoPagado.Visible = True
+                L_ObtenerLimitePedidoYSaldos(Tb_CliCod.Text, tbLimiteCred.Text, tbMontoPagado.Text, tbMontoDisponible.Text)
+                swTipoVenta.Value = False
+
+            Else
+                tbLimiteCred.Visible = False
+                tbMontoPagado.Visible = False
+                tbMontoDisponible.Visible = False
+                lblLimiteCred.Visible = False
+                lblMontoDisponible.Visible = False
+                lblMontoPagado.Visible = False
+                swTipoVenta.Value = True
+            End If
             'poner el foco en tipo de producto
             MSuperTabControlPrincipal.SelectedTabIndex = 0
             JGr_TipoProd.Focus()
@@ -2004,6 +2060,7 @@ Public Class F02_PedidoNuevo
             JGr_Productos.Focus()
             JGr_Productos.MoveTo(JGr_Productos.FilterRow)
             JGr_Productos.Col = 1
+
         End If
 
     End Sub
@@ -2490,6 +2547,7 @@ Public Class F02_PedidoNuevo
                     'Tb_Observaciones.Focus()
                 End If
             End If
+            CalcularTotalCredito()
         End If
     End Sub
 

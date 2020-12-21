@@ -152,6 +152,12 @@ Partial Class F02_PedidoNuevo
         Me.btActualizar = New DevComponents.DotNetBar.ButtonX()
         Me.btnVentaDirecta = New DevComponents.DotNetBar.ButtonX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.tbMontoDisponible = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.lblMontoDisponible = New DevComponents.DotNetBar.LabelX()
+        Me.tbMontoPagado = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.lblMontoPagado = New DevComponents.DotNetBar.LabelX()
+        Me.tbLimiteCred = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.lblLimiteCred = New DevComponents.DotNetBar.LabelX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -878,6 +884,12 @@ Partial Class F02_PedidoNuevo
         Me.PanelEx1.AutoScroll = True
         Me.PanelEx1.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PanelEx1.Controls.Add(Me.tbMontoDisponible)
+        Me.PanelEx1.Controls.Add(Me.lblMontoDisponible)
+        Me.PanelEx1.Controls.Add(Me.tbMontoPagado)
+        Me.PanelEx1.Controls.Add(Me.lblMontoPagado)
+        Me.PanelEx1.Controls.Add(Me.tbLimiteCred)
+        Me.PanelEx1.Controls.Add(Me.lblLimiteCred)
         Me.PanelEx1.Controls.Add(Me.tbCodCliente)
         Me.PanelEx1.Controls.Add(Me.LabelX5)
         Me.PanelEx1.Controls.Add(Me.Tb_CliEstado)
@@ -940,7 +952,7 @@ Partial Class F02_PedidoNuevo
         Me.Tb_CliEstado.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.Tb_CliEstado.DisabledBackColor = System.Drawing.Color.White
         Me.Tb_CliEstado.ForeColor = System.Drawing.Color.Black
-        Me.Tb_CliEstado.Location = New System.Drawing.Point(641, 45)
+        Me.Tb_CliEstado.Location = New System.Drawing.Point(698, 19)
         Me.Tb_CliEstado.Name = "Tb_CliEstado"
         Me.Tb_CliEstado.PreventEnterBeep = True
         Me.Tb_CliEstado.Size = New System.Drawing.Size(150, 23)
@@ -973,7 +985,7 @@ Partial Class F02_PedidoNuevo
         Me.Tb_CliTelef.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.Tb_CliTelef.DisabledBackColor = System.Drawing.Color.White
         Me.Tb_CliTelef.ForeColor = System.Drawing.Color.Black
-        Me.Tb_CliTelef.Location = New System.Drawing.Point(641, 19)
+        Me.Tb_CliTelef.Location = New System.Drawing.Point(545, 21)
         Me.Tb_CliTelef.Name = "Tb_CliTelef"
         Me.Tb_CliTelef.PreventEnterBeep = True
         Me.Tb_CliTelef.Size = New System.Drawing.Size(150, 23)
@@ -997,7 +1009,7 @@ Partial Class F02_PedidoNuevo
         '
         '
         Me.LabelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX8.Location = New System.Drawing.Point(641, -4)
+        Me.LabelX8.Location = New System.Drawing.Point(545, -2)
         Me.LabelX8.Name = "LabelX8"
         Me.LabelX8.Size = New System.Drawing.Size(97, 23)
         Me.LabelX8.TabIndex = 16
@@ -1034,7 +1046,7 @@ Partial Class F02_PedidoNuevo
         Me.Tb_CliDireccion.Multiline = True
         Me.Tb_CliDireccion.Name = "Tb_CliDireccion"
         Me.Tb_CliDireccion.PreventEnterBeep = True
-        Me.Tb_CliDireccion.Size = New System.Drawing.Size(291, 65)
+        Me.Tb_CliDireccion.Size = New System.Drawing.Size(208, 65)
         Me.Tb_CliDireccion.TabIndex = 15
         '
         'LabelX7
@@ -2316,24 +2328,24 @@ Partial Class F02_PedidoNuevo
         Me.ConMenu_Clientes.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Clientes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ACTUALIZARCLIENTESToolStripMenuItem, Me.VERCLIENTESPASIVOSYACTIVOSToolStripMenuItem, Me.VERCLIENTESACTIVOSToolStripMenuItem})
         Me.ConMenu_Clientes.Name = "ConMenu_Clientes"
-        Me.ConMenu_Clientes.Size = New System.Drawing.Size(256, 70)
+        Me.ConMenu_Clientes.Size = New System.Drawing.Size(258, 70)
         '
         'ACTUALIZARCLIENTESToolStripMenuItem
         '
         Me.ACTUALIZARCLIENTESToolStripMenuItem.Name = "ACTUALIZARCLIENTESToolStripMenuItem"
-        Me.ACTUALIZARCLIENTESToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
+        Me.ACTUALIZARCLIENTESToolStripMenuItem.Size = New System.Drawing.Size(257, 22)
         Me.ACTUALIZARCLIENTESToolStripMenuItem.Text = "ACTUALIZAR CLIENTES"
         '
         'VERCLIENTESPASIVOSYACTIVOSToolStripMenuItem
         '
         Me.VERCLIENTESPASIVOSYACTIVOSToolStripMenuItem.Name = "VERCLIENTESPASIVOSYACTIVOSToolStripMenuItem"
-        Me.VERCLIENTESPASIVOSYACTIVOSToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
+        Me.VERCLIENTESPASIVOSYACTIVOSToolStripMenuItem.Size = New System.Drawing.Size(257, 22)
         Me.VERCLIENTESPASIVOSYACTIVOSToolStripMenuItem.Text = "VER CLIENTES PASIVOS Y ACTIVOS"
         '
         'VERCLIENTESACTIVOSToolStripMenuItem
         '
         Me.VERCLIENTESACTIVOSToolStripMenuItem.Name = "VERCLIENTESACTIVOSToolStripMenuItem"
-        Me.VERCLIENTESACTIVOSToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
+        Me.VERCLIENTESACTIVOSToolStripMenuItem.Size = New System.Drawing.Size(257, 22)
         Me.VERCLIENTESACTIVOSToolStripMenuItem.Text = "VER CLIENTES ACTIVOS"
         '
         'ConMenu_Buscador
@@ -2341,12 +2353,12 @@ Partial Class F02_PedidoNuevo
         Me.ConMenu_Buscador.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Buscador.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VERHISTORIALToolStripMenuItem})
         Me.ConMenu_Buscador.Name = "ConMenu_Buscador"
-        Me.ConMenu_Buscador.Size = New System.Drawing.Size(146, 26)
+        Me.ConMenu_Buscador.Size = New System.Drawing.Size(147, 26)
         '
         'VERHISTORIALToolStripMenuItem
         '
         Me.VERHISTORIALToolStripMenuItem.Name = "VERHISTORIALToolStripMenuItem"
-        Me.VERHISTORIALToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
+        Me.VERHISTORIALToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.VERHISTORIALToolStripMenuItem.Text = "VER ESTADOS"
         '
         'ConMenu_Opciones1
@@ -2354,36 +2366,36 @@ Partial Class F02_PedidoNuevo
         Me.ConMenu_Opciones1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Opciones1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.GRABARRECLAMOREPARTIDORToolStripMenuItem, Me.VERHISTORIALToolStripMenuItem1, Me.REGERARPEDIDOToolStripMenuItem, Me.ANULARPEDIDOToolStripMenuItem})
         Me.ConMenu_Opciones1.Name = "ConMenu_Opciones"
-        Me.ConMenu_Opciones1.Size = New System.Drawing.Size(247, 114)
+        Me.ConMenu_Opciones1.Size = New System.Drawing.Size(248, 114)
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(246, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(247, 22)
         Me.ToolStripMenuItem1.Text = "GRABAR RECLAMO CLIENTE"
         '
         'GRABARRECLAMOREPARTIDORToolStripMenuItem
         '
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Name = "GRABARRECLAMOREPARTIDORToolStripMenuItem"
-        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Size = New System.Drawing.Size(246, 22)
+        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Text = "GRABAR RECLAMO REPARTIDOR"
         '
         'VERHISTORIALToolStripMenuItem1
         '
         Me.VERHISTORIALToolStripMenuItem1.Name = "VERHISTORIALToolStripMenuItem1"
-        Me.VERHISTORIALToolStripMenuItem1.Size = New System.Drawing.Size(246, 22)
+        Me.VERHISTORIALToolStripMenuItem1.Size = New System.Drawing.Size(247, 22)
         Me.VERHISTORIALToolStripMenuItem1.Text = "VER ESTADOS"
         '
         'REGERARPEDIDOToolStripMenuItem
         '
         Me.REGERARPEDIDOToolStripMenuItem.Name = "REGERARPEDIDOToolStripMenuItem"
-        Me.REGERARPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(246, 22)
+        Me.REGERARPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
         Me.REGERARPEDIDOToolStripMenuItem.Text = "REGENERAR PEDIDO"
         '
         'ANULARPEDIDOToolStripMenuItem
         '
         Me.ANULARPEDIDOToolStripMenuItem.Name = "ANULARPEDIDOToolStripMenuItem"
-        Me.ANULARPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(246, 22)
+        Me.ANULARPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
         Me.ANULARPEDIDOToolStripMenuItem.Text = "ANULAR PEDIDO"
         '
         'btActualizar
@@ -2427,6 +2439,81 @@ Partial Class F02_PedidoNuevo
         '
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
+        '
+        'tbMontoDisponible
+        '
+        '
+        '
+        '
+        Me.tbMontoDisponible.Border.Class = "TextBoxBorder"
+        Me.tbMontoDisponible.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbMontoDisponible.Location = New System.Drawing.Point(727, 58)
+        Me.tbMontoDisponible.Name = "tbMontoDisponible"
+        Me.tbMontoDisponible.PreventEnterBeep = True
+        Me.tbMontoDisponible.Size = New System.Drawing.Size(82, 23)
+        Me.tbMontoDisponible.TabIndex = 38
+        '
+        'lblMontoDisponible
+        '
+        '
+        '
+        '
+        Me.lblMontoDisponible.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lblMontoDisponible.Location = New System.Drawing.Point(729, 39)
+        Me.lblMontoDisponible.Name = "lblMontoDisponible"
+        Me.lblMontoDisponible.Size = New System.Drawing.Size(103, 25)
+        Me.lblMontoDisponible.TabIndex = 37
+        Me.lblMontoDisponible.Text = "M. DISPONIBLE:"
+        '
+        'tbMontoPagado
+        '
+        '
+        '
+        '
+        Me.tbMontoPagado.Border.Class = "TextBoxBorder"
+        Me.tbMontoPagado.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbMontoPagado.Location = New System.Drawing.Point(638, 58)
+        Me.tbMontoPagado.Name = "tbMontoPagado"
+        Me.tbMontoPagado.PreventEnterBeep = True
+        Me.tbMontoPagado.Size = New System.Drawing.Size(83, 23)
+        Me.tbMontoPagado.TabIndex = 36
+        '
+        'lblMontoPagado
+        '
+        '
+        '
+        '
+        Me.lblMontoPagado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lblMontoPagado.Location = New System.Drawing.Point(640, 39)
+        Me.lblMontoPagado.Name = "lblMontoPagado"
+        Me.lblMontoPagado.Size = New System.Drawing.Size(98, 25)
+        Me.lblMontoPagado.TabIndex = 35
+        Me.lblMontoPagado.Text = "M. DEUDA"
+        '
+        'tbLimiteCred
+        '
+        '
+        '
+        '
+        Me.tbLimiteCred.Border.Class = "TextBoxBorder"
+        Me.tbLimiteCred.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbLimiteCred.Location = New System.Drawing.Point(545, 58)
+        Me.tbLimiteCred.Name = "tbLimiteCred"
+        Me.tbLimiteCred.PreventEnterBeep = True
+        Me.tbLimiteCred.Size = New System.Drawing.Size(87, 23)
+        Me.tbLimiteCred.TabIndex = 34
+        '
+        'lblLimiteCred
+        '
+        '
+        '
+        '
+        Me.lblLimiteCred.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lblLimiteCred.Location = New System.Drawing.Point(547, 39)
+        Me.lblLimiteCred.Name = "lblLimiteCred"
+        Me.lblLimiteCred.Size = New System.Drawing.Size(98, 25)
+        Me.lblLimiteCred.TabIndex = 33
+        Me.lblLimiteCred.Text = "LIMITE CRED:"
         '
         'F02_PedidoNuevo
         '
@@ -2635,4 +2722,10 @@ Partial Class F02_PedidoNuevo
     Friend WithEvents btnVentaDirecta As DevComponents.DotNetBar.ButtonX
     Friend WithEvents btAplicarDesc As DevComponents.DotNetBar.ButtonX
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents tbMontoDisponible As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents lblMontoDisponible As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbMontoPagado As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents lblMontoPagado As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbLimiteCred As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents lblLimiteCred As DevComponents.DotNetBar.LabelX
 End Class
