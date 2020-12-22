@@ -1482,6 +1482,14 @@ Public Class P_Principal
         frm._modulo = FP_Pedido
         frm.Show()
     End Sub
+
+    Private Sub btEstadoCuentaCliente_Click(sender As Object, e As EventArgs) Handles btEstadoCuentaCliente.Click
+        R01_EstadoCuentasClientes.AllowTransparency = True
+        Dim frm As New R01_EstadoCuentasClientes
+        frm._nameButton = btEstadoCuentaCliente.Name
+        frm._modulo = FP_Venta
+        frm.Show()
+    End Sub
 #End Region
 
 End Class
