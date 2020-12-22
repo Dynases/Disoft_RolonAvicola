@@ -56,6 +56,12 @@ Partial Class F02_PedidoNuevo
         Me.QuitarItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupPanel3 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelEx1 = New DevComponents.DotNetBar.PanelEx()
+        Me.tbMontoDisponible = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.lblMontoDisponible = New DevComponents.DotNetBar.LabelX()
+        Me.tbMontoPagado = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.lblMontoPagado = New DevComponents.DotNetBar.LabelX()
+        Me.tbLimiteCred = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.lblLimiteCred = New DevComponents.DotNetBar.LabelX()
         Me.tbCodCliente = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.LabelX5 = New DevComponents.DotNetBar.LabelX()
         Me.Tb_CliEstado = New DevComponents.DotNetBar.Controls.TextBoxX()
@@ -152,12 +158,6 @@ Partial Class F02_PedidoNuevo
         Me.btActualizar = New DevComponents.DotNetBar.ButtonX()
         Me.btnVentaDirecta = New DevComponents.DotNetBar.ButtonX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.tbMontoDisponible = New DevComponents.DotNetBar.Controls.TextBoxX()
-        Me.lblMontoDisponible = New DevComponents.DotNetBar.LabelX()
-        Me.tbMontoPagado = New DevComponents.DotNetBar.Controls.TextBoxX()
-        Me.lblMontoPagado = New DevComponents.DotNetBar.LabelX()
-        Me.tbLimiteCred = New DevComponents.DotNetBar.Controls.TextBoxX()
-        Me.lblLimiteCred = New DevComponents.DotNetBar.LabelX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -914,6 +914,81 @@ Partial Class F02_PedidoNuevo
         Me.PanelEx1.Style.GradientAngle = 90
         Me.PanelEx1.TabIndex = 4
         '
+        'tbMontoDisponible
+        '
+        '
+        '
+        '
+        Me.tbMontoDisponible.Border.Class = "TextBoxBorder"
+        Me.tbMontoDisponible.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbMontoDisponible.Location = New System.Drawing.Point(727, 58)
+        Me.tbMontoDisponible.Name = "tbMontoDisponible"
+        Me.tbMontoDisponible.PreventEnterBeep = True
+        Me.tbMontoDisponible.Size = New System.Drawing.Size(82, 23)
+        Me.tbMontoDisponible.TabIndex = 38
+        '
+        'lblMontoDisponible
+        '
+        '
+        '
+        '
+        Me.lblMontoDisponible.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lblMontoDisponible.Location = New System.Drawing.Point(729, 39)
+        Me.lblMontoDisponible.Name = "lblMontoDisponible"
+        Me.lblMontoDisponible.Size = New System.Drawing.Size(103, 25)
+        Me.lblMontoDisponible.TabIndex = 37
+        Me.lblMontoDisponible.Text = "M. DISPONIBLE:"
+        '
+        'tbMontoPagado
+        '
+        '
+        '
+        '
+        Me.tbMontoPagado.Border.Class = "TextBoxBorder"
+        Me.tbMontoPagado.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbMontoPagado.Location = New System.Drawing.Point(638, 58)
+        Me.tbMontoPagado.Name = "tbMontoPagado"
+        Me.tbMontoPagado.PreventEnterBeep = True
+        Me.tbMontoPagado.Size = New System.Drawing.Size(83, 23)
+        Me.tbMontoPagado.TabIndex = 36
+        '
+        'lblMontoPagado
+        '
+        '
+        '
+        '
+        Me.lblMontoPagado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lblMontoPagado.Location = New System.Drawing.Point(640, 39)
+        Me.lblMontoPagado.Name = "lblMontoPagado"
+        Me.lblMontoPagado.Size = New System.Drawing.Size(98, 25)
+        Me.lblMontoPagado.TabIndex = 35
+        Me.lblMontoPagado.Text = "M. DEUDA"
+        '
+        'tbLimiteCred
+        '
+        '
+        '
+        '
+        Me.tbLimiteCred.Border.Class = "TextBoxBorder"
+        Me.tbLimiteCred.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbLimiteCred.Location = New System.Drawing.Point(545, 58)
+        Me.tbLimiteCred.Name = "tbLimiteCred"
+        Me.tbLimiteCred.PreventEnterBeep = True
+        Me.tbLimiteCred.Size = New System.Drawing.Size(87, 23)
+        Me.tbLimiteCred.TabIndex = 34
+        '
+        'lblLimiteCred
+        '
+        '
+        '
+        '
+        Me.lblLimiteCred.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lblLimiteCred.Location = New System.Drawing.Point(547, 39)
+        Me.lblLimiteCred.Name = "lblLimiteCred"
+        Me.lblLimiteCred.Size = New System.Drawing.Size(98, 25)
+        Me.lblLimiteCred.TabIndex = 33
+        Me.lblLimiteCred.Text = "LIMITE CRED:"
+        '
         'tbCodCliente
         '
         Me.tbCodCliente.BackColor = System.Drawing.Color.White
@@ -1170,6 +1245,7 @@ Partial Class F02_PedidoNuevo
         Me.btAplicarDesc.TabIndex = 44
         Me.btAplicarDesc.Text = "APLICAR DESCUENTOS"
         Me.btAplicarDesc.TextColor = System.Drawing.Color.Navy
+        Me.btAplicarDesc.Visible = False
         '
         'tbMontoCredito
         '
@@ -2439,81 +2515,6 @@ Partial Class F02_PedidoNuevo
         '
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
-        '
-        'tbMontoDisponible
-        '
-        '
-        '
-        '
-        Me.tbMontoDisponible.Border.Class = "TextBoxBorder"
-        Me.tbMontoDisponible.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbMontoDisponible.Location = New System.Drawing.Point(727, 58)
-        Me.tbMontoDisponible.Name = "tbMontoDisponible"
-        Me.tbMontoDisponible.PreventEnterBeep = True
-        Me.tbMontoDisponible.Size = New System.Drawing.Size(82, 23)
-        Me.tbMontoDisponible.TabIndex = 38
-        '
-        'lblMontoDisponible
-        '
-        '
-        '
-        '
-        Me.lblMontoDisponible.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.lblMontoDisponible.Location = New System.Drawing.Point(729, 39)
-        Me.lblMontoDisponible.Name = "lblMontoDisponible"
-        Me.lblMontoDisponible.Size = New System.Drawing.Size(103, 25)
-        Me.lblMontoDisponible.TabIndex = 37
-        Me.lblMontoDisponible.Text = "M. DISPONIBLE:"
-        '
-        'tbMontoPagado
-        '
-        '
-        '
-        '
-        Me.tbMontoPagado.Border.Class = "TextBoxBorder"
-        Me.tbMontoPagado.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbMontoPagado.Location = New System.Drawing.Point(638, 58)
-        Me.tbMontoPagado.Name = "tbMontoPagado"
-        Me.tbMontoPagado.PreventEnterBeep = True
-        Me.tbMontoPagado.Size = New System.Drawing.Size(83, 23)
-        Me.tbMontoPagado.TabIndex = 36
-        '
-        'lblMontoPagado
-        '
-        '
-        '
-        '
-        Me.lblMontoPagado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.lblMontoPagado.Location = New System.Drawing.Point(640, 39)
-        Me.lblMontoPagado.Name = "lblMontoPagado"
-        Me.lblMontoPagado.Size = New System.Drawing.Size(98, 25)
-        Me.lblMontoPagado.TabIndex = 35
-        Me.lblMontoPagado.Text = "M. DEUDA"
-        '
-        'tbLimiteCred
-        '
-        '
-        '
-        '
-        Me.tbLimiteCred.Border.Class = "TextBoxBorder"
-        Me.tbLimiteCred.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbLimiteCred.Location = New System.Drawing.Point(545, 58)
-        Me.tbLimiteCred.Name = "tbLimiteCred"
-        Me.tbLimiteCred.PreventEnterBeep = True
-        Me.tbLimiteCred.Size = New System.Drawing.Size(87, 23)
-        Me.tbLimiteCred.TabIndex = 34
-        '
-        'lblLimiteCred
-        '
-        '
-        '
-        '
-        Me.lblLimiteCred.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.lblLimiteCred.Location = New System.Drawing.Point(547, 39)
-        Me.lblLimiteCred.Name = "lblLimiteCred"
-        Me.lblLimiteCred.Size = New System.Drawing.Size(98, 25)
-        Me.lblLimiteCred.TabIndex = 33
-        Me.lblLimiteCred.Text = "LIMITE CRED:"
         '
         'F02_PedidoNuevo
         '
