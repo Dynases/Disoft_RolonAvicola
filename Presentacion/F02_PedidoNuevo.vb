@@ -398,7 +398,7 @@ Public Class F02_PedidoNuevo
             .AggregateFunction = AggregateFunction.Sum
         End With
         With JGr_DetallePedido.RootTable.Columns(7)
-            .Visible = True
+            .Visible = False
             .Caption = "Descuento"
             .Key = "Descuento"
             .Width = 90
@@ -408,7 +408,7 @@ Public Class F02_PedidoNuevo
             .FormatString = "0.00"
         End With
         With JGr_DetallePedido.RootTable.Columns(8)
-            .Visible = True
+            .Visible = False
             .Caption = "Total Bs."
             .Key = "Total"
             .Width = 90
@@ -579,7 +579,7 @@ Public Class F02_PedidoNuevo
     End Sub
     Private Sub _PCargarGridProductosNuevo(idCatCli As Integer)
         'Dim dtProd, dtCatPrecios As New DataTable
-        Dim dtProd2 As DataTable = L_ProductosPedido_GeneralNuevo(-1, idCatCli)
+        Dim dtProd2 As DataTable = L_ProductosPedido_GeneralNuevo_DiAvi(idCatCli)
 
         JGr_Productos.BoundMode = BoundMode.Bound
         JGr_Productos.DataSource = dtProd2
@@ -1477,27 +1477,31 @@ Public Class F02_PedidoNuevo
                     _Error = True
                 End If
             Next
-            Dim j As Integer
-            For j = 0 To JGr_DetallePedido.RowCount - 1
-                JGr_DetallePedido.Row = j
-                'IsNumeric(JGr_DetallePedido.CurrentRow.Cells("Total").Value) = False Or JGr_DetallePedido.CurrentRow.Cells("Total").Value = 0
-                If JGr_DetallePedido.CurrentRow.Cells("Total").Text = String.Empty Then
-                    ToastNotification.Show(Me, "Falta calcular el total en algún producto del detalle, por favor presione el botón aplicar descuentos".ToUpper, My.Resources.WARNING, 5500, eToastGlowColor.Green, eToastPosition.TopCenter)
-                    _Error = True
-                End If
-            Next
+            'Dim j As Integer
+            'For j = 0 To JGr_DetallePedido.RowCount - 1
+            '    JGr_DetallePedido.Row = j
+            '    'IsNumeric(JGr_DetallePedido.CurrentRow.Cells("Total").Value) = False Or JGr_DetallePedido.CurrentRow.Cells("Total").Value = 0
+            '    If JGr_DetallePedido.CurrentRow.Cells("Total").Text = String.Empty Then
+            '        ToastNotification.Show(Me, "Falta calcular el total en algún producto del detalle, por favor presione el botón aplicar descuentos".ToUpper, My.Resources.WARNING, 5500, eToastGlowColor.Green, eToastPosition.TopCenter)
+            '        _Error = True
+            '    End If
+            'Next
 
 
             Dim dt As DataTable = CType(JGr_DetallePedido.DataSource, DataTable)
 
+            'Dim sumTotal As Double = 0
+            'For i = 0 To dt.Rows.Count - 1
+            '    If dt.Rows(i).Item("obtotal").ToString = String.Empty Then
+            '        ToastNotification.Show(Me, "Falta calcular el total en algún producto del detalle, por favor presione el botón aplicar descuentos".ToUpper, My.Resources.WARNING, 5500, eToastGlowColor.Green, eToastPosition.TopCenter)
+            '        _Error = True
+            '    Else
+            '        sumTotal = sumTotal + dt.Rows(i).Item("obtotal")
+            '    End If
+            'Next
             Dim sumTotal As Double = 0
             For i = 0 To dt.Rows.Count - 1
-                If dt.Rows(i).Item("obtotal").ToString = String.Empty Then
-                    ToastNotification.Show(Me, "Falta calcular el total en algún producto del detalle, por favor presione el botón aplicar descuentos".ToUpper, My.Resources.WARNING, 5500, eToastGlowColor.Green, eToastPosition.TopCenter)
-                    _Error = True
-                Else
-                    sumTotal = sumTotal + dt.Rows(i).Item("obtotal")
-                End If
+                sumTotal = sumTotal + dt.Rows(i).Item("obptot")
             Next
             If (swTipoVenta.Value = False) Then
                 If tbLimiteCred.Text = String.Empty Or tbLimiteCred.Text = 0 Then
@@ -1560,11 +1564,11 @@ Public Class F02_PedidoNuevo
             End If
 
 
-            If (_BanderaDescuentos = False) Then
-                ToastNotification.Show(Me, "Se modificó cantidad y/o precio, por favor vuelva a presione el botón aplicar descuentos".ToUpper, My.Resources.WARNING, 5500, eToastGlowColor.Green, eToastPosition.BottomCenter)
-                _Error = True
+            'If (_BanderaDescuentos = False) Then
+            '    ToastNotification.Show(Me, "Se modificó cantidad y/o precio, por favor vuelva a presione el botón aplicar descuentos".ToUpper, My.Resources.WARNING, 5500, eToastGlowColor.Green, eToastPosition.BottomCenter)
+            '    _Error = True
 
-            End If
+            'End If
 
 
             Return _Error
@@ -1629,8 +1633,8 @@ Public Class F02_PedidoNuevo
                     cant = JGr_DetallePedido.CurrentRow.Cells("Cantidad").Value
                     precio = JGr_DetallePedido.CurrentRow.Cells("Precio").Value
                     subTotal = JGr_DetallePedido.CurrentRow.Cells("Monto").Value
-                    desc = JGr_DetallePedido.CurrentRow.Cells("Descuento").Value
-                    total = JGr_DetallePedido.CurrentRow.Cells("Total").Value
+                    desc = 0
+                    total = subTotal
                     flia = JGr_DetallePedido.CurrentRow.Cells("Familia").Value
                     atributo = JGr_DetallePedido.CurrentRow.Cells("Atributo").Value
 
@@ -1749,8 +1753,8 @@ Public Class F02_PedidoNuevo
                     cant = JGr_DetallePedido.CurrentRow.Cells("Cantidad").Value
                     precio = JGr_DetallePedido.CurrentRow.Cells("Precio").Value
                     subTotal = JGr_DetallePedido.CurrentRow.Cells("Monto").Value
-                    desc = JGr_DetallePedido.CurrentRow.Cells("Descuento").Value
-                    total = JGr_DetallePedido.CurrentRow.Cells("Total").Value
+                    desc = 0
+                    total = subTotal
                     flia = JGr_DetallePedido.CurrentRow.Cells("Familia").Value
                     atributo = JGr_DetallePedido.CurrentRow.Cells("Atributo").Value
 
@@ -1821,7 +1825,7 @@ Public Class F02_PedidoNuevo
         '_Modificar = True
         _PHabilitar()
         JGr_Clientes.Enabled = False
-        _PCargarGridProductosNuevo(Tb_CliCateg.Text)
+        _PCargarGridProductosNuevo(Tb_CliCod.Text)
     End Sub
 
     Private Sub _PEliminarRegistro()
@@ -1917,8 +1921,8 @@ Public Class F02_PedidoNuevo
                 cant = JGr_DetallePedido.CurrentRow.Cells("Cantidad").Value
                 precio = JGr_DetallePedido.CurrentRow.Cells("Precio").Value
                 subTotal = JGr_DetallePedido.CurrentRow.Cells("Monto").Value
-                desc = JGr_DetallePedido.CurrentRow.Cells("Descuento").Value
-                total = JGr_DetallePedido.CurrentRow.Cells("Total").Value
+                desc = 0
+                total = subTotal
                 flia = JGr_DetallePedido.CurrentRow.Cells("Familia").Value
                 atributo = JGr_DetallePedido.CurrentRow.Cells("Atributo").Value
 
@@ -1973,14 +1977,18 @@ Public Class F02_PedidoNuevo
         _PNuevoRegistro()
     End Sub
     Private Sub CalcularTotalCredito()
-        If swTipoVenta.Value = False Then
-            Dim totalCredito As Double = 0
-            For i = 0 To JGr_DetallePedido.RowCount - 1
-                JGr_DetallePedido.Row = i
-                totalCredito += JGr_DetallePedido.CurrentRow.Cells("Monto").Value
-            Next
-            tbMontoCredito.Text = totalCredito.ToString()
-        End If
+        Try
+            If swTipoVenta.Value = False Then
+                Dim totalCredito As Double = 0
+                For i = 0 To JGr_DetallePedido.RowCount - 1
+                    JGr_DetallePedido.Row = i
+                    totalCredito += JGr_DetallePedido.CurrentRow.Cells("Monto").Value
+                Next
+                tbMontoCredito.Text = totalCredito.ToString()
+            End If
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
     End Sub
     Private Sub BBtn_NuevoPedBasePeriodico_Click(sender As Object, e As ClickEventArgs)
         _PNuevoRegistro()
@@ -2056,7 +2064,7 @@ Public Class F02_PedidoNuevo
             JGr_TipoProd.Row = 0
 
             ''Carga los productos
-            _PCargarGridProductosNuevo(Tb_CliCateg.Text)
+            _PCargarGridProductosNuevo(Tb_CliCod.Text)
             JGr_Productos.Focus()
             JGr_Productos.MoveTo(JGr_Productos.FilterRow)
             JGr_Productos.Col = 1
@@ -2534,12 +2542,17 @@ Public Class F02_PedidoNuevo
                     CType(JGr_DetallePedido.DataSource, DataTable).Rows(pos).Item("obpcant") = Tb_CantProd.Text
                     CType(JGr_DetallePedido.DataSource, DataTable).Rows(pos).Item("obptot") = CDbl(1) * precio
 
+                    btAplicarDesc.Focus()
+
+
                     JGr_Productos.Focus()
                     JGr_Productos.MoveTo(JGr_Productos.FilterRow)
                     JGr_Productos.Col = -1
                 Else
                     CType(JGr_DetallePedido.DataSource, DataTable).Rows(pos).Item("obpcant") = Tb_CantProd.Text
                     CType(JGr_DetallePedido.DataSource, DataTable).Rows(pos).Item("obptot") = CDbl(Tb_CantProd.Text) * precio
+
+                    btAplicarDesc.Focus()
 
                     JGr_Productos.Focus()
                     JGr_Productos.MoveTo(JGr_Productos.FilterRow)
@@ -2793,8 +2806,8 @@ Public Class F02_PedidoNuevo
                 cant = JGr_DetallePedido.CurrentRow.Cells("Cantidad").Value
                 precio = JGr_DetallePedido.CurrentRow.Cells("Precio").Value
                 subTotal = JGr_DetallePedido.CurrentRow.Cells("Monto").Value
-                desc = JGr_DetallePedido.CurrentRow.Cells("Descuento").Value
-                total = JGr_DetallePedido.CurrentRow.Cells("Total").Value
+                desc = 0
+                total = subTotal
                 flia = JGr_DetallePedido.CurrentRow.Cells("Familia").Value
                 atributo = JGr_DetallePedido.CurrentRow.Cells("Atributo").Value
 

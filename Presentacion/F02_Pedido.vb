@@ -375,7 +375,7 @@ Public Class F02_Pedido
             .AggregateFunction = AggregateFunction.Sum
         End With
         With JGr_DetallePedido.RootTable.Columns(6)
-            .Visible = False
+            .Visible = True
             .Caption = "Descuento"
             .Key = "Descuento"
             .Width = 90
@@ -385,7 +385,7 @@ Public Class F02_Pedido
             .FormatString = "0.00"
         End With
         With JGr_DetallePedido.RootTable.Columns(7)
-            .Visible = False
+            .Visible = True
             .Caption = "Total Bs."
             .Key = "Total"
             .Width = 90

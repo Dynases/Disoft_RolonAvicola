@@ -13,6 +13,7 @@ Public Class AccesoLogica
 #End Region
 
     Public Shared L_Usuario As String = "UD"
+    Public Shared L_BaseDiAvi As String = "DiAviPrueba"
 
     '////////////////////////////////////////////codigo trabajado/////////////////////////////////////////////////////////
     Public Shared Sub L_prAbrirConexion(Optional Ip As String = "", Optional UsuarioSql As String = "", Optional ClaveSql As String = "", Optional NombreBD As String = "")
@@ -1005,13 +1006,25 @@ Public Class AccesoLogica
     Public Shared Function L_ProductosPedido_GeneralNuevo(_Modo As Integer, Optional _CatClie As String = "") As DataTable
         Dim _Tabla As DataTable
         Dim _Where As String
+
         If _Modo = 0 Then
             _Where = "canumi=canumi"
         Else
-            _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND caest=1 AND iacprod=canumi"
+            _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND caest=1 AND iacprod=canumi" + " AND icalm = 8"
         End If
         _Tabla = D_Datos_Tabla("canumi,cacod,cadesc,chprecio,caimg,castc,cagr4,cagr3, iacant", "TC001,TC003, TI001", _Where + " order by canumi")
 
+        Return _Tabla
+    End Function
+    Public Shared Function L_ProductosPedido_GeneralNuevo_DiAvi(clienteId As Integer) As DataTable
+        Dim _resultado As Boolean
+        '@olnumi,@olnumichof ,@olnumiconci ,@olfecha ,@newFecha ,@newHora ,@oluact
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@clienteId", clienteId))
+        _listParam.Add(New Datos.DParametro("@usuario", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_go_Producto", _listParam)
         Return _Tabla
     End Function
 
