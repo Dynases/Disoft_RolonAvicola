@@ -10678,6 +10678,22 @@ Public Class AccesoLogica
         _Tabla = D_ProcedimientoConParam("sp_Mam_EstadoCuentas", _listParam)
         Return _Tabla
     End Function
-
+    Public Shared Function L_prListarEstadoCuentasClienteTodos() As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 3))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_EstadoCuentas", _listParam)
+        Return _Tabla
+    End Function
+    Public Shared Function L_prListarEstadoCuentasUnCliente(idCliente As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 4))
+        _listParam.Add(New Datos.DParametro("@cliente", idCliente))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_EstadoCuentas", _listParam)
+        Return _Tabla
+    End Function
 #End Region
 End Class

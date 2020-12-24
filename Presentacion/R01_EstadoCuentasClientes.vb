@@ -167,7 +167,7 @@ Public Class R01_EstadoCuentasClientes
         ef.SeleclCol = 1
         ef.listEstCeldas = listEstCeldas
         ef.alto = 50
-        ef.ancho = 350
+        ef.ancho = 220
         ef.Context = "Seleccione Cliente".ToUpper
         ef.ShowDialog()
         Dim bandera As Boolean = False
