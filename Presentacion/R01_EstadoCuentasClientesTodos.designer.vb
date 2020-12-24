@@ -23,12 +23,12 @@ Partial Class R01_EstadoCuentasClientesTodos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.swCliente = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.btBuscarCliente = New DevComponents.DotNetBar.ButtonX()
         Me.tbCliente = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.CheckTodosAlmacen = New DevComponents.DotNetBar.Controls.CheckBoxX()
         Me.tbCodigoCliente = New DevComponents.DotNetBar.Controls.TextBoxX()
-        Me.lbvendedor = New DevComponents.DotNetBar.LabelX()
-        Me.swCliente = New DevComponents.DotNetBar.Controls.SwitchButton()
+        Me.lbcliente = New DevComponents.DotNetBar.LabelX()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
         Me.MPanelToolBarUsuario.SuspendLayout()
@@ -152,7 +152,7 @@ Partial Class R01_EstadoCuentasClientesTodos
         Me.GroupBox2.Controls.Add(Me.tbCliente)
         Me.GroupBox2.Controls.Add(Me.CheckTodosAlmacen)
         Me.GroupBox2.Controls.Add(Me.tbCodigoCliente)
-        Me.GroupBox2.Controls.Add(Me.lbvendedor)
+        Me.GroupBox2.Controls.Add(Me.lbcliente)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
@@ -161,6 +161,26 @@ Partial Class R01_EstadoCuentasClientesTodos
         Me.GroupBox2.TabIndex = 14
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Datos"
+        '
+        'swCliente
+        '
+        '
+        '
+        '
+        Me.swCliente.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.swCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.swCliente.Location = New System.Drawing.Point(62, 20)
+        Me.swCliente.Name = "swCliente"
+        Me.swCliente.OffBackColor = System.Drawing.Color.DarkSlateGray
+        Me.swCliente.OffText = "UN CLIENTE"
+        Me.swCliente.OffTextColor = System.Drawing.Color.White
+        Me.swCliente.OnBackColor = System.Drawing.Color.Gold
+        Me.swCliente.OnText = "TODOS CLIENTES"
+        Me.swCliente.Size = New System.Drawing.Size(162, 22)
+        Me.swCliente.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.swCliente.TabIndex = 249
+        Me.swCliente.Value = True
+        Me.swCliente.ValueObject = "Y"
         '
         'btBuscarCliente
         '
@@ -219,42 +239,22 @@ Partial Class R01_EstadoCuentasClientesTodos
         Me.tbCodigoCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.tbCodigoCliente.Visible = False
         '
-        'lbvendedor
+        'lbcliente
         '
-        Me.lbvendedor.AutoSize = True
-        Me.lbvendedor.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.lbvendedor.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.lbvendedor.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbvendedor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.lbvendedor.Location = New System.Drawing.Point(9, 61)
-        Me.lbvendedor.Name = "lbvendedor"
-        Me.lbvendedor.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.lbvendedor.Size = New System.Drawing.Size(51, 16)
-        Me.lbvendedor.TabIndex = 236
-        Me.lbvendedor.Text = "Cliente:"
-        '
-        'swCliente
+        Me.lbcliente.AutoSize = True
+        Me.lbcliente.BackColor = System.Drawing.Color.Transparent
         '
         '
         '
-        '
-        Me.swCliente.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.swCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.swCliente.Location = New System.Drawing.Point(62, 20)
-        Me.swCliente.Name = "swCliente"
-        Me.swCliente.OffBackColor = System.Drawing.Color.DarkSlateGray
-        Me.swCliente.OffText = "UN CLIENTE"
-        Me.swCliente.OffTextColor = System.Drawing.Color.White
-        Me.swCliente.OnBackColor = System.Drawing.Color.Gold
-        Me.swCliente.OnText = "TODOS CLIENTES"
-        Me.swCliente.Size = New System.Drawing.Size(162, 22)
-        Me.swCliente.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.swCliente.TabIndex = 249
-        Me.swCliente.Value = True
-        Me.swCliente.ValueObject = "Y"
+        Me.lbcliente.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbcliente.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbcliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbcliente.Location = New System.Drawing.Point(9, 61)
+        Me.lbcliente.Name = "lbcliente"
+        Me.lbcliente.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbcliente.Size = New System.Drawing.Size(51, 16)
+        Me.lbcliente.TabIndex = 236
+        Me.lbcliente.Text = "Cliente:"
         '
         'R01_EstadoCuentasClientesTodos
         '
@@ -285,7 +285,7 @@ Partial Class R01_EstadoCuentasClientesTodos
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents CheckTodosAlmacen As DevComponents.DotNetBar.Controls.CheckBoxX
     Friend WithEvents tbCodigoCliente As DevComponents.DotNetBar.Controls.TextBoxX
-    Friend WithEvents lbvendedor As DevComponents.DotNetBar.LabelX
+    Friend WithEvents lbcliente As DevComponents.DotNetBar.LabelX
     Friend WithEvents btBuscarCliente As DevComponents.DotNetBar.ButtonX
     Friend WithEvents tbCliente As DevComponents.DotNetBar.Controls.TextBoxX
     Friend WithEvents swCliente As DevComponents.DotNetBar.Controls.SwitchButton

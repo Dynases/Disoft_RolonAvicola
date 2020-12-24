@@ -142,4 +142,17 @@ Public Class R01_EstadoCuentasClientesTodos
 
 
     End Sub
+
+    Private Sub swCliente_ValueChanged(sender As Object, e As EventArgs) Handles swCliente.ValueChanged
+        If (swCliente.Value = True) Then
+            lbcliente.Visible = False
+            tbCodigoCliente.Visible = False
+            tbCliente.Visible = False
+            btBuscarCliente.Visible = False
+        Else
+            lbcliente.Visible = True
+            tbCliente.Visible = True
+            btBuscarCliente.Visible = True
+        End If
+    End Sub
 End Class
