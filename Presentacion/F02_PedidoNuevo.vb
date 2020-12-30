@@ -1571,6 +1571,28 @@ Public Class F02_PedidoNuevo
             'End If
 
 
+            ''Verifica que el precio introducido este en el rango de los precios de categoria válidos
+            Dim k As Integer
+            For k = 0 To JGr_DetallePedido.RowCount - 1
+                JGr_DetallePedido.Row = k
+
+                Dim minprecio, maxprecio As Double
+                Dim dtcat As DataTable
+
+                dtcat = L_ListarCategoriaPrecios(JGr_DetallePedido.GetValue("CodProd"), Tb_CliCateg.Text)
+
+                minprecio = dtcat.Rows(0).Item("minprecio")
+                maxprecio = dtcat.Rows(0).Item("maxprecio")
+                If JGr_DetallePedido.GetValue("Precio") >= minprecio And JGr_DetallePedido.GetValue("Precio") <= maxprecio Then
+
+                Else
+                    ToastNotification.Show(Me, "El precio del producto " + JGr_DetallePedido.GetValue("Descripcion").ToString.ToUpper + " no debe ser menor a: " + minprecio.ToString + " o mayor a: " + maxprecio.ToString + ".".ToUpper,
+                    My.Resources.WARNING, 5000, eToastGlowColor.Red, eToastPosition.TopCenter)
+                    _Error = True
+                End If
+            Next
+
+
             Return _Error
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
@@ -2098,9 +2120,9 @@ Public Class F02_PedidoNuevo
 
             ''Validación para que solo pueda ingresar 20 productos
             If JGr_DetallePedido.RowCount < 20 Then
-                If JGr_Productos.CurrentRow.Cells("iacant").Value > 0 Then
 
-                    If (Not existe) Then
+
+                If (Not existe) Then
                         'agregar al detalle producto seleccionado
                         Dim codProd, codProd1, descrip, precio, familia, atributo, stock As String
 
@@ -2135,9 +2157,8 @@ Public Class F02_PedidoNuevo
                             ToastNotification.Show(Me, "El producto ya existe en el detalle, favor modificar la cantidad".ToUpper, img, 3500, eToastGlowColor.Red, eToastPosition.BottomCenter)
                         End If
                     End If
-                Else
-                    ToastNotification.Show(Me, "El producto no tiene Stock Disponible".ToUpper, My.Resources.WARNING, 5500, eToastGlowColor.Green, eToastPosition.BottomCenter)
-                End If
+
+
             Else
                 ToastNotification.Show(Me, "Solo puede ingresar 20 productos".ToUpper, My.Resources.WARNING, 5500, eToastGlowColor.Green, eToastPosition.BottomCenter)
             End If
@@ -2528,16 +2549,10 @@ Public Class F02_PedidoNuevo
             stock = JGr_DetallePedido.CurrentRow.Cells("Stock").Value
             atributo = JGr_DetallePedido.CurrentRow.Cells("Atributo").Value
 
-            If Tb_CantProd.Text > stock And stock <> -9999 Then
-                ToastNotification.Show(Me, "La cantidad del pedido no debe ser mayor al del stock" & vbCrLf &
-                            "Stock=" + Str(stock).ToUpper, My.Resources.WARNING, 5500, eToastGlowColor.Green, eToastPosition.BottomCenter)
-                Modelo.MGlobal.gs_MBanderaEnter = False
-                'poner el foco en cantidad
-                Tb_CantProd.Text = "1"
-                Tb_CantProd.SelectAll()
 
-            Else
-                Modelo.MGlobal.gs_MBanderaEnter = True
+
+
+            Modelo.MGlobal.gs_MBanderaEnter = True
                 If atributo = -1 Then
                     CType(JGr_DetallePedido.DataSource, DataTable).Rows(pos).Item("obpcant") = Tb_CantProd.Text
                     CType(JGr_DetallePedido.DataSource, DataTable).Rows(pos).Item("obptot") = CDbl(1) * precio
@@ -2559,8 +2574,8 @@ Public Class F02_PedidoNuevo
                     JGr_Productos.Col = -1
                     'Tb_Observaciones.Focus()
                 End If
-            End If
-            CalcularTotalCredito()
+
+                CalcularTotalCredito()
         End If
     End Sub
 
@@ -3034,20 +3049,24 @@ Public Class F02_PedidoNuevo
                     JGr_DetallePedido.CurrentRow.Cells("Total").Value = JGr_DetallePedido.CurrentRow.Cells("Precio").Value - JGr_DetallePedido.GetValue("Descuento")
                 Else
                     If (JGr_DetallePedido.GetValue("Cantidad") > 0) Then
+
                         Dim cantidad, precio, descuento As Double
                         Dim atributo As Integer
+
                         cantidad = JGr_DetallePedido.GetValue("Cantidad")
                         precio = JGr_DetallePedido.GetValue("Precio")
                         atributo = JGr_DetallePedido.GetValue("Atributo")
                         descuento = JGr_DetallePedido.GetValue("Descuento")
+
                         If atributo = -1 Then
-                            JGr_DetallePedido.CurrentRow.Cells("Monto").Value = 1 * precio
-                            JGr_DetallePedido.CurrentRow.Cells("Total").Value = JGr_DetallePedido.CurrentRow.Cells("Monto").Value - descuento
-                        Else
-                            JGr_DetallePedido.CurrentRow.Cells("Monto").Value = cantidad * precio
-                            JGr_DetallePedido.CurrentRow.Cells("Total").Value = JGr_DetallePedido.CurrentRow.Cells("Monto").Value - descuento
-                        End If
+                                JGr_DetallePedido.CurrentRow.Cells("Monto").Value = 1 * precio
+                                JGr_DetallePedido.CurrentRow.Cells("Total").Value = JGr_DetallePedido.CurrentRow.Cells("Monto").Value - descuento
+                            Else
+                                JGr_DetallePedido.CurrentRow.Cells("Monto").Value = cantidad * precio
+                                JGr_DetallePedido.CurrentRow.Cells("Total").Value = JGr_DetallePedido.CurrentRow.Cells("Monto").Value - descuento
+                            End If
                         _BanderaDescuentos = False
+
                     Else
 
                         JGr_DetallePedido.CurrentRow.Cells("Cantidad").Value = 1
@@ -3108,5 +3127,21 @@ Public Class F02_PedidoNuevo
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+
+    Private Sub JGr_DetallePedido_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles JGr_DetallePedido.CellEdited
+        Dim minprecio, maxprecio As Double
+        Dim dtcat As DataTable
+
+        dtcat = L_ListarCategoriaPrecios(JGr_DetallePedido.GetValue("CodProd"), Tb_CliCateg.Text)
+
+        minprecio = dtcat.Rows(0).Item("minprecio")
+        maxprecio = dtcat.Rows(0).Item("maxprecio")
+        If JGr_DetallePedido.GetValue("Precio") >= minprecio And JGr_DetallePedido.GetValue("Precio") <= maxprecio Then
+
+        Else
+            ToastNotification.Show(Me, "El precio no debe ser menor a: " + minprecio.ToString + " o mayor a: " + maxprecio.ToString + ".".ToUpper,
+            My.Resources.WARNING, 5000, eToastGlowColor.Red, eToastPosition.TopCenter)
+        End If
     End Sub
 End Class
