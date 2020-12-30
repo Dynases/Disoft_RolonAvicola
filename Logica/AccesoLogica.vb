@@ -1653,6 +1653,22 @@ Public Class AccesoLogica
     '    _Tabla = D_ProcedimientoConParam("sp_go_TD001", _listParam)
     '    Return _Tabla
     'End Function
+
+    Public Shared Function L_ListarCategoriaPrecios(producto As Integer, categoria As String) As DataTable
+        Dim _resultado As Boolean
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@producto", producto))
+        _listParam.Add(New Datos.DParametro("@categoria", categoria))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TO001", _listParam)
+
+        Return _Tabla
+    End Function
+
+
 #End Region
 
 #Region "Descuentos Fijos"
