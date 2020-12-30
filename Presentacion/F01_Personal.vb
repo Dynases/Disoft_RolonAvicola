@@ -2,6 +2,7 @@
 Imports Janus.Windows.GridEX
 Imports DevComponents.DotNetBar
 Imports DevComponents.DotNetBar.Controls
+Imports Modelo
 
 Public Class F01_Personal
     Dim _inter As Integer = 0
@@ -177,7 +178,7 @@ Public Class F01_Personal
         MTbUsuario.Text = gs_user
     End Sub
     Private Sub _Parametros()
-        CbAlmacen.Visible = gs_Parametros(0).Item("syruta")
+        CbAlmacenRuta.Visible = gs_Parametros(0).Item("syruta")
         LabelX6.Visible = gs_Parametros(0).Item("syruta")
     End Sub
     Private Sub P_Nuevo()
@@ -243,7 +244,7 @@ Public Class F01_Personal
         Dim eciv As String
         Dim plan As String
         Dim reloj As String
-
+        Dim almacenCarga As String
         TbNombre.Select()
         If (Nuevo) Then
             If (P_Validar()) Then
@@ -266,12 +267,11 @@ Public Class F01_Personal
                     est = "0"
                 End If
                 eciv = "0"
-                plan = "1"
-                reloj = CbAlmacen.Value.ToString
-
+                reloj = CbAlmacenRuta.Value.ToString
+                almacenCarga = CbAlmacenCarga.Value.ToString
                 'Grabar cabecera
                 Dim res As Boolean = L_fnGrabarPersonal(numi, desc, direc, telef, cat, sal, ci, obs, fnac, fing,
-                                                        fret, fot, est, eciv, plan, reloj)
+                                                        fret, fot, est, eciv, reloj, almacenCarga)
 
                 If (res) Then
                     P_Limpiar()
@@ -313,12 +313,11 @@ Public Class F01_Personal
                     est = "0"
                 End If
                 eciv = "0"
-                plan = "1"
-                reloj = CbAlmacen.Value.ToString
-
+                reloj = CbAlmacenRuta.Value.ToString
+                almacenCarga = CbAlmacenCarga.Value.ToString
                 'Modificar
                 Dim res As Boolean = L_fnModificarPersonal(numi, desc, direc, telef, cat, sal, ci, obs, fnac, fing,
-                                                           fret, fot, est, eciv, plan, reloj)
+                                                           fret, fot, est, eciv, almacenCarga, reloj)
 
                 If (res) Then
                     Bool = False
@@ -388,8 +387,8 @@ Public Class F01_Personal
 
         'MultiCombo
         cbTipo.ReadOnly = False
-        CbAlmacen.ReadOnly = False
-
+        CbAlmacenRuta.ReadOnly = False
+        CbAlmacenCarga.ReadOnly = False
         'Botones
         SbEstado.IsReadOnly = False
     End Sub
@@ -401,7 +400,8 @@ Public Class F01_Personal
 
         'MultiCombo
         cbTipo.ReadOnly = True
-        CbAlmacen.ReadOnly = True
+        CbAlmacenRuta.ReadOnly = True
+        CbAlmacenCarga.ReadOnly = True
 
         'Botones
         SbEstado.IsReadOnly = True
@@ -420,24 +420,34 @@ Public Class F01_Personal
             cbTipo.Text = ""
         End If
 
-        If (CType(CbAlmacen.DataSource, DataTable).Rows.Count > 0) Then
-            CbAlmacen.SelectedIndex = 0
+        If (CType(CbAlmacenRuta.DataSource, DataTable).Rows.Count > 0) Then
+            CbAlmacenRuta.SelectedIndex = 0
         Else
-            CbAlmacen.Text = ""
+            CbAlmacenRuta.Text = ""
         End If
-
+        If (CType(CbAlmacenCarga.DataSource, DataTable).Rows.Count > 0) Then
+            CbAlmacenCarga.SelectedIndex = 0
+        Else
+            CbAlmacenCarga.Text = ""
+        End If
         'Botones
         SbEstado.Value = True
     End Sub
 
     Private Sub P_prArmarCombos()
         P_prArmarComboTipoPersonal()
-        p_prcomboalmacendiavi()
+        p_prcomboAlmacenRutaDiavi()
+        p_prcomboAlmacenCargaDiavi()
     End Sub
-    Private Sub p_prcomboalmacendiavi()
+    Private Sub p_prcomboAlmacenRutaDiavi()
         Dim dt As New DataTable
-        dt = L_fnObtenerTabla("id as [Cod], Descrip as [Desc]", "DiAvi.Inv.Almacen", "tipoalmacen=1")
-        g_prArmarCombo(CbAlmacen, dt, 60, 150, "Código", "Almacen")
+        dt = L_fnObtenerTabla("id as [Cod], Descrip as [Desc]", MGlobal.gs_BDRolon + ".Inv.Almacen", "tipoalmacen=1")
+        g_prArmarCombo(CbAlmacenRuta, dt, 60, 150, "Código", "Almacen")
+    End Sub
+    Private Sub p_prcomboAlmacenCargaDiavi()
+        Dim dt As New DataTable
+        dt = L_fnObtenerTabla("id as [Cod], Descrip as [Desc]", MGlobal.gs_BDRolon + ".Inv.Almacen", "tipoalmacen=2")
+        g_prArmarCombo(CbAlmacenCarga, dt, 60, 150, "Código", "Almacen")
     End Sub
 
     Private Sub P_ArmarGrillas()
@@ -475,13 +485,20 @@ Public Class F01_Personal
                     cbTipo.Text = ""
                 End If
 
-                CbAlmacen.Clear()
-                If (CType(CbAlmacen.DataSource, DataTable).Rows.Count > 0) Then
-                    CbAlmacen.SelectedText = .Cells("Ruta").Value.ToString
+                CbAlmacenRuta.Clear()
+                If (CType(CbAlmacenRuta.DataSource, DataTable).Rows.Count > 0) Then
+                    CbAlmacenRuta.SelectedText = .Cells("Ruta").Value.ToString
                 Else
-                    CbAlmacen.Text = ""
+                    CbAlmacenRuta.Text = ""
                 End If
 
+
+                CbAlmacenCarga.Clear()
+                If (CType(CbAlmacenCarga.DataSource, DataTable).Rows.Count > 0) Then
+                    CbAlmacenCarga.SelectedText = .Cells("AlmacenCarga").Value.ToString
+                Else
+                    CbAlmacenCarga.Text = ""
+                End If
                 SbEstado.Value = (.Cells("cbest").Value.ToString.Equals("True"))
             End With
 
@@ -600,6 +617,9 @@ Public Class F01_Personal
         With Dgj1Busqueda.RootTable.Columns("Ruta")
             .Visible = False
         End With
+        With Dgj1Busqueda.RootTable.Columns("AlmacenCarga")
+            .Visible = False
+        End With
         'Habilitar Filtradores
         With Dgj1Busqueda
             .GroupByBoxVisible = False
@@ -638,7 +658,13 @@ Public Class F01_Personal
                 sms = sms + vbCrLf + "debe elegir un tipo de personal valido de la lista."
             End If
         End If
-
+        If L_fnExisteAlmacenRutaPersonal(CbAlmacenRuta.Value) Then
+            If (sms = String.Empty) Then
+                sms = "el almacen de ruta ya esta siendo utilizado por otro personal."
+            Else
+                sms = sms + vbCrLf + "el almacen de ruta ya esta siendo utilizado por otro personal."
+            End If
+        End If
         If (Not sms = String.Empty) Then
             ToastNotification.Show(Me, sms.ToUpper,
                        My.Resources.WARNING,
@@ -651,11 +677,6 @@ Public Class F01_Personal
 
         Return True
     End Function
-
-    Private Sub Dgj1Busqueda_DoubleClick(sender As Object, e As EventArgs) Handles Dgj1Busqueda.DoubleClick
-
-    End Sub
-
 #End Region
 
 End Class

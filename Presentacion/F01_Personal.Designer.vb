@@ -23,16 +23,19 @@ Partial Class F01_Personal
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim CbAlmacen_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim CbAlmacenCarga_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F01_Personal))
+        Dim CbAlmacenRuta_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbTipo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.TableLayoutPanelPrincipal = New System.Windows.Forms.TableLayoutPanel()
         Me.Gp3Proveedores = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Dgj1Busqueda = New Janus.Windows.GridEX.GridEX()
         Me.GroupPanelDatosGenerales = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelExDatosGenerales = New DevComponents.DotNetBar.PanelEx()
+        Me.LabelX7 = New DevComponents.DotNetBar.LabelX()
+        Me.CbAlmacenCarga = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.LabelX6 = New DevComponents.DotNetBar.LabelX()
-        Me.CbAlmacen = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.CbAlmacenRuta = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.LabelX5 = New DevComponents.DotNetBar.LabelX()
         Me.cbTipo = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
@@ -61,7 +64,8 @@ Partial Class F01_Personal
         CType(Me.Dgj1Busqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanelDatosGenerales.SuspendLayout()
         Me.PanelExDatosGenerales.SuspendLayout()
-        CType(Me.CbAlmacen, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CbAlmacenCarga, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CbAlmacenRuta, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbTipo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -293,8 +297,10 @@ Partial Class F01_Personal
         Me.PanelExDatosGenerales.AutoScroll = True
         Me.PanelExDatosGenerales.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelExDatosGenerales.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PanelExDatosGenerales.Controls.Add(Me.LabelX7)
+        Me.PanelExDatosGenerales.Controls.Add(Me.CbAlmacenCarga)
         Me.PanelExDatosGenerales.Controls.Add(Me.LabelX6)
-        Me.PanelExDatosGenerales.Controls.Add(Me.CbAlmacen)
+        Me.PanelExDatosGenerales.Controls.Add(Me.CbAlmacenRuta)
         Me.PanelExDatosGenerales.Controls.Add(Me.LabelX5)
         Me.PanelExDatosGenerales.Controls.Add(Me.cbTipo)
         Me.PanelExDatosGenerales.Controls.Add(Me.LabelX1)
@@ -318,6 +324,31 @@ Partial Class F01_Personal
         Me.PanelExDatosGenerales.Style.GradientAngle = 90
         Me.PanelExDatosGenerales.TabIndex = 16
         '
+        'LabelX7
+        '
+        '
+        '
+        '
+        Me.LabelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX7.Location = New System.Drawing.Point(413, 88)
+        Me.LabelX7.Name = "LabelX7"
+        Me.LabelX7.Size = New System.Drawing.Size(136, 23)
+        Me.LabelX7.TabIndex = 12
+        Me.LabelX7.Text = "Almacen de Carga:"
+        '
+        'CbAlmacenCarga
+        '
+        CbAlmacenCarga_DesignTimeLayout.LayoutString = resources.GetString("CbAlmacenCarga_DesignTimeLayout.LayoutString")
+        Me.CbAlmacenCarga.DesignTimeLayout = CbAlmacenCarga_DesignTimeLayout
+        Me.CbAlmacenCarga.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CbAlmacenCarga.Location = New System.Drawing.Point(562, 88)
+        Me.CbAlmacenCarga.Name = "CbAlmacenCarga"
+        Me.CbAlmacenCarga.SelectedIndex = -1
+        Me.CbAlmacenCarga.SelectedItem = Nothing
+        Me.CbAlmacenCarga.Size = New System.Drawing.Size(271, 23)
+        Me.CbAlmacenCarga.TabIndex = 11
+        '
         'LabelX6
         '
         '
@@ -325,23 +356,23 @@ Partial Class F01_Personal
         '
         Me.LabelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX6.Location = New System.Drawing.Point(464, 118)
+        Me.LabelX6.Location = New System.Drawing.Point(413, 119)
         Me.LabelX6.Name = "LabelX6"
-        Me.LabelX6.Size = New System.Drawing.Size(74, 23)
+        Me.LabelX6.Size = New System.Drawing.Size(117, 23)
         Me.LabelX6.TabIndex = 10
-        Me.LabelX6.Text = "Almacen:"
+        Me.LabelX6.Text = "Almacen ruta:"
         '
-        'CbAlmacen
+        'CbAlmacenRuta
         '
-        CbAlmacen_DesignTimeLayout.LayoutString = resources.GetString("CbAlmacen_DesignTimeLayout.LayoutString")
-        Me.CbAlmacen.DesignTimeLayout = CbAlmacen_DesignTimeLayout
-        Me.CbAlmacen.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CbAlmacen.Location = New System.Drawing.Point(562, 119)
-        Me.CbAlmacen.Name = "CbAlmacen"
-        Me.CbAlmacen.SelectedIndex = -1
-        Me.CbAlmacen.SelectedItem = Nothing
-        Me.CbAlmacen.Size = New System.Drawing.Size(271, 23)
-        Me.CbAlmacen.TabIndex = 9
+        CbAlmacenRuta_DesignTimeLayout.LayoutString = resources.GetString("CbAlmacenRuta_DesignTimeLayout.LayoutString")
+        Me.CbAlmacenRuta.DesignTimeLayout = CbAlmacenRuta_DesignTimeLayout
+        Me.CbAlmacenRuta.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CbAlmacenRuta.Location = New System.Drawing.Point(562, 119)
+        Me.CbAlmacenRuta.Name = "CbAlmacenRuta"
+        Me.CbAlmacenRuta.SelectedIndex = -1
+        Me.CbAlmacenRuta.SelectedItem = Nothing
+        Me.CbAlmacenRuta.Size = New System.Drawing.Size(271, 23)
+        Me.CbAlmacenRuta.TabIndex = 9
         '
         'LabelX5
         '
@@ -521,7 +552,8 @@ Partial Class F01_Personal
         Me.GroupPanelDatosGenerales.ResumeLayout(False)
         Me.PanelExDatosGenerales.ResumeLayout(False)
         Me.PanelExDatosGenerales.PerformLayout()
-        CType(Me.CbAlmacen, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CbAlmacenCarga, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CbAlmacenRuta, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbTipo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -543,5 +575,7 @@ Partial Class F01_Personal
     Friend WithEvents cbTipo As Janus.Windows.GridEX.EditControls.MultiColumnCombo
     Friend WithEvents Timer1 As Timer
     Friend WithEvents LabelX6 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents CbAlmacen As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents CbAlmacenRuta As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents LabelX7 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents CbAlmacenCarga As Janus.Windows.GridEX.EditControls.MultiColumnCombo
 End Class

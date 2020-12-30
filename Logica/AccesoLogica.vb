@@ -4948,7 +4948,7 @@ Public Class AccesoLogica
     Public Shared Function L_fnGrabarPersonal(ByRef numi As String, desc As String, direc As String, telef As String,
                                               cat As String, sal As String, ci As String, obs As String, fnac As String,
                                               fing As String, fret As String, fot As String, est As String,
-                                              eciv As String, plan As String, reloj As String) As Boolean
+                                              eciv As String, reloj As String, almacenCarga As String) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -4969,7 +4969,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@fot", fot))
         _listParam.Add(New Datos.DParametro("@est", est))
         _listParam.Add(New Datos.DParametro("@eciv", eciv))
-        _listParam.Add(New Datos.DParametro("@plan", plan))
+        _listParam.Add(New Datos.DParametro("@plan", almacenCarga))
         _listParam.Add(New Datos.DParametro("@reloj", reloj))
         _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
 
@@ -5044,7 +5044,29 @@ Public Class AccesoLogica
 
         Return _resultado
     End Function
+    Public Shared Function L_fnExisteAlmacenRutaPersonal(numi As String) As Boolean
+        Dim _resultado As Boolean
 
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 4))
+        _listParam.Add(New Datos.DParametro("@reloj", numi))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_go_TC002", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            If _Tabla.Rows(0).Item(0) = 0 Then
+                _resultado = False
+            Else
+                _resultado = True
+            End If
+        Else
+            _resultado = False
+        End If
+        Return _resultado
+    End Function
 #End Region
 
 #Region "TC0022"
