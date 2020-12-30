@@ -12,29 +12,13 @@ Imports System
 Imports System.Collections.Generic
 
 
-Partial Public Class VR_ClientesPendientesNota
+Partial Public Class TO001A1
 
-    Public Property ccnumi As Nullable(Of Integer)
+    Public Property ognumi As Nullable(Of Integer)
 
-    Public Property ccdctnum As String
+    Public Property ogcred As Nullable(Of Decimal)
 
-    Public Property ccdesc As String
-
-    Public Property ccdirec As String
-
-    Public Property zon As Nullable(Of Integer)
-
-    Public Property nzon As String
-
-    Public Property codP As String
-
-    Public Property can As Nullable(Of Decimal)
-
-    Public Property tot As Nullable(Of Decimal)
-
-    Public Property ped As Integer
-
-    Public Property cacat As Nullable(Of Integer)
+    Public Property Id As Integer
 
 
 End Class

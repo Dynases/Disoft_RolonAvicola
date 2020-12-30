@@ -12,29 +12,29 @@ Imports System
 Imports System.Collections.Generic
 
 
-Partial Public Class VR_ClientesPendientesNota
+Partial Public Class VR_EstadoCuentasClientes
 
-    Public Property ccnumi As Nullable(Of Integer)
+    Public Property numicli As Nullable(Of Integer)
 
-    Public Property ccdctnum As String
+    Public Property cliente As String
 
-    Public Property ccdesc As String
+    Public Property fecha As String
 
-    Public Property ccdirec As String
+    Public Property numiDoc As Integer
 
-    Public Property zon As Nullable(Of Integer)
+    Public Property Detalle As String
 
-    Public Property nzon As String
+    Public Property fechacredito As String
 
-    Public Property codP As String
+    Public Property Importe As Nullable(Of Decimal)
 
-    Public Property can As Nullable(Of Decimal)
+    Public Property Pagos As Nullable(Of Decimal)
 
-    Public Property tot As Nullable(Of Decimal)
+    Public Property Saldos As Decimal
 
-    Public Property ped As Integer
+    Public Property concepto As Integer
 
-    Public Property cacat As Nullable(Of Integer)
+    Public Property fecha1 As String
 
 
 End Class

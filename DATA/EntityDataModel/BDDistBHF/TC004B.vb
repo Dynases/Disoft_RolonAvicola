@@ -20,5 +20,9 @@ Partial Public Class TC004B
 
     Public Property ccbtcre As Nullable(Of Integer)
 
+    Public Property ccLimite As Nullable(Of Decimal)
+
+    Public Property ccDias As Nullable(Of Decimal)
+
 
 End Class

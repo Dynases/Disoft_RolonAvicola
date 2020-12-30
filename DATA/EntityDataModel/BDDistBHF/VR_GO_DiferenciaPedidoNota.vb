@@ -28,11 +28,11 @@ Partial Public Class VR_GO_DiferenciaPedidoNota
 
     Public Property nota As Nullable(Of Integer)
 
-    Public Property cped As Integer
+    Public Property cped As Decimal
 
     Public Property cnot As Nullable(Of Integer)
 
-    Public Property dif As Nullable(Of Integer)
+    Public Property dif As Nullable(Of Decimal)
 
     Public Property hora As String
 

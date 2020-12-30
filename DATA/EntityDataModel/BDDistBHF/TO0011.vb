@@ -34,5 +34,7 @@ Partial Public Class TO0011
 
     Public Property obcampo2 As Nullable(Of Decimal)
 
+    Public Property IdPedidoDetalle As Integer
+
 
 End Class

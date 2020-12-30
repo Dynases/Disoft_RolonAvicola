@@ -5,6 +5,20 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="BDDistBHFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.BA001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="BA001">
+          <Property Name="canumi" Type="int" />
+          <Property Name="canombre" Type="nvarchar" MaxLength="200" />
+          <Property Name="canrocuenta" Type="nvarchar" MaxLength="100" />
+          <Property Name="catc001numi" Type="int" />
+          <Property Name="caobs" Type="nvarchar" MaxLength="200" />
+          <Property Name="caimage" Type="nvarchar" MaxLength="200" />
+          <Property Name="caestado" Type="int" />
+          <Property Name="cafact" Type="date" />
+          <Property Name="cahact" Type="nvarchar" MaxLength="5" />
+          <Property Name="cauact" Type="nvarchar" MaxLength="10" />
+        </EntityType>-->
         <EntityType Name="CM001">
           <Key>
             <PropertyRef Name="manumi" />
@@ -30,7 +44,7 @@
           <Property Name="mbuact" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.Parametros' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.Parametros' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="Parametros">
           <Property Name="synumi" Type="nchar" MaxLength="10" />
           <Property Name="sycompra" Type="bit" />
@@ -45,9 +59,16 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.Parametros' no tiene def
           <Property Name="syproductofamilia" Type="bit" />
           <Property Name="syproductopack" Type="bit" />
           <Property Name="syciudad" Type="int" />
+          <Property Name="syruta" Type="bit" />
+          <Property Name="syaplinea" Type="int" />
+          <Property Name="sycredito" Type="bit" />
+          <Property Name="syvmapa" Type="bit" />
+          <Property Name="symodped" Type="bit" />
+          <Property Name="symodcli" Type="bit" />
+          <Property Name="systocknega" Type="bit" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.Personal' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.Personal' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="Personal">
           <Property Name="codper" Type="int" />
           <Property Name="fecha" Type="date" />
@@ -93,7 +114,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.Personal' no tiene defin
           <Property Name="bauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TB002' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TB002' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TB002">
           <Property Name="bbnumi" Type="int" />
           <Property Name="bbtran" Type="int" />
@@ -104,12 +125,12 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TB002' no tiene definida
           <Property Name="bbprog" Type="nvarchar" MaxLength="30" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC000' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC000' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TC000">
           <Property Name="cnumi" Type="int" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TC0001">
           <Property Name="cccnumi" Type="int" />
           <Property Name="cccmapa" Type="int" />
@@ -127,7 +148,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0001' no tiene definid
           <Property Name="cccdespacho" Type="int" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0002' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0002' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TC0002">
           <Property Name="cbnumi" Type="int" />
           <Property Name="cbcod" Type="int" />
@@ -145,7 +166,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0002' no tiene definid
             <PropertyRef Name="canumi" />
           </Key>
           <Property Name="canumi" Type="int" Nullable="false" />
-          <Property Name="cacod" Type="nvarchar" MaxLength="10" />
+          <Property Name="cacod" Type="nvarchar" MaxLength="15" />
           <Property Name="cadesc" Type="nvarchar" MaxLength="100" />
           <Property Name="cadesc2" Type="nvarchar" MaxLength="100" />
           <Property Name="cacat" Type="int" />
@@ -157,7 +178,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0002' no tiene definid
           <Property Name="cafing" Type="date" />
           <Property Name="cacemp" Type="int" />
           <Property Name="cafact" Type="date" />
-          <Property Name="cahact" Type="nvarchar" MaxLength="5" />
+          <Property Name="cahact" Type="nvarchar" MaxLength="10" />
           <Property Name="cauact" Type="nvarchar" MaxLength="10" />
           <Property Name="cacbarra" Type="nvarchar" MaxLength="15" />
           <Property Name="casmin" Type="int" />
@@ -172,7 +193,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0002' no tiene definid
           <Property Name="capack" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0011">
           <Key>
             <PropertyRef Name="cicod" />
@@ -184,7 +205,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0011' no tiene definid
           <Property Name="ciest" Type="bit" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0012">
           <Key>
             <PropertyRef Name="cpnumi" />
@@ -227,7 +248,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0012' no tiene definid
           <Property Name="cbuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0021' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0021' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TC0021">
           <Property Name="chnumi" Type="int" />
           <Property Name="chano" Type="int" />
@@ -235,7 +256,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0021' no tiene definid
           <Property Name="chsueldo" Type="decimal" Precision="18" Scale="2" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0022' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0022' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TC0022">
           <Property Name="cknumi" Type="int" />
           <Property Name="ckidfsm" Type="nvarchar" MaxLength="250" />
@@ -257,14 +278,14 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0022' no tiene definid
             <PropertyRef Name="ccnumi" />
           </Key>
           <Property Name="ccnumi" Type="int" Nullable="false" />
-          <Property Name="cccod" Type="nvarchar" MaxLength="15" />
-          <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="cccod" Type="nvarchar" MaxLength="50" />
+          <Property Name="ccdesc" Type="nvarchar" MaxLength="200" />
           <Property Name="cczona" Type="int" />
           <Property Name="ccdct" Type="int" Nullable="false" />
           <Property Name="ccdctnum" Type="nvarchar" MaxLength="20" />
-          <Property Name="ccdirec" Type="nvarchar" MaxLength="200" />
-          <Property Name="cctelf1" Type="nvarchar" MaxLength="50" />
-          <Property Name="cctelf2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ccdirec" Type="nvarchar" MaxLength="250" />
+          <Property Name="cctelf1" Type="nvarchar" MaxLength="30" />
+          <Property Name="cctelf2" Type="nvarchar" MaxLength="30" />
           <Property Name="cccat" Type="int" />
           <Property Name="ccest" Type="int" />
           <Property Name="cclat" Type="decimal" Precision="18" Scale="14" />
@@ -273,8 +294,8 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0022' no tiene definid
           <Property Name="cceven" Type="bit" />
           <Property Name="ccobs" Type="nvarchar" MaxLength="150" />
           <Property Name="ccfnac" Type="date" />
-          <Property Name="ccnomfac" Type="nvarchar" MaxLength="200" />
-          <Property Name="ccnit" Type="nvarchar" MaxLength="20" />
+          <Property Name="ccnomfac" Type="nvarchar" MaxLength="250" />
+          <Property Name="ccnit" Type="nvarchar" MaxLength="50" />
           <Property Name="ccultped" Type="date" />
           <Property Name="ccfecing" Type="date" />
           <Property Name="ccultvent" Type="date" />
@@ -289,7 +310,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0022' no tiene definid
           <Property Name="ccuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0041' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0041' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0041">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -321,7 +342,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0041' no tiene definid
           <Property Name="cpcat" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC004A' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC004A' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TC004A">
           <Property Name="ccatc4numi" Type="int" />
           <Property Name="ccatacu" Type="int" />
@@ -332,7 +353,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC004A' no tiene definid
           <Property Name="ccaobs" Type="nvarchar" MaxLength="200" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC004A1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TC004A1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC004A1">
           <Key>
             <PropertyRef Name="ccaanumi" />
@@ -342,7 +363,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC004A1' no tiene defini
           <Property Name="ccaandia" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC004A2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TC004A2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC004A2">
           <Key>
             <PropertyRef Name="ccabnumi" />
@@ -359,6 +380,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC004A2' no tiene defini
           <Property Name="ccbnumi" Type="int" Nullable="false" />
           <Property Name="ccbzona" Type="int" />
           <Property Name="ccbtcre" Type="int" />
+          <Property Name="ccLimite" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ccDias" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="TC005">
           <Key>
@@ -385,7 +408,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC004A2' no tiene defini
           <Property Name="ceuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC005C' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC005C' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TC005C">
           <Property Name="canumi" Type="int" />
           <Property Name="canombre" Type="nvarchar" MaxLength="200" />
@@ -407,14 +430,14 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC005C' no tiene definid
           <Property Name="cfuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0061' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0061' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TC0061">
           <Property Name="cgcfid" Type="int" />
           <Property Name="cgcon" Type="int" />
           <Property Name="cgconp" Type="int" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC007' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC007' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TC007">
           <Property Name="cinumi" Type="int" />
           <Property Name="cicod" Type="nvarchar" MaxLength="10" />
@@ -425,7 +448,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC007' no tiene definida
           <Property Name="citcv" Type="bit" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC008' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC008' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TC008">
           <Property Name="cjnumi" Type="int" />
           <Property Name="cjusuario" Type="int" />
@@ -436,7 +459,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC008' no tiene definida
           <Property Name="cjleido" Type="int" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC009' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC009' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TC009">
           <Property Name="cknumi" Type="int" />
           <Property Name="ckdesc" Type="nvarchar" MaxLength="50" />
@@ -448,7 +471,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC009' no tiene definida
           <Property Name="ckuact" Type="nvarchar" MaxLength="10" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0091' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0091' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0091">
           <Key>
             <PropertyRef Name="cllin" />
@@ -460,7 +483,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0091' no tiene definid
           <Property Name="clcopy" Type="bit" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC010' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC010' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TC010">
           <Property Name="cmnumi" Type="int" />
           <Property Name="cmdesc" Type="nvarchar" MaxLength="50" />
@@ -554,7 +577,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TC010' no tiene definida
           <Property Name="cabtca1numi" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TCA0012' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TCA0012' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TCA0012">
           <Property Name="tcnumi" Type="int" />
           <Property Name="tctc1numi" Type="int" />
@@ -569,7 +592,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TCA0012' no tiene defini
           <Property Name="tcuact" Type="nvarchar" MaxLength="10" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TCA00121' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TCA00121' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TCA00121">
           <Key>
             <PropertyRef Name="tdnumi" />
@@ -588,7 +611,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TCA00121' no tiene defin
           <Property Name="tduact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TCA0013' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TCA0013' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TCA0013">
           <Property Name="tenumi" Type="int" />
           <Property Name="tefdoc" Type="date" />
@@ -599,7 +622,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TCA0013' no tiene defini
           <Property Name="teuact" Type="nvarchar" MaxLength="10" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TCI001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TCI001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TCI001">
           <Property Name="cpnumi" Type="int" />
           <Property Name="cpdesc" Type="nvarchar" MaxLength="30" />
@@ -612,7 +635,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TCI001' no tiene definid
           <Property Name="cpuact" Type="nvarchar" MaxLength="10" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TCP001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TCP001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TCP001">
           <Property Name="cpanumi" Type="int" />
           <Property Name="cpaprov" Type="int" />
@@ -630,7 +653,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TCP001' no tiene definid
           <Property Name="cpauact" Type="nvarchar" MaxLength="10" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TCP0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TCP0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TCP0011">
           <Key>
             <PropertyRef Name="cpblin" />
@@ -660,7 +683,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TCP0011' no tiene defini
           <Property Name="dauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TFC001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TFC001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TFC001">
           <Property Name="fcanumi" Type="int" />
           <Property Name="fcafdoc" Type="date" />
@@ -707,7 +730,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TFC001' no tiene definid
           <Property Name="fvanumi2" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TFV0011' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TFV0011' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TFV0011">
           <Property Name="fvbnumi" Type="int" />
           <Property Name="fvbcprod" Type="nvarchar" MaxLength="10" />
@@ -717,7 +740,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TFV0011' no tiene defini
           <Property Name="fvbnumi2" Type="int" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TH001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TH001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TH001">
           <Property Name="hanumi" Type="int" />
           <Property Name="hadesc" Type="nvarchar" MaxLength="50" />
@@ -727,7 +750,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TH001' no tiene definida
           <Property Name="hasaldo" Type="decimal" Precision="18" Scale="2" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TI001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TI001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TI001">
           <Property Name="iacprod" Type="int" />
           <Property Name="iacant" Type="decimal" Precision="18" Scale="2" />
@@ -758,7 +781,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TI001' no tiene definida
           <Property Name="iccant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TI003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TI003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TI003">
           <Key>
             <PropertyRef Name="idcli" />
@@ -850,7 +873,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TI003' no tiene definida
           <Property Name="lauact" Type="nchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TL001_C' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TL001_C' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TL001_C">
           <Property Name="id" Type="int" />
           <Property Name="cod" Type="nvarchar" MaxLength="50" />
@@ -861,13 +884,13 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TL001_C' no tiene defini
           <Property Name="uact" Type="nvarchar" MaxLength="10" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TL0012' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TL0012' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TL0012">
           <Property Name="lcnumi" Type="int" />
           <Property Name="lccbnumi" Type="int" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TL0013' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TL0013' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TL0013">
           <Property Name="lbnumi" Type="int" />
           <Property Name="lblat" Type="decimal" Precision="18" Scale="6" />
@@ -885,7 +908,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TL0013' no tiene definid
           <Property Name="lblongi" Type="decimal" Precision="18" Scale="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TM001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TM001">
           <Key>
             <PropertyRef Name="ibid" />
@@ -905,7 +928,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM001' no tiene definida
           <Property Name="ibuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TM0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TM0011">
           <Key>
             <PropertyRef Name="icid" />
@@ -916,7 +939,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM0011' no tiene definid
           <Property Name="iccant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM0012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TM0012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TM0012">
           <Key>
             <PropertyRef Name="ieid" />
@@ -926,7 +949,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM0012' no tiene definid
           <Property Name="ieest" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM0013' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TM0013' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TM0013">
           <Key>
             <PropertyRef Name="idnumi" />
@@ -955,11 +978,9 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM0013' no tiene definid
           <Property Name="oahact" Type="nvarchar" MaxLength="5" />
           <Property Name="oauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0011">
           <Key>
-            <PropertyRef Name="obnumi" />
+            <PropertyRef Name="IdPedidoDetalle" />
           </Key>
           <Property Name="obnumi" Type="int" Nullable="false" />
           <Property Name="obcprod" Type="nvarchar" MaxLength="10" />
@@ -971,9 +992,10 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0011' no tiene definid
           <Property Name="obfamilia" Type="int" />
           <Property Name="obcampo1" Type="int" />
           <Property Name="obcampo2" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IdPedidoDetalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0012' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0012' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TO0012">
           <Property Name="ocnumi" Type="int" />
           <Property Name="ocest" Type="int" />
@@ -982,7 +1004,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0012' no tiene definid
           <Property Name="ocobs" Type="nvarchar" MaxLength="20" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0013' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0013' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TO0013">
           <Property Name="odnumi" Type="int" />
           <Property Name="odnum" Type="int" />
@@ -991,7 +1013,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0013' no tiene definid
           <Property Name="odobs" Type="nvarchar" MaxLength="50" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0014' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0014' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0014">
           <Key>
             <PropertyRef Name="ofnumi" />
@@ -1008,7 +1030,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0014' no tiene definid
           <Property Name="ofuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0015' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0015' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TO0015">
           <Property Name="ohnumi" Type="int" />
           <Property Name="ohdiassem" Type="nvarchar" MaxLength="7" />
@@ -1016,13 +1038,11 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0015' no tiene definid
           <Property Name="ohdiames" Type="int" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0016' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0016' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TO0016">
           <Property Name="oinumi" Type="int" />
           <Property Name="oifecha" Type="date" />
         </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO001A' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO001A">
           <Key>
             <PropertyRef Name="oaanumi" />
@@ -1033,14 +1053,16 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO001A' no tiene definid
           <Property Name="oaaentrega" Type="int" />
           <Property Name="oaacaja" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TO001A1' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TO001A1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
           <Property Name="ognumi" Type="int" />
           <Property Name="ogcred" Type="decimal" Precision="18" Scale="2" />
-        </EntityType>-->
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TO001B' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TO001B' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TO001B">
           <Property Name="obnumi" Type="int" />
           <Property Name="oblatitud" Type="decimal" Precision="18" Scale="14" />
@@ -1058,7 +1080,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TO001B' no tiene definid
           <Property Name="oacfdoc" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TO002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO002">
           <Key>
             <PropertyRef Name="odnumi" />
@@ -1075,7 +1097,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO002' no tiene definida
           <Property Name="oduact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0021' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0021' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0021">
           <Key>
             <PropertyRef Name="oenumi" />
@@ -1091,7 +1113,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0021' no tiene definid
           <Property Name="oetipo" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0022' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0022' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0022">
           <Key>
             <PropertyRef Name="ofid" />
@@ -1107,7 +1129,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0022' no tiene definid
           <Property Name="ofid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0023' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0023' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0023">
           <Key>
             <PropertyRef Name="ojnumi" />
@@ -1125,7 +1147,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0023' no tiene definid
           <Property Name="ojuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TO003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO003">
           <Key>
             <PropertyRef Name="ognumi" />
@@ -1154,7 +1176,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO003' no tiene definida
           <Property Name="ohuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0041' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0041' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0041">
           <Key>
             <PropertyRef Name="oinumi" />
@@ -1167,7 +1189,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0041' no tiene definid
           <Property Name="oicant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0042' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0042' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0042">
           <Key>
             <PropertyRef Name="ojnumi" />
@@ -1182,7 +1204,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0042' no tiene definid
           <Property Name="ojdesc" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0043' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0043' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0043">
           <Key>
             <PropertyRef Name="oknumi" />
@@ -1238,7 +1260,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0043' no tiene definid
           <Property Name="onMonto" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TP001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP001">
           <Key>
             <PropertyRef Name="panumi" />
@@ -1255,7 +1277,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP001' no tiene definida
           <Property Name="pauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TP002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP002">
           <Key>
             <PropertyRef Name="pbnumi" />
@@ -1269,7 +1291,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP002' no tiene definida
           <Property Name="pbuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TP0021' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TP0021' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TP0021">
           <Property Name="pcnumi" Type="int" />
           <Property Name="pcdias" Type="int" />
@@ -1280,7 +1302,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TP0021' no tiene definid
           <Property Name="pcfecha" Type="date" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TP003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP003">
           <Key>
             <PropertyRef Name="pdnumi" />
@@ -1293,7 +1315,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP003' no tiene definida
           <Property Name="pduact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP004' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TP004' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP004">
           <Key>
             <PropertyRef Name="penumi" />
@@ -1308,7 +1330,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP004' no tiene definida
           <Property Name="peuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TP005' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TP005' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TP005">
           <Property Name="pfnumi" Type="int" />
           <Property Name="pfflib" Type="date" />
@@ -1318,7 +1340,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TP005' no tiene definida
           <Property Name="pfuact" Type="nvarchar" MaxLength="10" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP006' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TP006' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP006">
           <Key>
             <PropertyRef Name="pgnumi" />
@@ -1336,7 +1358,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP006' no tiene definida
           <Property Name="pguact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP0061' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TP0061' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP0061">
           <Key>
             <PropertyRef Name="phnumi" />
@@ -1359,7 +1381,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP0061' no tiene definid
           <Property Name="piuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TP0071' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TP0071' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TP0071">
           <Property Name="pjturno" Type="int" />
           <Property Name="pjcper" Type="int" />
@@ -1391,7 +1413,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TP0071' no tiene definid
           <Property Name="plnumibd" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TS001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TS001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TS001">
           <Key>
             <PropertyRef Name="sanumi" />
@@ -1402,7 +1424,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TS001' no tiene definida
           <Property Name="sanom2" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TS002' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TS002' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TS002">
           <Property Name="yenumi" Type="int" />
           <Property Name="yecia" Type="int" />
@@ -1421,7 +1443,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TS002' no tiene definida
           <Property Name="yeuact" Type="nvarchar" MaxLength="10" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TS003' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TS003' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="TS003">
           <Property Name="scnumi" Type="int" />
           <Property Name="scnit" Type="nvarchar" MaxLength="15" />
@@ -1496,7 +1518,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.TS003' no tiene definida
           <Property Name="tduact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TV0013' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TV0013' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TV0013">
           <Key>
             <PropertyRef Name="tenumi" />
@@ -1520,7 +1542,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TV0013' no tiene definid
           <Property Name="zaest" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.ZY001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.ZY001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="ZY001">
           <Property Name="yanumi" Type="int" />
           <Property Name="yaprog" Type="nvarchar" MaxLength="40" />
@@ -1528,7 +1550,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.ZY001' no tiene definida
           <Property Name="yamod" Type="int" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.ZY002' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.ZY002' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="ZY002">
           <Property Name="ybnumi" Type="int" />
           <Property Name="ybrol" Type="nvarchar" MaxLength="30" />
@@ -1549,7 +1571,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.ZY002' no tiene definida
           <Property Name="ycdel" Type="bit" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.ZY003' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.ZY003' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="ZY003">
           <Property Name="ydnumi" Type="int" />
           <Property Name="yduser" Type="nvarchar" MaxLength="10" />
@@ -1563,22 +1585,37 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.ZY003' no tiene definida
           <Property Name="ybuact" Type="nvarchar" MaxLength="10" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vista_promconsumo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.App_Listado_CobrosPendientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="App_Listado_CobrosPendientes">
+          <Key>
+            <PropertyRef Name="PedidoId" />
+          </Key>
+          <Property Name="PedidoId" Type="int" Nullable="false" />
+          <Property Name="ClienteId" Type="int" />
+          <Property Name="cliente" Type="nvarchar" MaxLength="200" />
+          <Property Name="PersonalId" Type="int" />
+          <Property Name="vendedor" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaPedido" Type="date" />
+          <Property Name="totalfactura" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="pendiente" Type="decimal" Precision="38" Scale="2" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.vista_promconsumo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vista_promconsumo">
           <Key>
             <PropertyRef Name="ccnumi" />
           </Key>
           <Property Name="ccnumi" Type="int" Nullable="false" />
-          <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="ccdesc" Type="nvarchar" MaxLength="200" />
           <Property Name="cczona" Type="int" />
-          <Property Name="cctelf1" Type="nvarchar" MaxLength="50" />
-          <Property Name="ccdirec" Type="nvarchar" MaxLength="200" />
+          <Property Name="cctelf1" Type="nvarchar" MaxLength="30" />
+          <Property Name="ccdirec" Type="nvarchar" MaxLength="250" />
           <Property Name="ccest" Type="int" />
           <Property Name="ccprconsu" Type="int" />
           <Property Name="fTentativa" Type="date" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vista_transacciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.vista_transacciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vista_transacciones">
           <Key>
             <PropertyRef Name="numi" />
@@ -1593,7 +1630,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vista_transacciones' no 
           <Property Name="tipo" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_CajaDetalle' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_CajaDetalle' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_CajaDetalle">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1604,7 +1641,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_CajaDetalle' no tiene
           <Property Name="oanumi" Type="int" Nullable="false" />
           <Property Name="oafdoc" Type="date" />
           <Property Name="oacnrofac" Type="bigint" />
-          <Property Name="cliente" Type="nvarchar" MaxLength="50" />
+          <Property Name="cliente" Type="nvarchar" MaxLength="200" />
           <Property Name="oarepa" Type="int" />
           <Property Name="oaest" Type="int" />
           <Property Name="oaap" Type="int" />
@@ -1616,7 +1653,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_CajaDetalle' no tiene
           <Property Name="estado" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Clientes">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1634,25 +1671,25 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Clientes' no tiene de
           <Property Name="ccest" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_ClientesPendientesNota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_ClientesPendientesNota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_ClientesPendientesNota">
           <Key>
             <PropertyRef Name="ped" />
           </Key>
           <Property Name="ccnumi" Type="int" />
           <Property Name="ccdctnum" Type="nvarchar" MaxLength="20" />
-          <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
-          <Property Name="ccdirec" Type="nvarchar" MaxLength="200" />
+          <Property Name="ccdesc" Type="nvarchar" MaxLength="200" />
+          <Property Name="ccdirec" Type="nvarchar" MaxLength="250" />
           <Property Name="zon" Type="int" />
           <Property Name="nzon" Type="nvarchar" MaxLength="50" />
-          <Property Name="codP" Type="nvarchar" MaxLength="10" />
-          <Property Name="can" Type="int" />
+          <Property Name="codP" Type="nvarchar" MaxLength="15" />
+          <Property Name="can" Type="decimal" Precision="18" Scale="2" />
           <Property Name="tot" Type="numeric" Precision="18" Scale="2" />
           <Property Name="ped" Type="int" Nullable="false" />
           <Property Name="cacat" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_Conciliacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.Vr_Conciliacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Conciliacion">
           <Key>
             <PropertyRef Name="Fecha" />
@@ -1663,7 +1700,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_Conciliacion' no tien
           <Property Name="Cant" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_CuentasPagar_PagosProximos' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_CuentasPagar_PagosProximos' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="VR_CuentasPagar_PagosProximos">
           <Property Name="cpaprov" Type="int" />
           <Property Name="cmdesc" Type="nvarchar" MaxLength="50" />
@@ -1677,7 +1714,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_CuentasPagar_PagosPro
           <Property Name="mora" Type="int" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_CuentasPagar_PagosRealizados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_CuentasPagar_PagosRealizados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_CuentasPagar_PagosRealizados">
           <Key>
             <PropertyRef Name="cpblin" />
@@ -1696,7 +1733,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_CuentasPagar_PagosRea
           <Property Name="mora" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_EntregaPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_EntregaPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_EntregaPedidos">
           <Key>
             <PropertyRef Name="oenumi" />
@@ -1715,7 +1752,27 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_EntregaPedidos' no ti
           <Property Name="cadesc2" Type="nvarchar" MaxLength="15" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Facturas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_EstadoCuentasClientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VR_EstadoCuentasClientes">
+          <Key>
+            <PropertyRef Name="numiDoc" />
+            <PropertyRef Name="Saldos" />
+            <PropertyRef Name="concepto" />
+          </Key>
+          <Property Name="numicli" Type="int" />
+          <Property Name="cliente" Type="nvarchar" MaxLength="200" />
+          <Property Name="fecha" Type="nvarchar" MaxLength="4000" />
+          <Property Name="numiDoc" Type="int" Nullable="false" />
+          <Property Name="Detalle" Type="varchar" MaxLength="41" />
+          <Property Name="fechacredito" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Importe" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Pagos" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Saldos" Type="numeric" Precision="2" Scale="2" Nullable="false" />
+          <Property Name="concepto" Type="int" Nullable="false" />
+          <Property Name="fecha1" Type="nvarchar" MaxLength="4000" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_Facturas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Facturas">
           <Key>
             <PropertyRef Name="fvanumi" />
@@ -1751,7 +1808,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Facturas' no tiene de
           <Property Name="fvbnumi2" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_FacturasChacaltaya' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_FacturasChacaltaya' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_FacturasChacaltaya">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1765,7 +1822,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_FacturasChacaltaya' n
           <Property Name="oeefec" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_FidelidadCliente' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_FidelidadCliente' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="VR_FidelidadCliente">
           <Property Name="Anho" Type="int" />
           <Property Name="oencli" Type="int" />
@@ -1777,7 +1834,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_FidelidadCliente' no 
           <Property Name="ccprconsu" Type="int" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_CajaGeneral' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_CajaGeneral' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_CajaGeneral">
           <Key>
             <PropertyRef Name="IdCaja" />
@@ -1785,7 +1842,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_CajaGeneral' no ti
           <Property Name="IdCaja" Type="int" Nullable="false" />
           <Property Name="FechaCaja" Type="date" />
           <Property Name="Conciliacion" Type="int" />
-          <Property Name="FechaPedido" Type="date" />
           <Property Name="Repartidor" Type="nvarchar" MaxLength="50" />
           <Property Name="TotalConciliacion" Type="decimal" Precision="38" Scale="2" />
           <Property Name="TotalEfectivo" Type="decimal" Precision="38" Scale="2" />
@@ -1795,7 +1851,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_CajaGeneral' no ti
           <Property Name="Diferencia" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vr_go_comprobanteSalidaItems' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.vr_go_comprobanteSalidaItems' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_comprobanteSalidaItems">
           <Key>
             <PropertyRef Name="id" />
@@ -1814,7 +1870,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vr_go_comprobanteSalidaI
           <Property Name="cantidad" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vr_go_comprobanteVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.vr_go_comprobanteVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_comprobanteVenta">
           <Key>
             <PropertyRef Name="codigo" />
@@ -1837,7 +1893,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vr_go_comprobanteVenta' 
           <Property Name="ojobs" Type="nvarchar" MaxLength="60" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DespachoNotaVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_DespachoNotaVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DespachoNotaVenta">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1846,7 +1902,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DespachoNotaVenta'
           </Key>
           <Property Name="oanumi" Type="int" Nullable="false" />
           <Property Name="oafdoc" Type="date" />
-          <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="ccdesc" Type="nvarchar" MaxLength="200" />
           <Property Name="cbdesc" Type="nvarchar" MaxLength="50" />
           <Property Name="canumi" Type="int" Nullable="false" />
           <Property Name="cadesc" Type="nvarchar" MaxLength="100" />
@@ -1857,11 +1913,11 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DespachoNotaVenta'
           <Property Name="oaest" Type="int" />
           <Property Name="oaccbnumi" Type="int" Nullable="false" />
           <Property Name="Total" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="ccnit" Type="nvarchar" MaxLength="20" />
-          <Property Name="cctelf1" Type="nvarchar" MaxLength="50" />
+          <Property Name="ccnit" Type="nvarchar" MaxLength="50" />
+          <Property Name="cctelf1" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DespachoXCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_DespachoXCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DespachoXCliente">
           <Key>
             <PropertyRef Name="oaccbnumi" />
@@ -1871,8 +1927,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DespachoXCliente' 
           </Key>
           <Property Name="oaccbnumi" Type="int" Nullable="false" />
           <Property Name="ccnumi" Type="int" Nullable="false" />
-          <Property Name="cccod" Type="nvarchar" MaxLength="15" />
-          <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="cccod" Type="nvarchar" MaxLength="50" />
+          <Property Name="ccdesc" Type="nvarchar" MaxLength="200" />
           <Property Name="oacnrofact" Type="bigint" Nullable="false" />
           <Property Name="obptot" Type="numeric" Precision="38" Scale="2" />
           <Property Name="obdesc" Type="decimal" Precision="38" Scale="2" />
@@ -1884,7 +1940,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DespachoXCliente' 
           <Property Name="oanumi" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DespachoXProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_DespachoXProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DespachoXProducto">
           <Key>
             <PropertyRef Name="oaccbnumi" />
@@ -1892,7 +1948,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DespachoXProducto'
           </Key>
           <Property Name="oaccbnumi" Type="int" Nullable="false" />
           <Property Name="canumi" Type="int" Nullable="false" />
-          <Property Name="cacod" Type="nvarchar" MaxLength="10" />
+          <Property Name="cacod" Type="nvarchar" MaxLength="15" />
           <Property Name="cadesc" Type="nvarchar" MaxLength="100" />
           <Property Name="cadesc2" Type="nvarchar" MaxLength="100" />
           <Property Name="categoria" Type="nvarchar" MaxLength="200" />
@@ -1903,7 +1959,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DespachoXProducto'
           <Property Name="oafdoc" Type="date" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DiferenciaPedidoNota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_DiferenciaPedidoNota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DiferenciaPedidoNota">
           <Key>
             <PropertyRef Name="numi" />
@@ -1913,50 +1969,50 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DiferenciaPedidoNo
           <Property Name="fecha" Type="date" />
           <Property Name="ccli" Type="int" />
           <Property Name="cpro" Type="int" />
-          <Property Name="npro" Type="nvarchar" MaxLength="15" />
+          <Property Name="npro" Type="nvarchar" MaxLength="100" />
           <Property Name="pedido" Type="int" />
           <Property Name="nota" Type="int" />
-          <Property Name="cped" Type="int" Nullable="false" />
+          <Property Name="cped" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="cnot" Type="int" />
-          <Property Name="dif" Type="int" />
+          <Property Name="dif" Type="decimal" Precision="19" Scale="2" />
           <Property Name="hora" Type="nvarchar" MaxLength="5" />
           <Property Name="usuario" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_EquipoPrestadoVsUltimaVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_EquipoPrestadoVsUltimaVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_EquipoPrestadoVsUltimaVenta">
           <Key>
             <PropertyRef Name="numi" />
           </Key>
           <Property Name="numi" Type="int" Nullable="false" />
-          <Property Name="desc" Type="nvarchar" MaxLength="50" />
+          <Property Name="desc" Type="nvarchar" MaxLength="200" />
           <Property Name="fultven" Type="date" />
-          <Property Name="telf" Type="nvarchar" MaxLength="50" />
-          <Property Name="dir" Type="nvarchar" MaxLength="200" />
+          <Property Name="telf" Type="nvarchar" MaxLength="30" />
+          <Property Name="dir" Type="nvarchar" MaxLength="250" />
           <Property Name="saldo" Type="float" />
           <Property Name="cequi" Type="nvarchar" MaxLength="10" />
-          <Property Name="nequi" Type="nvarchar" MaxLength="30" />
+          <Property Name="nequi" Type="nvarchar" MaxLength="100" />
           <Property Name="czona" Type="int" />
           <Property Name="dpto" Type="nvarchar" MaxLength="50" />
           <Property Name="prov" Type="nvarchar" MaxLength="50" />
           <Property Name="zona" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_EquiposPrestadoCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_EquiposPrestadoCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_EquiposPrestadoCliente">
           <Key>
             <PropertyRef Name="codbd" />
           </Key>
           <Property Name="codbd" Type="int" Nullable="false" />
-          <Property Name="codigo" Type="nvarchar" MaxLength="15" />
-          <Property Name="contacto" Type="nvarchar" MaxLength="50" />
+          <Property Name="codigo" Type="nvarchar" MaxLength="50" />
+          <Property Name="contacto" Type="nvarchar" MaxLength="30" />
           <Property Name="carrito" Type="int" />
           <Property Name="botellone" Type="int" />
-          <Property Name="nombre" Type="nvarchar" MaxLength="50" />
-          <Property Name="direccion" Type="nvarchar" MaxLength="200" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="200" />
+          <Property Name="direccion" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_Factura' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_Factura' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_Factura">
           <Key>
             <PropertyRef Name="fvanumi" />
@@ -1995,7 +2051,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_Factura' no tiene 
           <Property Name="oazona" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_FacturaVsVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_FacturaVsVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_FacturaVsVenta">
           <Key>
             <PropertyRef Name="tipo" />
@@ -2012,7 +2068,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_FacturaVsVenta' no
           <Property Name="tipo" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_FacturaVsVenta2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_FacturaVsVenta2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_FacturaVsVenta2">
           <Key>
             <PropertyRef Name="ncli" />
@@ -2031,7 +2087,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_FacturaVsVenta2' n
           <Property Name="tipo" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_FaltanteTapas' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_FaltanteTapas' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="VR_GO_FaltanteTapas">
           <Property Name="nota" Type="int" />
           <Property Name="fecha" Type="date" />
@@ -2042,7 +2098,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_FaltanteTapas' no 
           <Property Name="tapas" Type="int" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_ListarZona' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_ListarZona' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_ListarZona">
           <Key>
             <PropertyRef Name="numi" />
@@ -2060,29 +2116,29 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_ListarZona' no tie
           <Property Name="uact" Type="nchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_PrestamoEquiposAgrupado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_PrestamoEquiposAgrupado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_PrestamoEquiposAgrupado">
           <Key>
             <PropertyRef Name="chnumi" />
           </Key>
           <Property Name="chnumi" Type="int" Nullable="false" />
-          <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="ccdesc" Type="nvarchar" MaxLength="200" />
           <Property Name="chcod" Type="nvarchar" MaxLength="10" />
-          <Property Name="chdesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="chdesc" Type="nvarchar" MaxLength="100" />
           <Property Name="chtmov" Type="int" />
           <Property Name="cpdesc" Type="nvarchar" MaxLength="30" />
           <Property Name="cant" Type="float" />
           <Property Name="cpmov" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_PrestamoEquiposDetallado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_PrestamoEquiposDetallado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_PrestamoEquiposDetallado">
           <Key>
             <PropertyRef Name="chnumi" />
             <PropertyRef Name="chlin" />
           </Key>
           <Property Name="chnumi" Type="int" Nullable="false" />
-          <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="ccdesc" Type="nvarchar" MaxLength="200" />
           <Property Name="chlin" Type="int" Nullable="false" />
           <Property Name="chfec" Type="date" />
           <Property Name="chcod" Type="nvarchar" MaxLength="10" />
@@ -2097,7 +2153,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_PrestamoEquiposDet
           <Property Name="cpmovcli" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_ProductoVendidoCliente' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_ProductoVendidoCliente' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="VR_GO_ProductoVendidoCliente">
           <Property Name="cliente" Type="int" />
           <Property Name="fecha" Type="date" />
@@ -2106,7 +2162,7 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_ProductoVendidoCli
           <Property Name="monto" Type="decimal" Precision="38" Scale="2" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vr_go_reciboCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.vr_go_reciboCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_reciboCliente">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -2118,33 +2174,33 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vr_go_reciboCliente' no 
           <Property Name="oarepa" Type="int" />
           <Property Name="cbdesc" Type="nvarchar" MaxLength="50" />
           <Property Name="ccnumi" Type="int" Nullable="false" />
-          <Property Name="cccod" Type="nvarchar" MaxLength="15" />
-          <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="cccod" Type="nvarchar" MaxLength="50" />
+          <Property Name="ccdesc" Type="nvarchar" MaxLength="200" />
           <Property Name="obpcant" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="cadesc2" Type="nvarchar" MaxLength="20" />
+          <Property Name="cadesc2" Type="nvarchar" MaxLength="100" />
           <Property Name="obpbase" Type="numeric" Precision="18" Scale="2" />
           <Property Name="obptot" Type="numeric" Precision="18" Scale="2" />
-          <Property Name="cctelf1" Type="nvarchar" MaxLength="50" />
-          <Property Name="ccdirec" Type="nvarchar" MaxLength="200" />
+          <Property Name="cctelf1" Type="nvarchar" MaxLength="30" />
+          <Property Name="ccdirec" Type="nvarchar" MaxLength="250" />
           <Property Name="oaobs" Type="nvarchar" MaxLength="100" />
           <Property Name="oaanumiprev" Type="int" />
           <Property Name="cbdesc2" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_SaldoPrestamoEquipo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_SaldoPrestamoEquipo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_SaldoPrestamoEquipo">
           <Key>
             <PropertyRef Name="chnumi" />
           </Key>
           <Property Name="chnumi" Type="int" Nullable="false" />
-          <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="ccdesc" Type="nvarchar" MaxLength="200" />
           <Property Name="chcod" Type="nvarchar" MaxLength="10" />
-          <Property Name="cadesc" Type="nvarchar" MaxLength="30" />
+          <Property Name="cadesc" Type="nvarchar" MaxLength="100" />
           <Property Name="cantES" Type="float" />
           <Property Name="ES" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_UltimaVentaCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_UltimaVentaCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_UltimaVentaCliente">
           <Key>
             <PropertyRef Name="numi" />
@@ -2161,7 +2217,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_UltimaVentaCliente
           <Property Name="est" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vr_go_visitasDiarias' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.vr_go_visitasDiarias' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_visitasDiarias">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -2186,7 +2242,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vr_go_visitasDiarias' no
           <Property Name="ccabcant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GraficaVentasVs' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GraficaVentasVs' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GraficaVentasVs">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -2199,7 +2255,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GraficaVentasVs' no t
           <Property Name="mes2" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_KadexCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_KadexCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_KadexCliente">
           <Key>
             <PropertyRef Name="concepto" />
@@ -2220,7 +2276,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_KadexCliente' no tien
           <Property Name="factura" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_KardexInventario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_KardexInventario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_KardexInventario">
           <Key>
             <PropertyRef Name="id" />
@@ -2238,20 +2294,20 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_KardexInventario' no 
           <Property Name="alm" Type="int" />
           <Property Name="id2" Type="int" Nullable="false" />
           <Property Name="cprod" Type="int" />
-          <Property Name="descProd" Type="nvarchar" MaxLength="30" />
-          <Property Name="desc2Prod" Type="nvarchar" MaxLength="15" />
+          <Property Name="descProd" Type="nvarchar" MaxLength="100" />
+          <Property Name="desc2Prod" Type="nvarchar" MaxLength="100" />
           <Property Name="cant" Type="decimal" Precision="29" Scale="2" />
           <Property Name="saldo" Type="numeric" Precision="1" Scale="1" Nullable="false" />
-          <Property Name="nombreCliente" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombreCliente" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_KardexPrestamos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_KardexPrestamos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_KardexPrestamos">
           <Key>
             <PropertyRef Name="chnumi" />
           </Key>
           <Property Name="chnumi" Type="int" Nullable="false" />
-          <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="ccdesc" Type="nvarchar" MaxLength="200" />
           <Property Name="cczona" Type="int" />
           <Property Name="cedesc" Type="nvarchar" MaxLength="50" />
           <Property Name="chfec" Type="date" />
@@ -2264,7 +2320,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_KardexPrestamos' no t
           <Property Name="chtmov" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_LibroVentas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_LibroVentas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_LibroVentas">
           <Key>
             <PropertyRef Name="fvanumi" />
@@ -2292,7 +2348,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_LibroVentas' no tiene
           <Property Name="scnom" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_LibroVentasChacaltaya1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_LibroVentasChacaltaya1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_LibroVentasChacaltaya1">
           <Key>
             <PropertyRef Name="esp" />
@@ -2324,7 +2380,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_LibroVentasChacaltaya
           <Property Name="ccon" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_LibroVentasChacaltaya2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_LibroVentasChacaltaya2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_LibroVentasChacaltaya2">
           <Key>
             <PropertyRef Name="esp" />
@@ -2353,7 +2409,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_LibroVentasChacaltaya
           <Property Name="ccon" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_Mam_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.Vr_Mam_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Mam_Clientes">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -2393,7 +2449,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_Mam_Clientes' no tien
           <Property Name="ccuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Mam_Conciliacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_Mam_Conciliacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Mam_Conciliacion">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2408,7 +2464,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Mam_Conciliacion' no 
           <Property Name="TOTAL" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_Mam_Credito_Cliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.Vr_Mam_Credito_Cliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Mam_Credito_Cliente">
           <Key>
             <PropertyRef Name="pago" />
@@ -2419,10 +2475,10 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_Mam_Credito_Cliente' 
           </Key>
           <Property Name="pago" Type="decimal" Precision="38" Scale="2" Nullable="false" />
           <Property Name="numicliente" Type="int" Nullable="false" />
-          <Property Name="cliente" Type="nvarchar" MaxLength="50" />
-          <Property Name="direc" Type="nvarchar" MaxLength="200" />
-          <Property Name="telf1" Type="nvarchar" MaxLength="50" />
-          <Property Name="contacto" Type="nvarchar" MaxLength="50" />
+          <Property Name="cliente" Type="nvarchar" MaxLength="200" />
+          <Property Name="direc" Type="nvarchar" MaxLength="250" />
+          <Property Name="telf1" Type="nvarchar" MaxLength="30" />
+          <Property Name="contacto" Type="nvarchar" MaxLength="30" />
           <Property Name="codven" Type="int" />
           <Property Name="ydlcred" Type="int" Nullable="false" />
           <Property Name="tanumi" Type="int" Nullable="false" />
@@ -2435,22 +2491,22 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_Mam_Credito_Cliente' 
           <Property Name="pendiente" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_Mam_ProductoVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.Vr_Mam_ProductoVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Mam_ProductoVenta">
           <Key>
             <PropertyRef Name="numiProducto" />
           </Key>
           <Property Name="categoria" Type="nvarchar" MaxLength="200" />
           <Property Name="numiProducto" Type="int" Nullable="false" />
-          <Property Name="producto" Type="nvarchar" MaxLength="50" />
-          <Property Name="NombreCorto" Type="nvarchar" MaxLength="20" />
+          <Property Name="producto" Type="nvarchar" MaxLength="100" />
+          <Property Name="NombreCorto" Type="nvarchar" MaxLength="100" />
           <Property Name="empresa" Type="nvarchar" MaxLength="30" />
           <Property Name="cantidad" Type="decimal" Precision="38" Scale="2" />
           <Property Name="obpbase" Type="numeric" Precision="18" Scale="2" />
           <Property Name="TotalVenta" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_MO_GetPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_MO_GetPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_MO_GetPedidos">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -2472,7 +2528,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_MO_GetPedidos' no tie
           <Property Name="oauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Nota de Venta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_Nota de Venta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Nota de Venta">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -2481,12 +2537,12 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Nota de Venta' no tie
           </Key>
           <Property Name="oanumi" Type="int" Nullable="false" />
           <Property Name="CodCliente" Type="int" Nullable="false" />
-          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
-          <Property Name="Direccion" Type="nvarchar" MaxLength="200" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="200" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="250" />
           <Property Name="CI" Type="nvarchar" MaxLength="20" />
-          <Property Name="Celular" Type="nvarchar" MaxLength="50" />
+          <Property Name="Celular" Type="nvarchar" MaxLength="30" />
           <Property Name="CodProducto" Type="int" Nullable="false" />
-          <Property Name="Producto" Type="nvarchar" MaxLength="50" />
+          <Property Name="Producto" Type="nvarchar" MaxLength="100" />
           <Property Name="Cantidad" Type="decimal" Precision="18" Scale="2" />
           <Property Name="PrecioUnitario" Type="numeric" Precision="18" Scale="2" />
           <Property Name="Total" Type="numeric" Precision="18" Scale="2" />
@@ -2494,7 +2550,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Nota de Venta' no tie
           <Property Name="FechaPedido" Type="date" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_NotaCompra' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_NotaCompra' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_NotaCompra">
           <Key>
             <PropertyRef Name="caanumi" />
@@ -2535,7 +2591,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_NotaCompra' no tiene 
           <Property Name="plazo" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Pagos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_Pagos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Pagos">
           <Key>
             <PropertyRef Name="ognumi" />
@@ -2552,13 +2608,13 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Pagos' no tiene defin
           <Property Name="ogrec" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_ProductosMesas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_ProductosMesas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_ProductosMesas">
           <Key>
             <PropertyRef Name="canumi" />
           </Key>
           <Property Name="canumi" Type="int" Nullable="false" />
-          <Property Name="cadesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="cadesc" Type="nvarchar" MaxLength="100" />
           <Property Name="vend1" Type="decimal" Precision="38" Scale="2" />
           <Property Name="totvend1" Type="numeric" Precision="38" Scale="2" />
           <Property Name="vend2" Type="decimal" Precision="38" Scale="2" />
@@ -2569,7 +2625,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_ProductosMesas' no ti
           <Property Name="totvend4" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_ResumenNotas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_ResumenNotas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_ResumenNotas">
           <Key>
             <PropertyRef Name="odnumi" />
@@ -2584,7 +2640,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_ResumenNotas' no tien
           <Property Name="total" Type="float" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_SaldoCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_SaldoCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_SaldoCliente">
           <Key>
             <PropertyRef Name="idcodcli" />
@@ -2594,7 +2650,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_SaldoCliente' no tien
           <Property Name="idsaldo" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_SaldoFisicoValorado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_SaldoFisicoValorado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_SaldoFisicoValorado">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2613,14 +2669,14 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_SaldoFisicoValorado' 
           <Property Name="cedesc" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_SaldoInventario' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_SaldoInventario' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="VR_SaldoInventario">
           <Property Name="Codigo" Type="int" />
           <Property Name="Producto" Type="nvarchar" MaxLength="30" />
           <Property Name="Cantidad" Type="int" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_stockActual' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_stockActual' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_stockActual">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2637,7 +2693,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_stockActual' no tiene
           <Property Name="cedesc" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_StockDisponible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_StockDisponible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_StockDisponible">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2645,45 +2701,45 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_StockDisponible' no t
             <PropertyRef Name="StockSoloPedidos" />
           </Key>
           <Property Name="canumi" Type="int" Nullable="false" />
-          <Property Name="cadesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="cadesc" Type="nvarchar" MaxLength="100" />
           <Property Name="categoria" Type="nvarchar" MaxLength="200" />
           <Property Name="stockSinPedido" Type="decimal" Precision="38" Scale="2" Nullable="false" />
           <Property Name="StockSoloPedidos" Type="decimal" Precision="38" Scale="2" Nullable="false" />
           <Property Name="StockFinal" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_UltimosPedidos' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_UltimosPedidos' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="VR_UltimosPedidos">
-          <Property Name="codCliente" Type="nvarchar" MaxLength="15" />
-          <Property Name="cliente" Type="nvarchar" MaxLength="50" />
-          <Property Name="Telefono" Type="nvarchar" MaxLength="101" />
-          <Property Name="direccion" Type="nvarchar" MaxLength="200" />
+          <Property Name="codCliente" Type="nvarchar" MaxLength="50" />
+          <Property Name="cliente" Type="nvarchar" MaxLength="200" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="61" />
+          <Property Name="direccion" Type="nvarchar" MaxLength="250" />
           <Property Name="zona" Type="int" />
           <Property Name="fechaPrestamo" Type="date" />
           <Property Name="horaPrestamo" Type="nvarchar" MaxLength="5" />
           <Property Name="codEquipo" Type="nvarchar" MaxLength="10" />
-          <Property Name="Equipo" Type="nvarchar" MaxLength="30" />
+          <Property Name="Equipo" Type="nvarchar" MaxLength="100" />
           <Property Name="codMovimiento" Type="int" />
           <Property Name="movimiento" Type="nvarchar" MaxLength="50" />
           <Property Name="fechaUltimoPedido" Type="date" />
           <Property Name="codProducto" Type="nvarchar" MaxLength="10" />
-          <Property Name="Producto" Type="nvarchar" MaxLength="30" />
+          <Property Name="Producto" Type="nvarchar" MaxLength="100" />
         </EntityType>-->
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_UtilidadPorProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_UtilidadPorProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_UtilidadPorProducto">
           <Key>
             <PropertyRef Name="canumi" />
           </Key>
           <Property Name="canumi" Type="int" Nullable="false" />
-          <Property Name="producto" Type="nvarchar" MaxLength="50" />
+          <Property Name="producto" Type="nvarchar" MaxLength="100" />
           <Property Name="cantidad" Type="decimal" Precision="38" Scale="2" />
           <Property Name="precioCosto" Type="numeric" Precision="38" Scale="4" />
           <Property Name="precioVenta" Type="numeric" Precision="38" Scale="2" />
           <Property Name="Utilidad" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_VentasVendedor12Meses' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.Vr_VentasVendedor12Meses' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_VentasVendedor12Meses">
           <Key>
             <PropertyRef Name="numiVendedor" />
@@ -2705,7 +2761,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_VentasVendedor12Meses
           <Property Name="total" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_VentasVendidas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.Vr_VentasVendidas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_VentasVendidas">
           <Key>
             <PropertyRef Name="aanumi" />
@@ -2719,13 +2775,13 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_VentasVendidas' no ti
           <Property Name="ydnumi" Type="int" Nullable="false" />
           <Property Name="yddesc" Type="nvarchar" MaxLength="50" />
           <Property Name="CodVenta" Type="int" Nullable="false" />
-          <Property Name="cliente" Type="nvarchar" MaxLength="50" />
+          <Property Name="cliente" Type="nvarchar" MaxLength="200" />
           <Property Name="facturas" Type="varchar" MaxLength="1" Nullable="false" />
           <Property Name="FechaVenta" Type="date" />
           <Property Name="total" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCosto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_VistaPedido_PrecioCosto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_VistaPedido_PrecioCosto">
           <Key>
             <PropertyRef Name="codcliente" />
@@ -2734,7 +2790,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="oanumi" Type="nvarchar" MaxLength="40" />
           <Property Name="oafdoc" Type="date" />
           <Property Name="codcliente" Type="int" Nullable="false" />
-          <Property Name="cliente" Type="nvarchar" MaxLength="50" />
+          <Property Name="cliente" Type="nvarchar" MaxLength="200" />
           <Property Name="codRepartidor" Type="int" Nullable="false" />
           <Property Name="repartidor" Type="nvarchar" MaxLength="50" />
           <Property Name="precioCosto" Type="numeric" Precision="38" Scale="4" />
@@ -2941,6 +2997,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Parameter Name="producto" Type="int" Mode="In" />
           <Parameter Name="categoria" Type="int" Mode="In" />
           <Parameter Name="tcre" Type="int" Mode="In" />
+          <Parameter Name="limiteCred" Type="decimal" Mode="In" />
+          <Parameter Name="limiteDias" Type="decimal" Mode="In" />
         </Function>
         <Function Name="sp_go_TC004_appMovil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tipo" Type="int" Mode="In" />
@@ -2979,8 +3037,14 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Parameter Name="longitud" Type="decimal" Mode="In" />
           <Parameter Name="total" Type="decimal" Mode="In" />
           <Parameter Name="tipocobro" Type="int" Mode="In" />
+          <Parameter Name="tenumi" Type="nvarchar" Mode="In" />
           <Parameter Name="codigogenerado" Type="nvarchar" Mode="In" />
           <Parameter Name="cczona" Type="int" Mode="In" />
+          <Parameter Name="RazonSocial" Type="nvarchar" Mode="In" />
+          <Parameter Name="Reclamo" Type="nvarchar" Mode="In" />
+          <Parameter Name="idzona" Type="int" Mode="In" />
+          <Parameter Name="body" Type="xml" Mode="In" />
+          <Parameter Name="TV00121" Type="xml" Mode="In" />
         </Function>
         <Function Name="sp_go_TC009" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tipo" Type="int" Mode="In" />
@@ -3379,6 +3443,9 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <EntitySet Name="TL001" EntityType="Self.TL001" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TL002" EntityType="Self.TL002" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TO001" EntityType="Self.TO001" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TO0011" EntityType="Self.TO0011" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TO001A" EntityType="Self.TO001A" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TO001A1" EntityType="Self.TO001A1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TO001C" EntityType="Self.TO001C" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TO004" EntityType="Self.TO004" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TO005" EntityType="Self.TO005" Schema="dbo" store:Type="Tables" />
@@ -3524,20 +3591,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
     [TM0013].[idtipo] AS [idtipo]
     FROM [dbo].[TM0013] AS [TM0013]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="TO0011" EntityType="Self.TO0011" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TO0011].[obnumi] AS [obnumi], 
-    [TO0011].[obcprod] AS [obcprod], 
-    [TO0011].[obpcant] AS [obpcant], 
-    [TO0011].[obpbase] AS [obpbase], 
-    [TO0011].[obptot] AS [obptot], 
-    [TO0011].[obdesc] AS [obdesc], 
-    [TO0011].[obtotal] AS [obtotal], 
-    [TO0011].[obfamilia] AS [obfamilia], 
-    [TO0011].[obcampo1] AS [obcampo1], 
-    [TO0011].[obcampo2] AS [obcampo2]
-    FROM [dbo].[TO0011] AS [TO0011]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="TO0014" EntityType="Self.TO0014" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [TO0014].[ofnumi] AS [ofnumi], 
@@ -3550,15 +3603,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
     [TO0014].[ofhact] AS [ofhact], 
     [TO0014].[ofuact] AS [ofuact]
     FROM [dbo].[TO0014] AS [TO0014]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TO001A" EntityType="Self.TO001A" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TO001A].[oaanumi] AS [oaanumi], 
-    [TO001A].[oaato1numi] AS [oaato1numi], 
-    [TO001A].[oaanumiprev] AS [oaanumiprev], 
-    [TO001A].[oaaentrega] AS [oaaentrega], 
-    [TO001A].[oaacaja] AS [oaacaja]
-    FROM [dbo].[TO001A] AS [TO001A]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="TO002" EntityType="Self.TO002" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -3749,6 +3793,18 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
     [TV0013].[teuact] AS [teuact]
     FROM [dbo].[TV0013] AS [TV0013]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="App_Listado_CobrosPendientes" EntityType="Self.App_Listado_CobrosPendientes" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [App_Listado_CobrosPendientes].[PedidoId] AS [PedidoId], 
+    [App_Listado_CobrosPendientes].[ClienteId] AS [ClienteId], 
+    [App_Listado_CobrosPendientes].[cliente] AS [cliente], 
+    [App_Listado_CobrosPendientes].[PersonalId] AS [PersonalId], 
+    [App_Listado_CobrosPendientes].[vendedor] AS [vendedor], 
+    [App_Listado_CobrosPendientes].[FechaPedido] AS [FechaPedido], 
+    [App_Listado_CobrosPendientes].[totalfactura] AS [totalfactura], 
+    [App_Listado_CobrosPendientes].[pendiente] AS [pendiente]
+    FROM [dbo].[App_Listado_CobrosPendientes] AS [App_Listado_CobrosPendientes]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vista_promconsumo" EntityType="Self.vista_promconsumo" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vista_promconsumo].[ccnumi] AS [ccnumi], 
@@ -3859,6 +3915,21 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
     [VR_EntregaPedidos].[cadesc2] AS [cadesc2]
     FROM [dbo].[VR_EntregaPedidos] AS [VR_EntregaPedidos]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VR_EstadoCuentasClientes" EntityType="Self.VR_EstadoCuentasClientes" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VR_EstadoCuentasClientes].[numicli] AS [numicli], 
+    [VR_EstadoCuentasClientes].[cliente] AS [cliente], 
+    [VR_EstadoCuentasClientes].[fecha] AS [fecha], 
+    [VR_EstadoCuentasClientes].[numiDoc] AS [numiDoc], 
+    [VR_EstadoCuentasClientes].[Detalle] AS [Detalle], 
+    [VR_EstadoCuentasClientes].[fechacredito] AS [fechacredito], 
+    [VR_EstadoCuentasClientes].[Importe] AS [Importe], 
+    [VR_EstadoCuentasClientes].[Pagos] AS [Pagos], 
+    [VR_EstadoCuentasClientes].[Saldos] AS [Saldos], 
+    [VR_EstadoCuentasClientes].[concepto] AS [concepto], 
+    [VR_EstadoCuentasClientes].[fecha1] AS [fecha1]
+    FROM [dbo].[VR_EstadoCuentasClientes] AS [VR_EstadoCuentasClientes]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VR_Facturas" EntityType="Self.VR_Facturas" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [VR_Facturas].[fvanumi] AS [fvanumi], 
@@ -3907,7 +3978,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
     [VR_GO_CajaGeneral].[IdCaja] AS [IdCaja], 
     [VR_GO_CajaGeneral].[FechaCaja] AS [FechaCaja], 
     [VR_GO_CajaGeneral].[Conciliacion] AS [Conciliacion], 
-    [VR_GO_CajaGeneral].[FechaPedido] AS [FechaPedido], 
     [VR_GO_CajaGeneral].[Repartidor] AS [Repartidor], 
     [VR_GO_CajaGeneral].[TotalConciliacion] AS [TotalConciliacion], 
     [VR_GO_CajaGeneral].[TotalEfectivo] AS [TotalEfectivo], 
@@ -4820,6 +4890,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
             <Parameter Name="producto" Mode="In" Type="Int32" />
             <Parameter Name="categoria" Mode="In" Type="Int32" />
             <Parameter Name="tcre" Mode="In" Type="Int32" />
+            <Parameter Name="limiteCred" Mode="In" Type="Decimal" />
+            <Parameter Name="limiteDias" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="sp_go_TC004_appMovil">
             <Parameter Name="tipo" Mode="In" Type="Int32" />
@@ -4858,8 +4930,14 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
             <Parameter Name="longitud" Mode="In" Type="Decimal" />
             <Parameter Name="total" Mode="In" Type="Decimal" />
             <Parameter Name="tipocobro" Mode="In" Type="Int32" />
+            <Parameter Name="tenumi" Mode="In" Type="String" />
             <Parameter Name="codigogenerado" Mode="In" Type="String" />
             <Parameter Name="cczona" Mode="In" Type="Int32" />
+            <Parameter Name="RazonSocial" Mode="In" Type="String" />
+            <Parameter Name="Reclamo" Mode="In" Type="String" />
+            <Parameter Name="idzona" Mode="In" Type="Int32" />
+            <Parameter Name="body" Mode="In" Type="String" />
+            <Parameter Name="TV00121" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_go_TC009">
             <Parameter Name="tipo" Mode="In" Type="Int32" />
@@ -5257,6 +5335,9 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <EntitySet Name="TL001" EntityType="BDDistBHFModel.TL001" />
           <EntitySet Name="TL002" EntityType="BDDistBHFModel.TL002" />
           <EntitySet Name="TO001" EntityType="BDDistBHFModel.TO001" />
+          <EntitySet Name="TO0011" EntityType="BDDistBHFModel.TO0011" />
+          <EntitySet Name="TO001A" EntityType="BDDistBHFModel.TO001A" />
+          <EntitySet Name="TO001A1" EntityType="BDDistBHFModel.TO001A1" />
           <EntitySet Name="TO001C" EntityType="BDDistBHFModel.TO001C" />
           <EntitySet Name="TO004" EntityType="BDDistBHFModel.TO004" />
           <EntitySet Name="TO005" EntityType="BDDistBHFModel.TO005" />
@@ -5283,9 +5364,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <EntitySet Name="TM0011" EntityType="BDDistBHFModel.TM0011" />
           <EntitySet Name="TM0012" EntityType="BDDistBHFModel.TM0012" />
           <EntitySet Name="TM0013" EntityType="BDDistBHFModel.TM0013" />
-          <EntitySet Name="TO0011" EntityType="BDDistBHFModel.TO0011" />
           <EntitySet Name="TO0014" EntityType="BDDistBHFModel.TO0014" />
-          <EntitySet Name="TO001A" EntityType="BDDistBHFModel.TO001A" />
           <EntitySet Name="TO002" EntityType="BDDistBHFModel.TO002" />
           <EntitySet Name="TO0021" EntityType="BDDistBHFModel.TO0021" />
           <EntitySet Name="TO0022" EntityType="BDDistBHFModel.TO0022" />
@@ -5302,6 +5381,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <EntitySet Name="TP0061" EntityType="BDDistBHFModel.TP0061" />
           <EntitySet Name="TS001" EntityType="BDDistBHFModel.TS001" />
           <EntitySet Name="TV0013" EntityType="BDDistBHFModel.TV0013" />
+          <EntitySet Name="App_Listado_CobrosPendientes" EntityType="BDDistBHFModel.App_Listado_CobrosPendientes" />
           <EntitySet Name="vista_promconsumo" EntityType="BDDistBHFModel.vista_promconsumo" />
           <EntitySet Name="vista_transacciones" EntityType="BDDistBHFModel.vista_transacciones" />
           <EntitySet Name="VR_CajaDetalle" EntityType="BDDistBHFModel.VR_CajaDetalle" />
@@ -5310,6 +5390,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <EntitySet Name="Vr_Conciliacion" EntityType="BDDistBHFModel.Vr_Conciliacion" />
           <EntitySet Name="VR_CuentasPagar_PagosRealizados" EntityType="BDDistBHFModel.VR_CuentasPagar_PagosRealizados" />
           <EntitySet Name="VR_EntregaPedidos" EntityType="BDDistBHFModel.VR_EntregaPedidos" />
+          <EntitySet Name="VR_EstadoCuentasClientes" EntityType="BDDistBHFModel.VR_EstadoCuentasClientes" />
           <EntitySet Name="VR_Facturas" EntityType="BDDistBHFModel.VR_Facturas" />
           <EntitySet Name="VR_FacturasChacaltaya" EntityType="BDDistBHFModel.VR_FacturasChacaltaya" />
           <EntitySet Name="VR_GO_CajaGeneral" EntityType="BDDistBHFModel.VR_GO_CajaGeneral" />
@@ -5574,7 +5655,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
             <PropertyRef Name="canumi" />
           </Key>
           <Property Name="canumi" Type="Int32" Nullable="false" />
-          <Property Name="cacod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="cacod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="cadesc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="cacat" Type="Int32" />
@@ -5586,7 +5667,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="cafing" Type="DateTime" Precision="0" />
           <Property Name="cacemp" Type="Int32" />
           <Property Name="cafact" Type="DateTime" Precision="0" />
-          <Property Name="cahact" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="cahact" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="cauact" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="cacbarra" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="casmin" Type="Int32" />
@@ -5650,14 +5731,14 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
             <PropertyRef Name="ccnumi" />
           </Key>
           <Property Name="ccnumi" Type="Int32" Nullable="false" />
-          <Property Name="cccod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cccod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ccdesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="cczona" Type="Int32" />
           <Property Name="ccdct" Type="Int32" Nullable="false" />
           <Property Name="ccdctnum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="ccdirec" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="cctelf1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="cctelf2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ccdirec" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="cctelf1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="cctelf2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="cccat" Type="Int32" />
           <Property Name="ccest" Type="Int32" />
           <Property Name="cclat" Type="Decimal" Precision="18" Scale="14" />
@@ -5666,8 +5747,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="cceven" Type="Boolean" />
           <Property Name="ccobs" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="ccfnac" Type="DateTime" Precision="0" />
-          <Property Name="ccnomfac" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="ccnit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ccnomfac" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ccnit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ccultped" Type="DateTime" Precision="0" />
           <Property Name="ccfecing" Type="DateTime" Precision="0" />
           <Property Name="ccultvent" Type="DateTime" Precision="0" />
@@ -5697,6 +5778,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="ccbnumi" Type="Int32" Nullable="false" />
           <Property Name="ccbzona" Type="Int32" />
           <Property Name="ccbtcre" Type="Int32" />
+          <Property Name="ccLimite" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ccDias" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="TC005">
           <Key>
@@ -5990,6 +6073,40 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="oafact" Type="DateTime" Precision="0" />
           <Property Name="oahact" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="oauact" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TO0011">
+          <Key>
+            <PropertyRef Name="IdPedidoDetalle" />
+          </Key>
+          <Property Name="obnumi" Type="Int32" Nullable="false" />
+          <Property Name="obcprod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="obpcant" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="obpbase" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="obptot" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="obdesc" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="obtotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="obfamilia" Type="Int32" />
+          <Property Name="obcampo1" Type="Int32" />
+          <Property Name="obcampo2" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IdPedidoDetalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="TO001A">
+          <Key>
+            <PropertyRef Name="oaanumi" />
+          </Key>
+          <Property Name="oaanumi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="oaato1numi" Type="Int32" />
+          <Property Name="oaanumiprev" Type="Int32" />
+          <Property Name="oaaentrega" Type="Int32" />
+          <Property Name="oaacaja" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TO001A1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ognumi" Type="Int32" />
+          <Property Name="ogcred" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="TO001C">
           <Key>
@@ -6322,21 +6439,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="idto1numi" Type="Int32" />
           <Property Name="idtipo" Type="Int32" />
         </EntityType>
-        <EntityType Name="TO0011">
-          <Key>
-            <PropertyRef Name="obnumi" />
-          </Key>
-          <Property Name="obnumi" Type="Int32" Nullable="false" />
-          <Property Name="obcprod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="obpcant" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="obpbase" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="obptot" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="obdesc" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="obtotal" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="obfamilia" Type="Int32" />
-          <Property Name="obcampo1" Type="Int32" />
-          <Property Name="obcampo2" Type="Decimal" Precision="18" Scale="2" />
-        </EntityType>
         <EntityType Name="TO0014">
           <Key>
             <PropertyRef Name="ofnumi" />
@@ -6351,16 +6453,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="offact" Type="DateTime" Precision="0" />
           <Property Name="ofhact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ofuact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="TO001A">
-          <Key>
-            <PropertyRef Name="oaanumi" />
-          </Key>
-          <Property Name="oaanumi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="oaato1numi" Type="Int32" />
-          <Property Name="oaanumiprev" Type="Int32" />
-          <Property Name="oaaentrega" Type="Int32" />
-          <Property Name="oaacaja" Type="Int32" />
         </EntityType>
         <EntityType Name="TO002">
           <Key>
@@ -6567,15 +6659,28 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="tehact" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="teuact" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="App_Listado_CobrosPendientes">
+          <Key>
+            <PropertyRef Name="PedidoId" />
+          </Key>
+          <Property Name="PedidoId" Type="Int32" Nullable="false" />
+          <Property Name="ClienteId" Type="Int32" />
+          <Property Name="cliente" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalId" Type="Int32" />
+          <Property Name="vendedor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaPedido" Type="DateTime" Precision="0" />
+          <Property Name="totalfactura" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="pendiente" Type="Decimal" Precision="38" Scale="2" />
+        </EntityType>
         <EntityType Name="vista_promconsumo">
           <Key>
             <PropertyRef Name="ccnumi" />
           </Key>
           <Property Name="ccnumi" Type="Int32" Nullable="false" />
-          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ccdesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="cczona" Type="Int32" />
-          <Property Name="cctelf1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ccdirec" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="cctelf1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ccdirec" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="ccest" Type="Int32" />
           <Property Name="ccprconsu" Type="Int32" />
           <Property Name="fTentativa" Type="DateTime" Precision="0" />
@@ -6603,7 +6708,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="oanumi" Type="Int32" Nullable="false" />
           <Property Name="oafdoc" Type="DateTime" Precision="0" />
           <Property Name="oacnrofac" Type="Int64" />
-          <Property Name="cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cliente" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="oarepa" Type="Int32" />
           <Property Name="oaest" Type="Int32" />
           <Property Name="oaap" Type="Int32" />
@@ -6636,12 +6741,12 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           </Key>
           <Property Name="ccnumi" Type="Int32" />
           <Property Name="ccdctnum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ccdirec" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ccdesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ccdirec" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="zon" Type="Int32" />
           <Property Name="nzon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="codP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="can" Type="Int32" />
+          <Property Name="codP" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="can" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="tot" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="ped" Type="Int32" Nullable="false" />
           <Property Name="cacat" Type="Int32" />
@@ -6688,6 +6793,24 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="odtprod" Type="Int32" />
           <Property Name="cadesc" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="cadesc2" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VR_EstadoCuentasClientes">
+          <Key>
+            <PropertyRef Name="numiDoc" />
+            <PropertyRef Name="Saldos" />
+            <PropertyRef Name="concepto" />
+          </Key>
+          <Property Name="numicli" Type="Int32" />
+          <Property Name="cliente" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fecha" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="numiDoc" Type="Int32" Nullable="false" />
+          <Property Name="Detalle" Type="String" MaxLength="41" FixedLength="false" Unicode="false" />
+          <Property Name="fechacredito" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Importe" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Pagos" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Saldos" Type="Decimal" Nullable="false" Precision="2" Scale="2" />
+          <Property Name="concepto" Type="Int32" Nullable="false" />
+          <Property Name="fecha1" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="VR_Facturas">
           <Key>
@@ -6742,7 +6865,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="IdCaja" Type="Int32" Nullable="false" />
           <Property Name="FechaCaja" Type="DateTime" Precision="0" />
           <Property Name="Conciliacion" Type="Int32" />
-          <Property Name="FechaPedido" Type="DateTime" Precision="0" />
           <Property Name="Repartidor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TotalConciliacion" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="TotalEfectivo" Type="Decimal" Precision="38" Scale="2" />
@@ -6797,7 +6919,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           </Key>
           <Property Name="oanumi" Type="Int32" Nullable="false" />
           <Property Name="oafdoc" Type="DateTime" Precision="0" />
-          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ccdesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="cbdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="canumi" Type="Int32" Nullable="false" />
           <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -6808,8 +6930,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="oaest" Type="Int32" />
           <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
           <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="ccnit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="cctelf1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ccnit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cctelf1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="VR_GO_DespachoXCliente">
           <Key>
@@ -6820,8 +6942,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           </Key>
           <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
           <Property Name="ccnumi" Type="Int32" Nullable="false" />
-          <Property Name="cccod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cccod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ccdesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="oacnrofact" Type="Int64" Nullable="false" />
           <Property Name="obptot" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="obdesc" Type="Decimal" Precision="38" Scale="2" />
@@ -6839,7 +6961,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           </Key>
           <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
           <Property Name="canumi" Type="Int32" Nullable="false" />
-          <Property Name="cacod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="cacod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="cadesc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -6858,12 +6980,12 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="fecha" Type="DateTime" Precision="0" />
           <Property Name="ccli" Type="Int32" />
           <Property Name="cpro" Type="Int32" />
-          <Property Name="npro" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="npro" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="pedido" Type="Int32" />
           <Property Name="nota" Type="Int32" />
-          <Property Name="cped" Type="Int32" Nullable="false" />
+          <Property Name="cped" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <Property Name="cnot" Type="Int32" />
-          <Property Name="dif" Type="Int32" />
+          <Property Name="dif" Type="Decimal" Precision="19" Scale="2" />
           <Property Name="hora" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="usuario" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -6872,13 +6994,13 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
             <PropertyRef Name="numi" />
           </Key>
           <Property Name="numi" Type="Int32" Nullable="false" />
-          <Property Name="desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="desc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="fultven" Type="DateTime" Precision="0" />
-          <Property Name="telf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="dir" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="telf" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="dir" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="saldo" Type="Double" />
           <Property Name="cequi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="nequi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="nequi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="czona" Type="Int32" />
           <Property Name="dpto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="prov" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -6889,12 +7011,12 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
             <PropertyRef Name="codbd" />
           </Key>
           <Property Name="codbd" Type="Int32" Nullable="false" />
-          <Property Name="codigo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="contacto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contacto" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="carrito" Type="Int32" />
           <Property Name="botellone" Type="Int32" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="VR_GO_Factura">
           <Key>
@@ -6986,9 +7108,9 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
             <PropertyRef Name="chnumi" />
           </Key>
           <Property Name="chnumi" Type="Int32" Nullable="false" />
-          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ccdesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="chcod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="chdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="chdesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="chtmov" Type="Int32" />
           <Property Name="cpdesc" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="cant" Type="Double" />
@@ -7000,7 +7122,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
             <PropertyRef Name="chlin" />
           </Key>
           <Property Name="chnumi" Type="Int32" Nullable="false" />
-          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ccdesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="chlin" Type="Int32" Nullable="false" />
           <Property Name="chfec" Type="DateTime" Precision="0" />
           <Property Name="chcod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
@@ -7025,14 +7147,14 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="oarepa" Type="Int32" />
           <Property Name="cbdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ccnumi" Type="Int32" Nullable="false" />
-          <Property Name="cccod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cccod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ccdesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="obpcant" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="cadesc2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="obpbase" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="obptot" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="cctelf1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ccdirec" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="cctelf1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ccdirec" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="oaobs" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="oaanumiprev" Type="Int32" />
           <Property Name="cbdesc2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -7042,9 +7164,9 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
             <PropertyRef Name="chnumi" />
           </Key>
           <Property Name="chnumi" Type="Int32" Nullable="false" />
-          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ccdesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="chcod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="cadesc" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="cantES" Type="Double" />
           <Property Name="ES" Type="Int32" />
         </EntityType>
@@ -7133,18 +7255,18 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="alm" Type="Int32" />
           <Property Name="id2" Type="Int32" Nullable="false" />
           <Property Name="cprod" Type="Int32" />
-          <Property Name="descProd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="desc2Prod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="descProd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="desc2Prod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="cant" Type="Decimal" Precision="29" Scale="2" />
           <Property Name="saldo" Type="Decimal" Nullable="false" Precision="1" Scale="1" />
-          <Property Name="nombreCliente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nombreCliente" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="VR_KardexPrestamos">
           <Key>
             <PropertyRef Name="chnumi" />
           </Key>
           <Property Name="chnumi" Type="Int32" Nullable="false" />
-          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ccdesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="cczona" Type="Int32" />
           <Property Name="cedesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="chfec" Type="DateTime" Precision="0" />
@@ -7300,10 +7422,10 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           </Key>
           <Property Name="pago" Type="Decimal" Nullable="false" Precision="38" Scale="2" />
           <Property Name="numicliente" Type="Int32" Nullable="false" />
-          <Property Name="cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="direc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="telf1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="contacto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cliente" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="direc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="telf1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="contacto" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="codven" Type="Int32" />
           <Property Name="ydlcred" Type="Int32" Nullable="false" />
           <Property Name="tanumi" Type="Int32" Nullable="false" />
@@ -7321,8 +7443,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           </Key>
           <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="numiProducto" Type="Int32" Nullable="false" />
-          <Property Name="producto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NombreCorto" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="producto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NombreCorto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="empresa" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="cantidad" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="obpbase" Type="Decimal" Precision="18" Scale="2" />
@@ -7356,12 +7478,12 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           </Key>
           <Property Name="oanumi" Type="Int32" Nullable="false" />
           <Property Name="CodCliente" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="CI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Celular" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Celular" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="CodProducto" Type="Int32" Nullable="false" />
-          <Property Name="Producto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Producto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="PrecioUnitario" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
@@ -7427,7 +7549,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
             <PropertyRef Name="canumi" />
           </Key>
           <Property Name="canumi" Type="Int32" Nullable="false" />
-          <Property Name="cadesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="vend1" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="totvend1" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="vend2" Type="Decimal" Precision="38" Scale="2" />
@@ -7497,7 +7619,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
             <PropertyRef Name="StockSoloPedidos" />
           </Key>
           <Property Name="canumi" Type="Int32" Nullable="false" />
-          <Property Name="cadesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="stockSinPedido" Type="Decimal" Nullable="false" Precision="38" Scale="2" />
           <Property Name="StockSoloPedidos" Type="Decimal" Nullable="false" Precision="38" Scale="2" />
@@ -7508,7 +7630,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
             <PropertyRef Name="canumi" />
           </Key>
           <Property Name="canumi" Type="Int32" Nullable="false" />
-          <Property Name="producto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="producto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="cantidad" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="precioCosto" Type="Decimal" Precision="38" Scale="4" />
           <Property Name="precioVenta" Type="Decimal" Precision="38" Scale="2" />
@@ -7547,7 +7669,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="ydnumi" Type="Int32" Nullable="false" />
           <Property Name="yddesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CodVenta" Type="Int32" Nullable="false" />
-          <Property Name="cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cliente" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="facturas" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="FechaVenta" Type="DateTime" Precision="0" />
           <Property Name="total" Type="Decimal" Precision="38" Scale="2" />
@@ -7560,7 +7682,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="oanumi" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="oafdoc" Type="DateTime" Precision="0" />
           <Property Name="codcliente" Type="Int32" Nullable="false" />
-          <Property Name="cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cliente" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="codRepartidor" Type="Int32" Nullable="false" />
           <Property Name="repartidor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="precioCosto" Type="Decimal" Precision="38" Scale="4" />
@@ -8010,6 +8132,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <EntitySetMapping Name="TC004B">
             <EntityTypeMapping TypeName="BDDistBHFModel.TC004B">
               <MappingFragment StoreEntitySet="TC004B">
+                <ScalarProperty Name="ccDias" ColumnName="ccDias" />
+                <ScalarProperty Name="ccLimite" ColumnName="ccLimite" />
                 <ScalarProperty Name="ccbtcre" ColumnName="ccbtcre" />
                 <ScalarProperty Name="ccbzona" ColumnName="ccbzona" />
                 <ScalarProperty Name="ccbnumi" ColumnName="ccbnumi" />
@@ -8324,6 +8448,43 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
                 <ScalarProperty Name="oahora" ColumnName="oahora" />
                 <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
                 <ScalarProperty Name="oanumi" ColumnName="oanumi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TO0011">
+            <EntityTypeMapping TypeName="BDDistBHFModel.TO0011">
+              <MappingFragment StoreEntitySet="TO0011">
+                <ScalarProperty Name="IdPedidoDetalle" ColumnName="IdPedidoDetalle" />
+                <ScalarProperty Name="obcampo2" ColumnName="obcampo2" />
+                <ScalarProperty Name="obcampo1" ColumnName="obcampo1" />
+                <ScalarProperty Name="obfamilia" ColumnName="obfamilia" />
+                <ScalarProperty Name="obtotal" ColumnName="obtotal" />
+                <ScalarProperty Name="obdesc" ColumnName="obdesc" />
+                <ScalarProperty Name="obptot" ColumnName="obptot" />
+                <ScalarProperty Name="obpbase" ColumnName="obpbase" />
+                <ScalarProperty Name="obpcant" ColumnName="obpcant" />
+                <ScalarProperty Name="obcprod" ColumnName="obcprod" />
+                <ScalarProperty Name="obnumi" ColumnName="obnumi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TO001A">
+            <EntityTypeMapping TypeName="BDDistBHFModel.TO001A">
+              <MappingFragment StoreEntitySet="TO001A">
+                <ScalarProperty Name="oaacaja" ColumnName="oaacaja" />
+                <ScalarProperty Name="oaaentrega" ColumnName="oaaentrega" />
+                <ScalarProperty Name="oaanumiprev" ColumnName="oaanumiprev" />
+                <ScalarProperty Name="oaato1numi" ColumnName="oaato1numi" />
+                <ScalarProperty Name="oaanumi" ColumnName="oaanumi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TO001A1">
+            <EntityTypeMapping TypeName="BDDistBHFModel.TO001A1">
+              <MappingFragment StoreEntitySet="TO001A1">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ogcred" ColumnName="ogcred" />
+                <ScalarProperty Name="ognumi" ColumnName="ognumi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8679,22 +8840,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TO0011">
-            <EntityTypeMapping TypeName="BDDistBHFModel.TO0011">
-              <MappingFragment StoreEntitySet="TO0011">
-                <ScalarProperty Name="obcampo2" ColumnName="obcampo2" />
-                <ScalarProperty Name="obcampo1" ColumnName="obcampo1" />
-                <ScalarProperty Name="obfamilia" ColumnName="obfamilia" />
-                <ScalarProperty Name="obtotal" ColumnName="obtotal" />
-                <ScalarProperty Name="obdesc" ColumnName="obdesc" />
-                <ScalarProperty Name="obptot" ColumnName="obptot" />
-                <ScalarProperty Name="obpbase" ColumnName="obpbase" />
-                <ScalarProperty Name="obpcant" ColumnName="obpcant" />
-                <ScalarProperty Name="obcprod" ColumnName="obcprod" />
-                <ScalarProperty Name="obnumi" ColumnName="obnumi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TO0014">
             <EntityTypeMapping TypeName="BDDistBHFModel.TO0014">
               <MappingFragment StoreEntitySet="TO0014">
@@ -8707,17 +8852,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
                 <ScalarProperty Name="ofest" ColumnName="ofest" />
                 <ScalarProperty Name="ofnumiped" ColumnName="ofnumiped" />
                 <ScalarProperty Name="ofnumi" ColumnName="ofnumi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TO001A">
-            <EntityTypeMapping TypeName="BDDistBHFModel.TO001A">
-              <MappingFragment StoreEntitySet="TO001A">
-                <ScalarProperty Name="oaacaja" ColumnName="oaacaja" />
-                <ScalarProperty Name="oaaentrega" ColumnName="oaaentrega" />
-                <ScalarProperty Name="oaanumiprev" ColumnName="oaanumiprev" />
-                <ScalarProperty Name="oaato1numi" ColumnName="oaato1numi" />
-                <ScalarProperty Name="oaanumi" ColumnName="oaanumi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8942,6 +9076,20 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="App_Listado_CobrosPendientes">
+            <EntityTypeMapping TypeName="BDDistBHFModel.App_Listado_CobrosPendientes">
+              <MappingFragment StoreEntitySet="App_Listado_CobrosPendientes">
+                <ScalarProperty Name="pendiente" ColumnName="pendiente" />
+                <ScalarProperty Name="totalfactura" ColumnName="totalfactura" />
+                <ScalarProperty Name="FechaPedido" ColumnName="FechaPedido" />
+                <ScalarProperty Name="vendedor" ColumnName="vendedor" />
+                <ScalarProperty Name="PersonalId" ColumnName="PersonalId" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vista_promconsumo">
             <EntityTypeMapping TypeName="BDDistBHFModel.vista_promconsumo">
               <MappingFragment StoreEntitySet="vista_promconsumo">
@@ -9068,6 +9216,23 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="VR_EstadoCuentasClientes">
+            <EntityTypeMapping TypeName="BDDistBHFModel.VR_EstadoCuentasClientes">
+              <MappingFragment StoreEntitySet="VR_EstadoCuentasClientes">
+                <ScalarProperty Name="fecha1" ColumnName="fecha1" />
+                <ScalarProperty Name="concepto" ColumnName="concepto" />
+                <ScalarProperty Name="Saldos" ColumnName="Saldos" />
+                <ScalarProperty Name="Pagos" ColumnName="Pagos" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="fechacredito" ColumnName="fechacredito" />
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+                <ScalarProperty Name="numiDoc" ColumnName="numiDoc" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="numicli" ColumnName="numicli" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="VR_Facturas">
             <EntityTypeMapping TypeName="BDDistBHFModel.VR_Facturas">
               <MappingFragment StoreEntitySet="VR_Facturas">
@@ -9125,7 +9290,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
                 <ScalarProperty Name="TotalEfectivo" ColumnName="TotalEfectivo" />
                 <ScalarProperty Name="TotalConciliacion" ColumnName="TotalConciliacion" />
                 <ScalarProperty Name="Repartidor" ColumnName="Repartidor" />
-                <ScalarProperty Name="FechaPedido" ColumnName="FechaPedido" />
                 <ScalarProperty Name="Conciliacion" ColumnName="Conciliacion" />
                 <ScalarProperty Name="FechaCaja" ColumnName="FechaCaja" />
                 <ScalarProperty Name="IdCaja" ColumnName="IdCaja" />

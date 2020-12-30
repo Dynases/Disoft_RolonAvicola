@@ -29,15 +29,6 @@
         End Set
     End Property
 
-    Private _FechaPedido As DateTime
-    Public Property FechaPedido() As DateTime
-        Get
-            Return _FechaPedido
-        End Get
-        Set(ByVal value As DateTime)
-            _FechaPedido = value
-        End Set
-    End Property
 
     Private _Repartidor As String
     Public Property Repartidor() As String
