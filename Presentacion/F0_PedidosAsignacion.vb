@@ -18,7 +18,7 @@ Public Class F0_PedidosAsignacion
     Dim _overlay3 As GMapOverlay
     Dim _soloRepartidor As Integer = 1
     'Dim _colCkeck = 23 '21 '19
-    Dim _colCkeck = 24
+    Dim _colCkeck = 25
     Public _nameButton As String
     Public _tab As SuperTabItem
     Public _modulo As SideNavItem
@@ -205,6 +205,7 @@ Public Class F0_PedidosAsignacion
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .AggregateFunction = AggregateFunction.Sum
         End With
+
         'dar formato a las columnas
         With objGrid.RootTable.Columns(0)
             .Caption = "Cod.Ped"
@@ -338,6 +339,13 @@ Public Class F0_PedidosAsignacion
 
         With objGrid.RootTable.Columns("cceven")
             .Visible = False
+        End With
+
+        With objGrid.RootTable.Columns("repartidor")
+            .Width = 120
+            .Visible = True
+            .Caption = "Repartidor"
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
         End With
 
         'objGrid.RootTable.Columns.Add("Check")

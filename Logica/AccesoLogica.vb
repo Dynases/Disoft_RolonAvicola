@@ -1074,7 +1074,13 @@ Public Class AccesoLogica
         Else
             _Where = "oanumi=oanumi And ccnumi=oaccli And oazona=lanumi And cecon=2 And lazona=cenum " + _Cadena
         End If
-        _Tabla = D_Datos_Tabla("DISTINCT oanumi,oafdoc,oahora,cccod,ccdesc,ccdirec,cctelf1,cccat,cczona as oazona,cedesc,oaobs,oaobs2,oaest,cclat,cclongi,oaap,IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi)>0,1,0 ) as reclamo,oapg,ccultvent,IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi And oftip=1)>0,1,0 ) as tipoRecCliente,IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi And oftip=2)>0,1,0 ) as tipoRecRepartidor, ccnumi, cceven,cast((select sum(obtotal )  from TO0011 where obnumi =oanumi) as decimal(18,2)) as monto", "TO001,TC004,TC0051,TL001", _Where + " order by oanumi")
+        _Tabla = D_Datos_Tabla("DISTINCT oanumi,oafdoc,oahora,cccod,ccdesc,ccdirec,cctelf1,cccat,cczona as oazona,
+        cedesc,oaobs,oaobs2,oaest,cclat,cclongi,oaap,IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi)>0,1,0 ) as reclamo,oapg,
+        ccultvent,IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi And oftip=1)>0,1,0 ) as tipoRecCliente,
+        IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi And oftip=2)>0,1,0 ) as tipoRecRepartidor, ccnumi, cceven,
+        cast((select sum(obtotal )  from TO0011 where obnumi =oanumi) as decimal(18,2)) as monto,       
+        IIF(exists(select rep.cbdesc from TO001C as y, TC002 rep where y.oacoanumi=oanumi and cbnumi=y.oaccbnumi),
+	    (select rep.cbdesc from TO001C as y, TC002 rep where y.oacoanumi=oanumi and cbnumi=y.oaccbnumi),'') as repartidor", "TO001,TC004,TC0051,TL001", _Where + " order by oanumi")
         Return _Tabla
     End Function
 
@@ -1120,7 +1126,9 @@ Public Class AccesoLogica
                                + "oapg,ccultvent," _
                                + "IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi And oftip=1)>0,1,0 ) as tipoRecCliente," _
                                + "IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi And oftip=2)>0,1,0 ) as tipoRecRepartidor," _
-                                + "ccnumi, cceven,cast((select sum(obtotal )  from TO0011 where obnumi =oanumi) as decimal(18,2)) as monto",
+                               + "ccnumi, cceven,cast((select sum(obtotal )  from TO0011 where obnumi =oanumi) as decimal(18,2)) as monto," _
+                               + "IIF(exists(select rep.cbdesc from TO001C as y, TC002 rep where y.oacoanumi=oanumi and cbnumi=y.oaccbnumi),
+	                           (select rep.cbdesc from TO001C as y, TC002 rep where y.oacoanumi=oanumi and cbnumi=y.oaccbnumi),'') as repartidor",
                               "TO001,TC004,TC0051,TL001,TL0012",
                                _Where + " order by oanumi")
         Return _Tabla
@@ -1135,7 +1143,7 @@ Public Class AccesoLogica
             _Where = "oanumi=oanumi And ccnumi=oaccli And oazona=lanumi And cecon=2 And lazona=cenum " + _Cadena
         End If
         '_Tabla = D_Datos_Tabla("TOP 10 oanumi,oafdoc,oahora,DATEDIFF(dd, oafdoc,GETDATE()) as diasTrans,oaobs,oaobs2", "TO001,TC004,TC0051,TL001", _Where + " order by oanumi desc")
-        _Tabla = D_Datos_Tabla("DISTINCT TOP 10 oanumi,oafdoc,oahora,DATEDIFF(dd, oafdoc,GETDATE()) as diasTrans,oaobs,oaobs2,IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi)>0,1,0 ) as reclamo,oapg,oaest", "TO001,TC004,TC0051,TL001", _Where + " order by oanumi desc")
+        _Tabla = D_Datos_Tabla("DISTINCT TOP 10 oanumi,oafdoc,oahora,DATEDIFF(dd, oafdoc,GETDATE()) as diasTrans,oaobs,oaobs2,IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi)> 0,1,0 ) As reclamo,oapg,oaest", "TO001,TC004,TC0051,TL001", _Where + " order by oanumi desc")
         Return _Tabla
     End Function
 
@@ -1147,7 +1155,7 @@ Public Class AccesoLogica
         Else
             _Where = "oanumi=oanumi And ccnumi=oaccli And oazona=lanumi And cecon=2 And lazona=cenum " + _Cadena
         End If
-        '_Tabla = D_Datos_Tabla("TOP 10 oanumi,oafdoc,oahora,DATEDIFF(dd, oafdoc,GETDATE()) as diasTrans,oaobs,oaobs2", "TO001,TC004,TC0051,TL001", _Where + " order by oanumi desc")
+        '_Tabla = D_Datos_Tabla("TOP 10 oanumi,oafdoc,oahora,DATEDIFF(dd, oafdoc,GETDATE()) As diasTrans,oaobs,oaobs2", "TO001,TC004,TC0051,TL001", _Where + " order by oanumi desc")
         _Tabla = D_Datos_Tabla("DISTINCT TOP 10 oanumi,oafdoc,oahora,oaest,IIF(oaest=1,'PENDIENTE',IIF(oaest=2,'DICTADO','ENTREGADO')) as oaest2,DATEDIFF(dd, oafdoc,GETDATE()) as diasTrans,oaobs,oaobs2,IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi)>0,1,0 ) as reclamo,oapg", "TO001,TC004,TC0051,TL001", _Where + " order by oanumi desc")
         Return _Tabla
     End Function

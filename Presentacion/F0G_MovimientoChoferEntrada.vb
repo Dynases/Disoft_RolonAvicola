@@ -54,6 +54,8 @@ Public Class F0G_MovimientoChoferEntrada
         If (grmovimiento.RowCount > 0) Then
             _prMostrarRegistro(0)
         End If
+
+        _VerificarEstadodeConciliacion()
     End Sub
 
     Private Sub _prCargarComboLibreriaConcepto(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
@@ -444,6 +446,8 @@ Public Class F0G_MovimientoChoferEntrada
             ''   _prMostrarRegistro(_MPos)
             grmovimiento.Row = _MPos
         End If
+
+        _VerificarEstadodeConciliacion()
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         _inter = _inter + 1
@@ -456,6 +460,13 @@ Public Class F0G_MovimientoChoferEntrada
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+    Public Sub _VerificarEstadodeConciliacion()
+        If rlEstado.Text = "Consolidado" Then
+            MBtModificar.Enabled = False
+        Else
+            MBtModificar.Enabled = True
+        End If
     End Sub
 #End Region
 
@@ -652,6 +663,9 @@ Public Class F0G_MovimientoChoferEntrada
             '' _prMostrarRegistro(_pos)
             grmovimiento.Row = _pos
         End If
+
+        _VerificarEstadodeConciliacion()
+
     End Sub
 
     Private Sub MBtUltimo_Click(sender As Object, e As EventArgs) Handles MBtUltimo.Click
@@ -661,6 +675,8 @@ Public Class F0G_MovimientoChoferEntrada
             ''  _prMostrarRegistro(_pos)
             grmovimiento.Row = _pos
         End If
+
+        _VerificarEstadodeConciliacion()
     End Sub
 
     Private Sub MBtAnterior_Click(sender As Object, e As EventArgs) Handles MBtAnterior.Click
@@ -670,6 +686,8 @@ Public Class F0G_MovimientoChoferEntrada
             ''  _prMostrarRegistro(_MPos)
             grmovimiento.Row = _MPos
         End If
+
+        _VerificarEstadodeConciliacion()
     End Sub
 
     Private Sub MBtPrimero_Click(sender As Object, e As EventArgs) Handles MBtPrimero.Click
