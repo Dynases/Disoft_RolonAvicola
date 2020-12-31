@@ -7049,7 +7049,7 @@ Public Class AccesoLogica
     ' @ibid ,@ibfdoc,@ibconcep ,@ibobs  ,@ibest,
     '@ibalm ,@ibiddc,@ibidchof ,@ibidvent ,@newFecha,@newHora,@ibuact
     Public Shared Function L_prMovimientoChoferGrabarSalida(ByRef _ibid As String, _ibfdoc As String, _ibconcep As Integer, _ibobs As String, _ibidchof As Integer,
-                                                            _idConciliacion As Integer, _detalle As DataTable, _fechapedido As String) As Boolean
+                                                            _idConciliacion As Integer, _detalle As DataTable, _fechapedido As String, tipoTraspaso As Integer) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -7064,7 +7064,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@ibalm", 1))
         _listParam.Add(New Datos.DParametro("@ibiddc", 0))
         _listParam.Add(New Datos.DParametro("@ibidchof", _ibidchof))
-        _listParam.Add(New Datos.DParametro("@ibidvent", 0))
+        _listParam.Add(New Datos.DParametro("@ibidvent", tipoTraspaso))
         _listParam.Add(New Datos.DParametro("@ibidconcil", _idConciliacion))
         _listParam.Add(New Datos.DParametro("@TM0011", "", _detalle))
         _listParam.Add(New Datos.DParametro("@fechapedido", _fechapedido))

@@ -30,7 +30,7 @@ Public Class F0G_MovimientoChoferSalida
     Private boAdd As Boolean = False
     Private boModif As Boolean = False
     Private boDel As Boolean = False
-
+    Private tipoTraspaso As Integer = 0
     Private InDuracion As Byte = 5
 #End Region
 
@@ -141,6 +141,7 @@ Public Class F0G_MovimientoChoferSalida
         tbFecha.Value = Now.Date
         _prCargarDetalleVenta(-1)
         _IdConciliacion = 0
+        tipoTraspaso = 0
         If (CType(cbConcepto.DataSource, DataTable).Rows.Count > 0) Then
             cbConcepto.Value = 9
         End If
@@ -563,7 +564,9 @@ Public Class F0G_MovimientoChoferSalida
                 Return
             Else
                 Dim tabla As DataTable = L_prMovimientoChoferNoExisteConciliacion(_codChofer) ''Aqui obtengo el numi de la TI0022 
-                Dim res As Boolean = L_prMovimientoChoferGrabarSalida(numi, tbFecha.Value.ToString("yyyy/MM/dd"), cbConcepto.Value, tbObservacion.Text, _codChofer, tabla.Rows(0).Item("ieid"), CType(grdetalle.DataSource, DataTable), _fechapedido)
+                Dim res As Boolean = L_prMovimientoChoferGrabarSalida(numi, tbFecha.Value.ToString("yyyy/MM/dd"), cbConcepto.Value, tbObservacion.Text,
+                                                                      _codChofer, tabla.Rows(0).Item("ieid"), CType(grdetalle.DataSource, DataTable), _fechapedido,
+                                                                        tipoTraspaso)
                 If res Then
 
                     _prCargarVenta()
@@ -581,7 +584,9 @@ Public Class F0G_MovimientoChoferSalida
                 End If
             End If
         Else
-            Dim res As Boolean = L_prMovimientoChoferGrabarSalida(numi, tbFecha.Value.ToString("yyyy/MM/dd"), cbConcepto.Value, tbObservacion.Text, _codChofer, _IdConciliacion, CType(grdetalle.DataSource, DataTable), _fechapedido)
+            Dim res As Boolean = L_prMovimientoChoferGrabarSalida(numi, tbFecha.Value.ToString("yyyy/MM/dd"), cbConcepto.Value,
+                                                                  tbObservacion.Text, _codChofer, _IdConciliacion, CType(grdetalle.DataSource, DataTable), _fechapedido,
+                                                                  tipoTraspaso)
             If res Then
                 _prCargarVenta()
                 _Limpiar()
@@ -678,10 +683,16 @@ Public Class F0G_MovimientoChoferSalida
             If e.KeyData = Keys.Control + Keys.Enter Then
                 'P_prAyudaChofer()
                 P_prAyudaChoferNuevo()
+
+                'Cuando el traspaso actomatico se realiza desde el Disoft
+                tipoTraspaso = 1
             End If
             If e.KeyData = Keys.Control + Keys.R Then
                 'P_prAyudaChofer()
                 P_prAyudaRutaNuevo()
+
+                'Cuando el traspaso actomatico se realiza desde el Rolon
+                tipoTraspaso = 2
             End If
         End If
     End Sub
@@ -1118,7 +1129,9 @@ salirIf:
 
     Private Sub btBuscarChofer_Click(sender As Object, e As EventArgs) Handles btBuscarChofer.Click
         'P_prAyudaChofer() 'Antes estaba con esta, se cambió la estructura de lo que debía mostrarse
+
         P_prAyudaChoferNuevo()
+        tipoTraspaso = 1
     End Sub
 
     Private Sub P_prAyudaChofer()
