@@ -84,4 +84,28 @@ Public Class RCajaCambio
             Throw New Exception(ex.Message)
         End Try
     End Function
+    Public Function ListarCajaGeneral_ReportSucursal(FechaDesde As Date, fechaHasta As Date, IdSuc As Integer) As List(Of VCajaGeneral) Implements ICajaCambio.ListarCajaGeneral_ReportSucursal
+        Try
+            Using db = GetSchema()
+                Dim listResult = (From a In db.VR_GO_CajaGeneral
+                                  Where a.FechaCaja >= FechaDesde And a.FechaCaja <= fechaHasta And a.IdSucursal = IdSuc
+                                  Order By a.IdCaja
+                                  Select New VCajaGeneral With {
+                                      .IdCaja = a.IdCaja,
+                                      .FechaCaja = a.FechaCaja,
+                                      .Conciliacion = a.Conciliacion,
+                                      .Repartidor = a.Repartidor,
+                                      .TotalConciliacion = a.TotalConciliacion,
+                                      .TotalEfectivo = a.TotalEfectivo,
+                                      .TotalCredito = a.TotalCredito,
+                                      .TotalDeposito = a.TotalDeposito,
+                                      .TotalGeneral = a.TotalGeneral,
+                                      .Diferencia = a.Diferencia
+                                      }).ToList()
+                Return listResult
+            End Using
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+        End Try
+    End Function
 End Class

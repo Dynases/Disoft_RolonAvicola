@@ -207,8 +207,6 @@ Partial Public Class BDDistBHFEntities
 
     Public Overridable Property VR_FacturasChacaltaya() As DbSet(Of VR_FacturasChacaltaya)
 
-    Public Overridable Property VR_GO_CajaGeneral() As DbSet(Of VR_GO_CajaGeneral)
-
     Public Overridable Property vr_go_comprobanteSalidaItems() As DbSet(Of vr_go_comprobanteSalidaItems)
 
     Public Overridable Property vr_go_comprobanteVenta() As DbSet(Of vr_go_comprobanteVenta)
@@ -294,6 +292,8 @@ Partial Public Class BDDistBHFEntities
     Public Overridable Property Vr_VentasVendidas() As DbSet(Of Vr_VentasVendidas)
 
     Public Overridable Property VR_VistaPedido_PrecioCosto() As DbSet(Of VR_VistaPedido_PrecioCosto)
+
+    Public Overridable Property VR_GO_CajaGeneral() As DbSet(Of VR_GO_CajaGeneral)
 
 
     Public Overridable Function PlanillaSueldo(fecha As Nullable(Of Date)) As Integer

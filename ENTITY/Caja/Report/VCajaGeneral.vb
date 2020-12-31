@@ -19,6 +19,36 @@
         End Set
     End Property
 
+    Private _AlmacenCarga As Integer
+    Public Property AlmacenCarga() As Integer
+        Get
+            Return _AlmacenCarga
+        End Get
+        Set(ByVal value As Integer)
+            _AlmacenCarga = value
+        End Set
+    End Property
+    Private _IdSucursal As Integer
+    Public Property IdSucursal() As Integer
+        Get
+            Return _IdSucursal
+        End Get
+        Set(ByVal value As Integer)
+            _IdSucursal = value
+        End Set
+    End Property
+
+
+    Private _Sucursal As String
+    Public Property Sucursal() As String
+        Get
+            Return _Sucursal
+        End Get
+        Set(ByVal value As String)
+            _Sucursal = value
+        End Set
+    End Property
+
     Private _Conciliacion As Integer
     Public Property Conciliacion() As Integer
         Get

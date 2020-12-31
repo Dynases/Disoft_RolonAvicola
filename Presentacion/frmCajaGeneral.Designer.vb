@@ -22,7 +22,12 @@ Partial Class frmCajaGeneral
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim cbSucursal_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCajaGeneral))
         Me.PanelSuperior = New System.Windows.Forms.Panel()
+        Me.lbSucursal = New DevComponents.DotNetBar.LabelX()
+        Me.cbSucursal = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.swSucursal = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.btGenerar = New DevComponents.DotNetBar.ButtonX()
         Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.TB_FechaHasta = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
@@ -31,6 +36,7 @@ Partial Class frmCajaGeneral
         Me.bt_Imprimir = New DevComponents.DotNetBar.ButtonX()
         Me.Dgv_Caja = New Janus.Windows.GridEX.GridEX()
         Me.PanelSuperior.SuspendLayout()
+        CType(Me.cbSucursal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TB_FechaHasta, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tb_FechaDesde, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Dgv_Caja, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -38,6 +44,9 @@ Partial Class frmCajaGeneral
         '
         'PanelSuperior
         '
+        Me.PanelSuperior.Controls.Add(Me.lbSucursal)
+        Me.PanelSuperior.Controls.Add(Me.cbSucursal)
+        Me.PanelSuperior.Controls.Add(Me.swSucursal)
         Me.PanelSuperior.Controls.Add(Me.btGenerar)
         Me.PanelSuperior.Controls.Add(Me.LabelX2)
         Me.PanelSuperior.Controls.Add(Me.TB_FechaHasta)
@@ -47,8 +56,59 @@ Partial Class frmCajaGeneral
         Me.PanelSuperior.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSuperior.Location = New System.Drawing.Point(0, 0)
         Me.PanelSuperior.Name = "PanelSuperior"
-        Me.PanelSuperior.Size = New System.Drawing.Size(922, 60)
+        Me.PanelSuperior.Size = New System.Drawing.Size(979, 60)
         Me.PanelSuperior.TabIndex = 1
+        '
+        'lbSucursal
+        '
+        '
+        '
+        '
+        Me.lbSucursal.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbSucursal.Location = New System.Drawing.Point(619, 3)
+        Me.lbSucursal.Name = "lbSucursal"
+        Me.lbSucursal.Size = New System.Drawing.Size(65, 15)
+        Me.lbSucursal.TabIndex = 252
+        Me.lbSucursal.Text = "Sucursal:"
+        '
+        'cbSucursal
+        '
+        Me.cbSucursal.BackColor = System.Drawing.Color.White
+        cbSucursal_DesignTimeLayout.LayoutString = resources.GetString("cbSucursal_DesignTimeLayout.LayoutString")
+        Me.cbSucursal.DesignTimeLayout = cbSucursal_DesignTimeLayout
+        Me.cbSucursal.DisabledBackColor = System.Drawing.Color.Blue
+        Me.cbSucursal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbSucursal.ImageHorizontalAlignment = Janus.Windows.GridEX.ImageHorizontalAlignment.Far
+        Me.cbSucursal.Location = New System.Drawing.Point(619, 20)
+        Me.cbSucursal.Name = "cbSucursal"
+        Me.cbSucursal.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.cbSucursal.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.cbSucursal.SelectedIndex = -1
+        Me.cbSucursal.SelectedItem = Nothing
+        Me.cbSucursal.Size = New System.Drawing.Size(204, 22)
+        Me.cbSucursal.TabIndex = 251
+        Me.cbSucursal.Tag = "1"
+        Me.cbSucursal.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
+        'swSucursal
+        '
+        '
+        '
+        '
+        Me.swSucursal.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.swSucursal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.swSucursal.Location = New System.Drawing.Point(433, 20)
+        Me.swSucursal.Name = "swSucursal"
+        Me.swSucursal.OffBackColor = System.Drawing.Color.DarkSlateGray
+        Me.swSucursal.OffText = "UNA SUCURSAL"
+        Me.swSucursal.OffTextColor = System.Drawing.Color.White
+        Me.swSucursal.OnBackColor = System.Drawing.Color.Gold
+        Me.swSucursal.OnText = "TODOS "
+        Me.swSucursal.Size = New System.Drawing.Size(170, 22)
+        Me.swSucursal.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.swSucursal.TabIndex = 250
+        Me.swSucursal.Value = True
+        Me.swSucursal.ValueObject = "Y"
         '
         'btGenerar
         '
@@ -58,7 +118,7 @@ Partial Class frmCajaGeneral
         Me.btGenerar.Image = Global.Presentacion.My.Resources.Resources.REPORTE2
         Me.btGenerar.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btGenerar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btGenerar.Location = New System.Drawing.Point(772, 0)
+        Me.btGenerar.Location = New System.Drawing.Point(829, 0)
         Me.btGenerar.Name = "btGenerar"
         Me.btGenerar.Size = New System.Drawing.Size(75, 60)
         Me.btGenerar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -71,7 +131,7 @@ Partial Class frmCajaGeneral
         '
         '
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX2.Location = New System.Drawing.Point(219, 21)
+        Me.LabelX2.Location = New System.Drawing.Point(217, 21)
         Me.LabelX2.Name = "LabelX2"
         Me.LabelX2.Size = New System.Drawing.Size(64, 23)
         Me.LabelX2.TabIndex = 235
@@ -88,7 +148,7 @@ Partial Class frmCajaGeneral
         Me.TB_FechaHasta.ButtonDropDown.Visible = True
         Me.TB_FechaHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TB_FechaHasta.IsPopupCalendarOpen = False
-        Me.TB_FechaHasta.Location = New System.Drawing.Point(291, 20)
+        Me.TB_FechaHasta.Location = New System.Drawing.Point(289, 20)
         '
         '
         '
@@ -129,7 +189,7 @@ Partial Class frmCajaGeneral
         '
         '
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX1.Location = New System.Drawing.Point(13, 21)
+        Me.LabelX1.Location = New System.Drawing.Point(9, 21)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.Size = New System.Drawing.Size(74, 23)
         Me.LabelX1.TabIndex = 233
@@ -146,7 +206,7 @@ Partial Class frmCajaGeneral
         Me.Tb_FechaDesde.ButtonDropDown.Visible = True
         Me.Tb_FechaDesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Tb_FechaDesde.IsPopupCalendarOpen = False
-        Me.Tb_FechaDesde.Location = New System.Drawing.Point(90, 20)
+        Me.Tb_FechaDesde.Location = New System.Drawing.Point(87, 20)
         '
         '
         '
@@ -189,7 +249,7 @@ Partial Class frmCajaGeneral
         Me.bt_Imprimir.Image = Global.Presentacion.My.Resources.Resources.PEDI_ENTRAGA_PEDIDOS
         Me.bt_Imprimir.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.bt_Imprimir.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.bt_Imprimir.Location = New System.Drawing.Point(847, 0)
+        Me.bt_Imprimir.Location = New System.Drawing.Point(904, 0)
         Me.bt_Imprimir.Name = "bt_Imprimir"
         Me.bt_Imprimir.Size = New System.Drawing.Size(75, 60)
         Me.bt_Imprimir.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -201,19 +261,21 @@ Partial Class frmCajaGeneral
         Me.Dgv_Caja.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Dgv_Caja.Location = New System.Drawing.Point(0, 60)
         Me.Dgv_Caja.Name = "Dgv_Caja"
-        Me.Dgv_Caja.Size = New System.Drawing.Size(922, 433)
+        Me.Dgv_Caja.Size = New System.Drawing.Size(979, 433)
         Me.Dgv_Caja.TabIndex = 3
         '
         'frmCajaGeneral
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(922, 493)
+        Me.ClientSize = New System.Drawing.Size(979, 493)
         Me.Controls.Add(Me.Dgv_Caja)
         Me.Controls.Add(Me.PanelSuperior)
         Me.Name = "frmCajaGeneral"
         Me.Text = "frmCajaGeneral"
         Me.PanelSuperior.ResumeLayout(False)
+        Me.PanelSuperior.PerformLayout()
+        CType(Me.cbSucursal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TB_FechaHasta, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tb_FechaDesde, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Dgv_Caja, System.ComponentModel.ISupportInitialize).EndInit()
@@ -229,4 +291,7 @@ Partial Class frmCajaGeneral
     Friend WithEvents LabelX2 As DevComponents.DotNetBar.LabelX
     Friend WithEvents TB_FechaHasta As DevComponents.Editors.DateTimeAdv.DateTimeInput
     Friend WithEvents btGenerar As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents swSucursal As DevComponents.DotNetBar.Controls.SwitchButton
+    Friend WithEvents lbSucursal As DevComponents.DotNetBar.LabelX
+    Friend WithEvents cbSucursal As Janus.Windows.GridEX.EditControls.MultiColumnCombo
 End Class

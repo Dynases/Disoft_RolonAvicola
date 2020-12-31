@@ -4,6 +4,7 @@ Imports ENTITY
 Imports Janus.Windows.GridEX
 Imports LOGIC
 Imports UTILITIES
+Imports Logica.AccesoLogica
 
 Public Class frmCajaGeneral
 #Region "Privado, metodos y funciones"
@@ -17,6 +18,7 @@ Public Class frmCajaGeneral
             ConfigForm()
             Tb_FechaDesde.Value = DateTime.Today
             TB_FechaHasta.Value = DateTime.Today
+            P_prArmarComboSucursal()
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
         End Try
@@ -61,22 +63,32 @@ Public Class frmCajaGeneral
             .Visible = True
             .Position = 1
         End With
-
+        With Dgv_Caja.RootTable.Columns("AlmacenCarga")
+            .Visible = False
+            .Position = 2
+        End With
+        With Dgv_Caja.RootTable.Columns("IdSucursal")
+            .Visible = False
+            .Position = 3
+        End With
+        With Dgv_Caja.RootTable.Columns("Sucursal")
+            .Visible = False
+            .Position = 4
+        End With
         With Dgv_Caja.RootTable.Columns("Conciliacion")
             .Caption = "Nro. Conciliación"
             .Width = 100
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
-            .Position = 2
+            .Position = 5
         End With
-
 
         With Dgv_Caja.RootTable.Columns("Repartidor")
             .Caption = "Repartidor"
             .Width = 270
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
             .Visible = True
-            .Position = 3
+            .Position = 6
         End With
         With Dgv_Caja.RootTable.Columns("TotalConciliacion")
             .Caption = "Total Conciliación"
@@ -85,7 +97,7 @@ Public Class frmCajaGeneral
             .FormatString = "0.00"
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
-            .Position = 4
+            .Position = 7
         End With
         With Dgv_Caja.RootTable.Columns("TotalEfectivo")
             .Caption = "Total Efectivo"
@@ -94,7 +106,7 @@ Public Class frmCajaGeneral
             .FormatString = "0.00"
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
-            .Position = 5
+            .Position = 8
         End With
         With Dgv_Caja.RootTable.Columns("TotalCredito")
             .Caption = "Total Crédito"
@@ -103,7 +115,7 @@ Public Class frmCajaGeneral
             .AggregateFunction = AggregateFunction.Sum
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
-            .Position = 6
+            .Position = 9
         End With
         With Dgv_Caja.RootTable.Columns("TotalDeposito")
             .Caption = "Total Depósito"
@@ -112,7 +124,7 @@ Public Class frmCajaGeneral
             .AggregateFunction = AggregateFunction.Sum
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
-            .Position = 7
+            .Position = 10
         End With
         With Dgv_Caja.RootTable.Columns("TotalGeneral")
             .Caption = "Total General"
@@ -121,7 +133,7 @@ Public Class frmCajaGeneral
             .AggregateFunction = AggregateFunction.Sum
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
-            .Position = 8
+            .Position = 11
         End With
         With Dgv_Caja.RootTable.Columns("Diferencia")
             .Caption = "Diferencia"
@@ -130,7 +142,7 @@ Public Class frmCajaGeneral
             .FormatString = "0.00"
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
-            .Position = 9
+            .Position = 12
         End With
         With Dgv_Caja
             .GroupByBoxVisible = False
@@ -160,7 +172,24 @@ Public Class frmCajaGeneral
                                eToastPosition.TopCenter)
     End Sub
 
+    Private Sub P_prArmarComboSucursal()
+        Dim Dt As DataTable
+        Dt = L_prListarSucursal()
+        With cbSucursal.DropDownList
+            .Columns.Add(Dt.Columns("cod").ToString).Width = 70
+            .Columns(0).Caption = "Código"
 
+            .Columns.Add(Dt.Columns("suc").ToString).Width = 150
+            .Columns(1).Caption = "Sucursal"
+
+        End With
+
+        cbSucursal.ValueMember = Dt.Columns("cod").ToString
+        cbSucursal.DisplayMember = Dt.Columns("suc").ToString
+        cbSucursal.DataSource = Dt
+        cbSucursal.SelectedIndex = 0
+
+    End Sub
 #End Region
 #Region "Eventos"
     Private Sub frmCajaGeneral_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -175,7 +204,14 @@ Public Class frmCajaGeneral
     End Sub
 
     Private Sub btGenerar_Click(sender As Object, e As EventArgs) Handles btGenerar.Click
-        listResult = New LCajaCambio().ListarCajaGeneral_Report(Tb_FechaDesde.Value, TB_FechaHasta.Value)
+        If swSucursal.Value = True Then
+            listResult = New LCajaCambio().ListarCajaGeneral_Report(Tb_FechaDesde.Value, TB_FechaHasta.Value)
+        Else
+
+            listResult = New LCajaCambio().ListarCajaGeneral_ReportSucursal(Tb_FechaDesde.Value, TB_FechaHasta.Value, cbSucursal.Value)
+
+        End If
+
         ArmarLista()
     End Sub
 
@@ -204,5 +240,21 @@ Public Class frmCajaGeneral
             MostrarMensajeError(ex.Message)
         End Try
     End Sub
+
+    Private Sub swSucursal_ValueChanged(sender As Object, e As EventArgs) Handles swSucursal.ValueChanged
+
+        If (swSucursal.Value = True) Then
+            lbSucursal.Visible = False
+            cbSucursal.Visible = False
+        Else
+            lbSucursal.Visible = True
+            cbSucursal.Visible = True
+        End If
+
+    End Sub
+
+
+
+
 #End Region
 End Class

@@ -29,6 +29,12 @@ Public Class LCajaCambio
             Throw New Exception(ex.Message)
         End Try
     End Function
-
+    Public Function ListarCajaGeneral_ReportSucursal(FechaDesde As DateTime, fechaHasta As DateTime, IdSuc As Integer) As List(Of VCajaGeneral)
+        Try
+            Return iCajaCambio.ListarCajaGeneral_ReportSucursal(FechaDesde, fechaHasta, IdSuc)
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+        End Try
+    End Function
 
 End Class

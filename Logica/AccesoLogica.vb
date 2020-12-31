@@ -10742,4 +10742,14 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 #End Region
+#Region "SUCURSAL"
+    Public Shared Function L_prListarSucursal() As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 2))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TO001", _listParam)
+        Return _Tabla
+    End Function
+#End Region
 End Class

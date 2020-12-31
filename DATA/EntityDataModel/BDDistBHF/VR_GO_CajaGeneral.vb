@@ -18,6 +18,12 @@ Partial Public Class VR_GO_CajaGeneral
 
     Public Property FechaCaja As Nullable(Of Date)
 
+    Public Property AlmacenCarga As Nullable(Of Integer)
+
+    Public Property IdSucursal As Integer
+
+    Public Property Sucursal As String
+
     Public Property Conciliacion As Nullable(Of Integer)
 
     Public Property Repartidor As String

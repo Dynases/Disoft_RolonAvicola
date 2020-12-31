@@ -5,20 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="BDDistBHFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.BA001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="BA001">
-          <Property Name="canumi" Type="int" />
-          <Property Name="canombre" Type="nvarchar" MaxLength="200" />
-          <Property Name="canrocuenta" Type="nvarchar" MaxLength="100" />
-          <Property Name="catc001numi" Type="int" />
-          <Property Name="caobs" Type="nvarchar" MaxLength="200" />
-          <Property Name="caimage" Type="nvarchar" MaxLength="200" />
-          <Property Name="caestado" Type="int" />
-          <Property Name="cafact" Type="date" />
-          <Property Name="cahact" Type="nvarchar" MaxLength="5" />
-          <Property Name="cauact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <EntityType Name="CM001">
           <Key>
             <PropertyRef Name="manumi" />
@@ -43,51 +29,6 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.BA001' no tiene definida
           <Property Name="mbhact" Type="nvarchar" MaxLength="5" />
           <Property Name="mbuact" Type="nvarchar" MaxLength="20" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.Parametros' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="Parametros">
-          <Property Name="synumi" Type="nchar" MaxLength="10" />
-          <Property Name="sycompra" Type="bit" />
-          <Property Name="sycompracred" Type="bit" />
-          <Property Name="sycomprafact" Type="bit" />
-          <Property Name="sycomprareten" Type="bit" />
-          <Property Name="sycompraconsig" Type="bit" />
-          <Property Name="sycompraasiento" Type="bit" />
-          <Property Name="sycompradescpr1" Type="bit" />
-          <Property Name="sycompradescpr2" Type="bit" />
-          <Property Name="syclienteequipo" Type="bit" />
-          <Property Name="syproductofamilia" Type="bit" />
-          <Property Name="syproductopack" Type="bit" />
-          <Property Name="syciudad" Type="int" />
-          <Property Name="syruta" Type="bit" />
-          <Property Name="syaplinea" Type="int" />
-          <Property Name="sycredito" Type="bit" />
-          <Property Name="syvmapa" Type="bit" />
-          <Property Name="symodped" Type="bit" />
-          <Property Name="symodcli" Type="bit" />
-          <Property Name="systocknega" Type="bit" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.Personal' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="Personal">
-          <Property Name="codper" Type="int" />
-          <Property Name="fecha" Type="date" />
-          <Property Name="sueldo" Type="numeric" Precision="18" Scale="2" />
-          <Property Name="Ci" Type="nvarchar" MaxLength="200" />
-          <Property Name="nombre" Type="nvarchar" MaxLength="200" />
-          <Property Name="obser" Type="nvarchar" MaxLength="400" />
-          <Property Name="direccion" Type="nvarchar" MaxLength="400" />
-          <Property Name="fechnac" Type="date" />
-          <Property Name="fechret" Type="date" />
-          <Property Name="foto" Type="nvarchar" MaxLength="200" />
-          <Property Name="activo" Type="int" />
-          <Property Name="categoria" Type="nvarchar" MaxLength="200" />
-          <Property Name="telefono" Type="nvarchar" MaxLength="200" />
-          <Property Name="Ecivil" Type="nvarchar" MaxLength="200" />
-          <Property Name="fechareg" Type="date" />
-          <Property Name="horareg" Type="nvarchar" MaxLength="5" />
-          <Property Name="usuarioreg" Type="nvarchar" MaxLength="200" />
-        </EntityType>-->
         <EntityType Name="TA001">
           <Key>
             <PropertyRef Name="aaId" />
@@ -113,54 +54,6 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.Personal' no tiene defin
           <Property Name="bahact" Type="nvarchar" MaxLength="5" />
           <Property Name="bauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TB002' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TB002">
-          <Property Name="bbnumi" Type="int" />
-          <Property Name="bbtran" Type="int" />
-          <Property Name="bbtori" Type="nvarchar" MaxLength="10" />
-          <Property Name="bbcori" Type="nchar" MaxLength="10" />
-          <Property Name="bbtdes" Type="nchar" MaxLength="10" />
-          <Property Name="bbcdes" Type="nchar" MaxLength="10" />
-          <Property Name="bbprog" Type="nvarchar" MaxLength="30" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC000' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TC000">
-          <Property Name="cnumi" Type="int" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TC0001">
-          <Property Name="cccnumi" Type="int" />
-          <Property Name="cccmapa" Type="int" />
-          <Property Name="cccnotiped" Type="int" />
-          <Property Name="cccvcre" Type="int" />
-          <Property Name="cccvdes" Type="int" />
-          <Property Name="cccvccli" Type="int" />
-          <Property Name="cccvacu" Type="int" />
-          <Property Name="cccftp" Type="int" />
-          <Property Name="cccvcre2" Type="int" />
-          <Property Name="cccmprec" Type="int" />
-          <Property Name="cccadev" Type="int" />
-          <Property Name="ccprecapp" Type="int" />
-          <Property Name="ccstock" Type="int" />
-          <Property Name="cccdespacho" Type="int" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0002' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TC0002">
-          <Property Name="cbnumi" Type="int" />
-          <Property Name="cbcod" Type="int" />
-          <Property Name="cbdesc" Type="nvarchar" MaxLength="50" />
-          <Property Name="cbrut" Type="nvarchar" MaxLength="150" />
-          <Property Name="cbvp" Type="bit" />
-          <Property Name="cbtimp" Type="int" />
-          <Property Name="cbest" Type="bit" />
-          <Property Name="cbfact" Type="date" />
-          <Property Name="cbhact" Type="nvarchar" MaxLength="5" />
-          <Property Name="cbuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <EntityType Name="TC001">
           <Key>
             <PropertyRef Name="canumi" />
@@ -247,20 +140,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0012' no tiene definid
           <Property Name="cbhact" Type="nvarchar" MaxLength="5" />
           <Property Name="cbuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0021' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TC0021">
-          <Property Name="chnumi" Type="int" />
-          <Property Name="chano" Type="int" />
-          <Property Name="chmes" Type="int" />
-          <Property Name="chsueldo" Type="decimal" Precision="18" Scale="2" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0022' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TC0022">
-          <Property Name="cknumi" Type="int" />
-          <Property Name="ckidfsm" Type="nvarchar" MaxLength="250" />
-        </EntityType>-->
         <EntityType Name="TC003">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -342,17 +221,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0041' no tiene definid
           <Property Name="cpcat" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC004A' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TC004A">
-          <Property Name="ccatc4numi" Type="int" />
-          <Property Name="ccatacu" Type="int" />
-          <Property Name="ccafini" Type="date" />
-          <Property Name="ccaffin" Type="date" />
-          <Property Name="ccafre" Type="int" />
-          <Property Name="ccaest" Type="int" />
-          <Property Name="ccaobs" Type="nvarchar" MaxLength="200" />
-        </EntityType>-->
-        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TC004A1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC004A1">
           <Key>
@@ -407,18 +275,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TC004A2' no tiene defini
           <Property Name="cehact" Type="nvarchar" MaxLength="50" />
           <Property Name="ceuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC005C' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TC005C">
-          <Property Name="canumi" Type="int" />
-          <Property Name="canombre" Type="nvarchar" MaxLength="200" />
-          <Property Name="cadesc" Type="nvarchar" MaxLength="200" />
-          <Property Name="caimg" Type="nvarchar" MaxLength="50" />
-          <Property Name="caest" Type="int" />
-          <Property Name="cafact" Type="date" />
-          <Property Name="cahact" Type="nvarchar" MaxLength="5" />
-          <Property Name="cauact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <EntityType Name="TC006">
           <Key>
             <PropertyRef Name="cfid" />
@@ -429,47 +285,6 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC005C' no tiene definid
           <Property Name="cfhact" Type="nvarchar" MaxLength="5" />
           <Property Name="cfuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0061' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TC0061">
-          <Property Name="cgcfid" Type="int" />
-          <Property Name="cgcon" Type="int" />
-          <Property Name="cgconp" Type="int" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC007' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TC007">
-          <Property Name="cinumi" Type="int" />
-          <Property Name="cicod" Type="nvarchar" MaxLength="10" />
-          <Property Name="cidesc" Type="nvarchar" MaxLength="80" />
-          <Property Name="cifact" Type="date" />
-          <Property Name="cihact" Type="nvarchar" MaxLength="5" />
-          <Property Name="ciuact" Type="nvarchar" MaxLength="10" />
-          <Property Name="citcv" Type="bit" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC008' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TC008">
-          <Property Name="cjnumi" Type="int" />
-          <Property Name="cjusuario" Type="int" />
-          <Property Name="cjpara" Type="int" />
-          <Property Name="cjnota" Type="nvarchar" MaxLength="2000" />
-          <Property Name="cjfecha" Type="date" />
-          <Property Name="cjhora" Type="nvarchar" MaxLength="5" />
-          <Property Name="cjleido" Type="int" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC009' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TC009">
-          <Property Name="cknumi" Type="int" />
-          <Property Name="ckdesc" Type="nvarchar" MaxLength="50" />
-          <Property Name="ckest" Type="int" />
-          <Property Name="ckpdf" Type="nvarchar" MaxLength="20" />
-          <Property Name="ckobs" Type="nvarchar" MaxLength="200" />
-          <Property Name="ckfact" Type="date" />
-          <Property Name="ckhact" Type="nvarchar" MaxLength="5" />
-          <Property Name="ckuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0091' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0091">
@@ -482,22 +297,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TC0091' no tiene definid
           <Property Name="cllin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="clcopy" Type="bit" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC010' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TC010">
-          <Property Name="cmnumi" Type="int" />
-          <Property Name="cmdesc" Type="nvarchar" MaxLength="50" />
-          <Property Name="cmtelf" Type="nvarchar" MaxLength="20" />
-          <Property Name="cmemail" Type="nvarchar" MaxLength="50" />
-          <Property Name="cmest" Type="int" />
-          <Property Name="cmobs" Type="nvarchar" MaxLength="200" />
-          <Property Name="cmrsocial" Type="nvarchar" MaxLength="50" />
-          <Property Name="cmnit" Type="nvarchar" MaxLength="20" />
-          <Property Name="cmfact" Type="date" />
-          <Property Name="cmhact" Type="nvarchar" MaxLength="5" />
-          <Property Name="cmuact" Type="nvarchar" MaxLength="10" />
-          <Property Name="cmncuenta" Type="int" />
-        </EntityType>-->
         <EntityType Name="TC011">
           <Key>
             <PropertyRef Name="cnnumi" />
@@ -577,21 +376,6 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TC010' no tiene definida
           <Property Name="cabtca1numi" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TCA0012' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TCA0012">
-          <Property Name="tcnumi" Type="int" />
-          <Property Name="tctc1numi" Type="int" />
-          <Property Name="tcty4prov" Type="int" />
-          <Property Name="tcfvencre" Type="date" />
-          <Property Name="tcnotaentre" Type="nvarchar" MaxLength="20" />
-          <Property Name="tcnrofact" Type="nvarchar" MaxLength="20" />
-          <Property Name="tctotcre" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="tcfdoc" Type="date" />
-          <Property Name="tcfact" Type="date" />
-          <Property Name="tchact" Type="nvarchar" MaxLength="5" />
-          <Property Name="tcuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
-        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TCA00121' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TCA00121">
           <Key>
@@ -610,48 +394,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TCA00121' no tiene defin
           <Property Name="tdhact" Type="nvarchar" MaxLength="5" />
           <Property Name="tduact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TCA0013' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TCA0013">
-          <Property Name="tenumi" Type="int" />
-          <Property Name="tefdoc" Type="date" />
-          <Property Name="tety4vend" Type="int" />
-          <Property Name="teobs" Type="nvarchar" MaxLength="100" />
-          <Property Name="tefact" Type="date" />
-          <Property Name="tehact" Type="nvarchar" MaxLength="5" />
-          <Property Name="teuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TCI001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TCI001">
-          <Property Name="cpnumi" Type="int" />
-          <Property Name="cpdesc" Type="nvarchar" MaxLength="30" />
-          <Property Name="cpmov" Type="int" />
-          <Property Name="cpmovcli" Type="int" />
-          <Property Name="cptipo" Type="int" />
-          <Property Name="cpest" Type="int" />
-          <Property Name="cpfact" Type="date" />
-          <Property Name="cphact" Type="nvarchar" MaxLength="5" />
-          <Property Name="cpuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TCP001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TCP001">
-          <Property Name="cpanumi" Type="int" />
-          <Property Name="cpaprov" Type="int" />
-          <Property Name="cpafdoc" Type="date" />
-          <Property Name="cpamonto" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="cpaobs" Type="nvarchar" MaxLength="200" />
-          <Property Name="cpaest" Type="int" />
-          <Property Name="cpafven" Type="date" />
-          <Property Name="cpatpago" Type="int" />
-          <Property Name="cpafpro" Type="int" />
-          <Property Name="cpanota" Type="int" />
-          <Property Name="cpatpro" Type="int" />
-          <Property Name="cpafact" Type="date" />
-          <Property Name="cpahact" Type="nvarchar" MaxLength="5" />
-          <Property Name="cpauact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TCP0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TCP0011">
@@ -682,25 +424,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TCP0011' no tiene defini
           <Property Name="dahact" Type="nvarchar" MaxLength="5" />
           <Property Name="dauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TFC001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TFC001">
-          <Property Name="fcanumi" Type="int" />
-          <Property Name="fcafdoc" Type="date" />
-          <Property Name="fcanit" Type="nvarchar" MaxLength="20" />
-          <Property Name="fcarsocial" Type="nvarchar" MaxLength="50" />
-          <Property Name="fcanfac" Type="int" />
-          <Property Name="fcandui" Type="int" />
-          <Property Name="fcaautoriz" Type="bigint" />
-          <Property Name="fcaitc" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="fcanscf" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="fcasubtotal" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="fcadesc" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="fcaibcf" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="fcacfiscal" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="fcaccont" Type="nvarchar" MaxLength="14" />
-          <Property Name="fcatcom" Type="int" />
-        </EntityType>-->
         <EntityType Name="TFV001">
           <Key>
             <PropertyRef Name="fvanumi" />
@@ -729,33 +452,6 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TFC001' no tiene definid
           <Property Name="fvaalm" Type="int" />
           <Property Name="fvanumi2" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TFV0011' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TFV0011">
-          <Property Name="fvbnumi" Type="int" />
-          <Property Name="fvbcprod" Type="nvarchar" MaxLength="10" />
-          <Property Name="fvbdesprod" Type="nvarchar" MaxLength="50" />
-          <Property Name="fvbcant" Type="int" />
-          <Property Name="fvbprecio" Type="float" />
-          <Property Name="fvbnumi2" Type="int" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TH001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TH001">
-          <Property Name="hanumi" Type="int" />
-          <Property Name="hadesc" Type="nvarchar" MaxLength="50" />
-          <Property Name="hames1" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="hames2" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="hames3" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="hasaldo" Type="decimal" Precision="18" Scale="2" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TI001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TI001">
-          <Property Name="iacprod" Type="int" />
-          <Property Name="iacant" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="iaalm" Type="int" />
-        </EntityType>-->
         <EntityType Name="TI002">
           <Key>
             <PropertyRef Name="ibid" />
@@ -872,30 +568,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TI003' no tiene definida
           <Property Name="lahact" Type="nvarchar" MaxLength="5" />
           <Property Name="lauact" Type="nchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TL001_C' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TL001_C">
-          <Property Name="id" Type="int" />
-          <Property Name="cod" Type="nvarchar" MaxLength="50" />
-          <Property Name="des" Type="nvarchar" MaxLength="150" />
-          <Property Name="codent" Type="int" />
-          <Property Name="hact" Type="nvarchar" MaxLength="5" />
-          <Property Name="fact" Type="date" />
-          <Property Name="uact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TL0012' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TL0012">
-          <Property Name="lcnumi" Type="int" />
-          <Property Name="lccbnumi" Type="int" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TL0013' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TL0013">
-          <Property Name="lbnumi" Type="int" />
-          <Property Name="lblat" Type="decimal" Precision="18" Scale="6" />
-          <Property Name="lblongi" Type="decimal" Precision="18" Scale="6" />
-        </EntityType>-->
         <EntityType Name="TL002">
           <Key>
             <PropertyRef Name="ldnumi" />
@@ -995,24 +667,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TM0013' no tiene definid
           <Property Name="IdPedidoDetalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0012' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TO0012">
-          <Property Name="ocnumi" Type="int" />
-          <Property Name="ocest" Type="int" />
-          <Property Name="ocfecha" Type="date" />
-          <Property Name="ochora" Type="nvarchar" MaxLength="5" />
-          <Property Name="ocobs" Type="nvarchar" MaxLength="20" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0013' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TO0013">
-          <Property Name="odnumi" Type="int" />
-          <Property Name="odnum" Type="int" />
-          <Property Name="odfecha" Type="date" />
-          <Property Name="odhora" Type="nvarchar" MaxLength="5" />
-          <Property Name="odobs" Type="nvarchar" MaxLength="50" />
-        </EntityType>-->
-        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0014' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0014">
           <Key>
@@ -1029,20 +683,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0014' no tiene definid
           <Property Name="ofhact" Type="nvarchar" MaxLength="50" />
           <Property Name="ofuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0015' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TO0015">
-          <Property Name="ohnumi" Type="int" />
-          <Property Name="ohdiassem" Type="nvarchar" MaxLength="7" />
-          <Property Name="ohdias" Type="int" />
-          <Property Name="ohdiames" Type="int" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0016' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TO0016">
-          <Property Name="oinumi" Type="int" />
-          <Property Name="oifecha" Type="date" />
-        </EntityType>-->
         <EntityType Name="TO001A">
           <Key>
             <PropertyRef Name="oaanumi" />
@@ -1061,13 +701,6 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TO0016' no tiene definid
           <Property Name="ogcred" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TO001B' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TO001B">
-          <Property Name="obnumi" Type="int" />
-          <Property Name="oblatitud" Type="decimal" Precision="18" Scale="14" />
-          <Property Name="oblongitud" Type="decimal" Precision="18" Scale="14" />
-        </EntityType>-->
         <EntityType Name="TO001C">
           <Key>
             <PropertyRef Name="oacnumi" />
@@ -1291,17 +924,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TP002' no tiene definida
           <Property Name="pbuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TP0021' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TP0021">
-          <Property Name="pcnumi" Type="int" />
-          <Property Name="pcdias" Type="int" />
-          <Property Name="pcmonto" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="pcobs" Type="nvarchar" MaxLength="50" />
-          <Property Name="pcmul" Type="bit" />
-          <Property Name="pcbode" Type="bit" />
-          <Property Name="pcfecha" Type="date" />
-        </EntityType>-->
-        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TP003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP003">
           <Key>
@@ -1329,16 +951,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TP004' no tiene definida
           <Property Name="pehact" Type="nvarchar" MaxLength="50" />
           <Property Name="peuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TP005' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TP005">
-          <Property Name="pfnumi" Type="int" />
-          <Property Name="pfflib" Type="date" />
-          <Property Name="pfdes" Type="nvarchar" MaxLength="20" />
-          <Property Name="pffact" Type="date" />
-          <Property Name="pfhact" Type="nvarchar" MaxLength="5" />
-          <Property Name="pfuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TP006' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP006">
@@ -1380,15 +992,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TP0061' no tiene definid
           <Property Name="pihact" Type="nvarchar" MaxLength="5" />
           <Property Name="piuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TP0071' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TP0071">
-          <Property Name="pjturno" Type="int" />
-          <Property Name="pjcper" Type="int" />
-          <Property Name="pjent" Type="nvarchar" MaxLength="5" />
-          <Property Name="pjsal" Type="nvarchar" MaxLength="5" />
-          <Property Name="pjfecha" Type="date" />
-        </EntityType>-->
         <EntityType Name="TP008">
           <Key>
             <PropertyRef Name="pknumi" />
@@ -1423,43 +1026,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TS001' no tiene definida
           <Property Name="sanom1" Type="nvarchar" MaxLength="100" />
           <Property Name="sanom2" Type="nvarchar" MaxLength="30" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TS002' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TS002">
-          <Property Name="yenumi" Type="int" />
-          <Property Name="yecia" Type="int" />
-          <Property Name="yealm" Type="int" />
-          <Property Name="yesfc" Type="int" />
-          <Property Name="yeautoriz" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="yenunf" Type="int" />
-          <Property Name="yekey" Type="nvarchar" MaxLength="255" />
-          <Property Name="yefdel" Type="date" />
-          <Property Name="yefal" Type="date" />
-          <Property Name="yenota" Type="nvarchar" MaxLength="255" />
-          <Property Name="yenota2" Type="nvarchar" MaxLength="255" />
-          <Property Name="yeap" Type="nvarchar" MaxLength="1" />
-          <Property Name="yefact" Type="date" />
-          <Property Name="yehact" Type="nvarchar" MaxLength="5" />
-          <Property Name="yeuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.TS003' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TS003">
-          <Property Name="scnumi" Type="int" />
-          <Property Name="scnit" Type="nvarchar" MaxLength="15" />
-          <Property Name="scneg" Type="nvarchar" MaxLength="30" />
-          <Property Name="scnom" Type="nvarchar" MaxLength="30" />
-          <Property Name="scact" Type="nvarchar" MaxLength="40" />
-          <Property Name="scdir" Type="nvarchar" MaxLength="40" />
-          <Property Name="sctelf" Type="nvarchar" MaxLength="20" />
-          <Property Name="scciu" Type="nvarchar" MaxLength="20" />
-          <Property Name="scpai" Type="nvarchar" MaxLength="15" />
-          <Property Name="scsuc" Type="nchar" MaxLength="15" />
-          <Property Name="scdebfis" Type="float" />
-          <Property Name="scfact" Type="date" />
-          <Property Name="schact" Type="nvarchar" MaxLength="5" />
-          <Property Name="scuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <EntityType Name="TV001">
           <Key>
             <PropertyRef Name="tanumi" />
@@ -1541,23 +1107,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.TV0013' no tiene definid
           <Property Name="zahora" Type="nvarchar" MaxLength="10" />
           <Property Name="zaest" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.ZY001' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="ZY001">
-          <Property Name="yanumi" Type="int" />
-          <Property Name="yaprog" Type="nvarchar" MaxLength="40" />
-          <Property Name="yatit" Type="nvarchar" MaxLength="40" />
-          <Property Name="yamod" Type="int" />
-        </EntityType>-->
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.ZY002' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="ZY002">
-          <Property Name="ybnumi" Type="int" />
-          <Property Name="ybrol" Type="nvarchar" MaxLength="30" />
-          <Property Name="ybfact" Type="date" />
-          <Property Name="ybhact" Type="nvarchar" MaxLength="5" />
-          <Property Name="ybuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <EntityType Name="ZY0021">
           <Key>
             <PropertyRef Name="ycline" />
@@ -1570,20 +1119,6 @@ advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.ZY002' no tiene definida
           <Property Name="ycmod" Type="bit" />
           <Property Name="ycdel" Type="bit" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.ZY003' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="ZY003">
-          <Property Name="ydnumi" Type="int" />
-          <Property Name="yduser" Type="nvarchar" MaxLength="10" />
-          <Property Name="ydrol" Type="int" />
-          <Property Name="ydpass" Type="nvarchar" MaxLength="20" />
-          <Property Name="ydest" Type="bit" />
-          <Property Name="ydcant" Type="int" />
-          <Property Name="ydfontsize" Type="int" />
-          <Property Name="ydfact" Type="date" />
-          <Property Name="ybhact" Type="nvarchar" MaxLength="5" />
-          <Property Name="ybuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.App_Listado_CobrosPendientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="App_Listado_CobrosPendientes">
@@ -1700,20 +1235,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.Vr_Conciliacion' no tien
           <Property Name="Cant" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_CuentasPagar_PagosProximos' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="VR_CuentasPagar_PagosProximos">
-          <Property Name="cpaprov" Type="int" />
-          <Property Name="cmdesc" Type="nvarchar" MaxLength="50" />
-          <Property Name="cpanumi" Type="int" />
-          <Property Name="cpaobs" Type="nvarchar" MaxLength="200" />
-          <Property Name="cpafdoc" Type="date" />
-          <Property Name="cpafven" Type="date" />
-          <Property Name="cpamonto" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="saldo" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="pagado" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="mora" Type="int" />
-        </EntityType>-->
-        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_CuentasPagar_PagosRealizados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_CuentasPagar_PagosRealizados">
           <Key>
@@ -1822,25 +1343,18 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_FacturasChacaltaya' n
           <Property Name="oeefec" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_FidelidadCliente' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="VR_FidelidadCliente">
-          <Property Name="Anho" Type="int" />
-          <Property Name="oencli" Type="int" />
-          <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
-          <Property Name="TotalPedido" Type="int" />
-          <Property Name="odtprod" Type="int" />
-          <Property Name="cadesc" Type="nvarchar" MaxLength="30" />
-          <Property Name="cadesc2" Type="nvarchar" MaxLength="15" />
-          <Property Name="ccprconsu" Type="int" />
-        </EntityType>-->
-        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_CajaGeneral' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_CajaGeneral">
           <Key>
             <PropertyRef Name="IdCaja" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="Sucursal" />
           </Key>
           <Property Name="IdCaja" Type="int" Nullable="false" />
           <Property Name="FechaCaja" Type="date" />
+          <Property Name="AlmacenCarga" Type="int" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="Sucursal" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Conciliacion" Type="int" />
           <Property Name="Repartidor" Type="nvarchar" MaxLength="50" />
           <Property Name="TotalConciliacion" Type="decimal" Precision="38" Scale="2" />
@@ -2087,17 +1601,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_FacturaVsVenta2' n
           <Property Name="tipo" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_FaltanteTapas' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="VR_GO_FaltanteTapas">
-          <Property Name="nota" Type="int" />
-          <Property Name="fecha" Type="date" />
-          <Property Name="ctprod" Type="int" />
-          <Property Name="ntprod" Type="nvarchar" MaxLength="50" />
-          <Property Name="crepa" Type="int" />
-          <Property Name="nrepa" Type="nvarchar" MaxLength="50" />
-          <Property Name="tapas" Type="int" />
-        </EntityType>-->
-        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_ListarZona' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_ListarZona">
           <Key>
@@ -2152,15 +1655,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_PrestamoEquiposDet
           <Property Name="cpmov" Type="int" />
           <Property Name="cpmovcli" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_GO_ProductoVendidoCliente' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="VR_GO_ProductoVendidoCliente">
-          <Property Name="cliente" Type="int" />
-          <Property Name="fecha" Type="date" />
-          <Property Name="codProducto" Type="nvarchar" MaxLength="10" />
-          <Property Name="cantidad" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="monto" Type="decimal" Precision="38" Scale="2" />
-        </EntityType>-->
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.vr_go_reciboCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_reciboCliente">
@@ -2669,13 +2163,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_SaldoFisicoValorado' 
           <Property Name="cedesc" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_SaldoInventario' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="VR_SaldoInventario">
-          <Property Name="Codigo" Type="int" />
-          <Property Name="Producto" Type="nvarchar" MaxLength="30" />
-          <Property Name="Cantidad" Type="int" />
-        </EntityType>-->
-        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_stockActual' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_stockActual">
           <Key>
@@ -2707,24 +2194,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_StockDisponible' no t
           <Property Name="StockSoloPedidos" Type="decimal" Precision="38" Scale="2" Nullable="false" />
           <Property Name="StockFinal" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_UltimosPedidos' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="VR_UltimosPedidos">
-          <Property Name="codCliente" Type="nvarchar" MaxLength="50" />
-          <Property Name="cliente" Type="nvarchar" MaxLength="200" />
-          <Property Name="Telefono" Type="nvarchar" MaxLength="61" />
-          <Property Name="direccion" Type="nvarchar" MaxLength="250" />
-          <Property Name="zona" Type="int" />
-          <Property Name="fechaPrestamo" Type="date" />
-          <Property Name="horaPrestamo" Type="nvarchar" MaxLength="5" />
-          <Property Name="codEquipo" Type="nvarchar" MaxLength="10" />
-          <Property Name="Equipo" Type="nvarchar" MaxLength="100" />
-          <Property Name="codMovimiento" Type="int" />
-          <Property Name="movimiento" Type="nvarchar" MaxLength="50" />
-          <Property Name="fechaUltimoPedido" Type="date" />
-          <Property Name="codProducto" Type="nvarchar" MaxLength="10" />
-          <Property Name="Producto" Type="nvarchar" MaxLength="100" />
-        </EntityType>-->
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_UtilidadPorProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_UtilidadPorProducto">
@@ -3977,6 +3446,9 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_VistaPedido_PrecioCos
             <DefiningQuery>SELECT 
     [VR_GO_CajaGeneral].[IdCaja] AS [IdCaja], 
     [VR_GO_CajaGeneral].[FechaCaja] AS [FechaCaja], 
+    [VR_GO_CajaGeneral].[AlmacenCarga] AS [AlmacenCarga], 
+    [VR_GO_CajaGeneral].[IdSucursal] AS [IdSucursal], 
+    [VR_GO_CajaGeneral].[Sucursal] AS [Sucursal], 
     [VR_GO_CajaGeneral].[Conciliacion] AS [Conciliacion], 
     [VR_GO_CajaGeneral].[Repartidor] AS [Repartidor], 
     [VR_GO_CajaGeneral].[TotalConciliacion] AS [TotalConciliacion], 
@@ -5393,7 +4865,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_VistaPedido_PrecioCos
           <EntitySet Name="VR_EstadoCuentasClientes" EntityType="BDDistBHFModel.VR_EstadoCuentasClientes" />
           <EntitySet Name="VR_Facturas" EntityType="BDDistBHFModel.VR_Facturas" />
           <EntitySet Name="VR_FacturasChacaltaya" EntityType="BDDistBHFModel.VR_FacturasChacaltaya" />
-          <EntitySet Name="VR_GO_CajaGeneral" EntityType="BDDistBHFModel.VR_GO_CajaGeneral" />
           <EntitySet Name="vr_go_comprobanteSalidaItems" EntityType="BDDistBHFModel.vr_go_comprobanteSalidaItems" />
           <EntitySet Name="vr_go_comprobanteVenta" EntityType="BDDistBHFModel.vr_go_comprobanteVenta" />
           <EntitySet Name="VR_GO_DespachoNotaVenta" EntityType="BDDistBHFModel.VR_GO_DespachoNotaVenta" />
@@ -5445,6 +4916,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_VistaPedido_PrecioCos
             <End Role="TO005" EntitySet="TO005" />
             <End Role="TO0052" EntitySet="TO0052" />
           </AssociationSet>
+          <EntitySet Name="VR_GO_CajaGeneral" EntityType="BDDistBHFModel.VR_GO_CajaGeneral" />
           </EntityContainer>
         <ComplexType Name="sp_dg_RAsistencia_Result">
           <Property Type="Int32" Name="cbnumi" Nullable="false" />
@@ -6858,21 +6330,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_VistaPedido_PrecioCos
           <Property Name="oenfac" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
           <Property Name="oeefec" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
-        <EntityType Name="VR_GO_CajaGeneral">
-          <Key>
-            <PropertyRef Name="IdCaja" />
-          </Key>
-          <Property Name="IdCaja" Type="Int32" Nullable="false" />
-          <Property Name="FechaCaja" Type="DateTime" Precision="0" />
-          <Property Name="Conciliacion" Type="Int32" />
-          <Property Name="Repartidor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TotalConciliacion" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="TotalEfectivo" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="TotalCredito" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="TotalDeposito" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="TotalGeneral" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="Diferencia" Type="Decimal" Precision="38" Scale="2" />
-        </EntityType>
         <EntityType Name="vr_go_comprobanteSalidaItems">
           <Key>
             <PropertyRef Name="id" />
@@ -7713,6 +7170,26 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_VistaPedido_PrecioCos
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="VR_GO_CajaGeneral">
+          <Key>
+            <PropertyRef Name="IdCaja" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="Sucursal" />
+          </Key>
+          <Property Name="IdCaja" Type="Int32" Nullable="false" />
+          <Property Name="FechaCaja" Type="DateTime" Precision="0" />
+          <Property Name="AlmacenCarga" Type="Int32" />
+          <Property Name="IdSucursal" Type="Int32" Nullable="false" />
+          <Property Name="Sucursal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Conciliacion" Type="Int32" />
+          <Property Name="Repartidor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalConciliacion" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="TotalEfectivo" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="TotalCredito" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalDeposito" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="TotalGeneral" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Diferencia" Type="Decimal" Precision="38" Scale="2" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9280,22 +8757,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_VistaPedido_PrecioCos
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VR_GO_CajaGeneral">
-            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_CajaGeneral">
-              <MappingFragment StoreEntitySet="VR_GO_CajaGeneral">
-                <ScalarProperty Name="Diferencia" ColumnName="Diferencia" />
-                <ScalarProperty Name="TotalGeneral" ColumnName="TotalGeneral" />
-                <ScalarProperty Name="TotalDeposito" ColumnName="TotalDeposito" />
-                <ScalarProperty Name="TotalCredito" ColumnName="TotalCredito" />
-                <ScalarProperty Name="TotalEfectivo" ColumnName="TotalEfectivo" />
-                <ScalarProperty Name="TotalConciliacion" ColumnName="TotalConciliacion" />
-                <ScalarProperty Name="Repartidor" ColumnName="Repartidor" />
-                <ScalarProperty Name="Conciliacion" ColumnName="Conciliacion" />
-                <ScalarProperty Name="FechaCaja" ColumnName="FechaCaja" />
-                <ScalarProperty Name="IdCaja" ColumnName="IdCaja" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vr_go_comprobanteSalidaItems">
             <EntityTypeMapping TypeName="BDDistBHFModel.vr_go_comprobanteSalidaItems">
               <MappingFragment StoreEntitySet="vr_go_comprobanteSalidaItems">
@@ -10106,6 +9567,25 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Rolon.dbo.VR_VistaPedido_PrecioCos
                 <ScalarProperty Name="codcliente" ColumnName="codcliente" />
                 <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
                 <ScalarProperty Name="oanumi" ColumnName="oanumi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VR_GO_CajaGeneral">
+            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_CajaGeneral">
+              <MappingFragment StoreEntitySet="VR_GO_CajaGeneral">
+                <ScalarProperty Name="Diferencia" ColumnName="Diferencia" />
+                <ScalarProperty Name="TotalGeneral" ColumnName="TotalGeneral" />
+                <ScalarProperty Name="TotalDeposito" ColumnName="TotalDeposito" />
+                <ScalarProperty Name="TotalCredito" ColumnName="TotalCredito" />
+                <ScalarProperty Name="TotalEfectivo" ColumnName="TotalEfectivo" />
+                <ScalarProperty Name="TotalConciliacion" ColumnName="TotalConciliacion" />
+                <ScalarProperty Name="Repartidor" ColumnName="Repartidor" />
+                <ScalarProperty Name="Conciliacion" ColumnName="Conciliacion" />
+                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="AlmacenCarga" ColumnName="AlmacenCarga" />
+                <ScalarProperty Name="FechaCaja" ColumnName="FechaCaja" />
+                <ScalarProperty Name="IdCaja" ColumnName="IdCaja" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
