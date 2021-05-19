@@ -162,7 +162,7 @@ Public Class F0G_MovimientoChoferEntrada
             MLbFecha.Text = CType(.GetValue("ibfact"), Date).ToString("dd/MM/yyyy")
             MLbHora.Text = .GetValue("ibhact").ToString
             MLbUsuario.Text = .GetValue("ibuact").ToString
-            '_prValidar(.GetValue("ieest"))
+            _prValidar(.GetValue("ieest"))
             _icibid = .GetValue("ibiddc")
         End With
 
@@ -186,7 +186,7 @@ Public Class F0G_MovimientoChoferEntrada
                 swestado.Value = True
                 rlEstado.Text = "Accesible"
             Case 2
-                MBtModificar.Enabled = True
+                MBtModificar.Enabled = False
                 MBtEliminar.Enabled = True
                 swestado.Value = True
                 rlEstado.Text = "Consolidado"
@@ -535,35 +535,44 @@ Public Class F0G_MovimientoChoferEntrada
 
 
     Private Sub grdetalle_CellValueChanged(sender As Object, e As ColumnActionEventArgs) Handles grdetalle.CellValueChanged
+        ValidarInsercionSegunElTipoDeColumna(e, "DEVOLUCION", "SALDO")
+        ValidarInsercionSegunElTipoDeColumna(e, "SALDO", "DEVOLUCION")
+    End Sub
 
-
+    Private Sub ValidarInsercionSegunElTipoDeColumna(e As ColumnActionEventArgs, nombreColumna As String, nombreColumnaACalcular As String)
         Dim lin As Integer = grdetalle.GetValue("canumi")
         Dim pos As Integer = -1
         _fnObtenerFilaDetalleConciliacion(pos, lin)
-        If (e.Column.Index = grdetalle.RootTable.Columns("DEVOLUCION").Index) Then
-            If (Not IsNumeric(grdetalle.GetValue("DEVOLUCION")) Or grdetalle.GetValue("DEVOLUCION").ToString = String.Empty) Then
+        If (e.Column.Index = grdetalle.RootTable.Columns(nombreColumna).Index) Then
+            If (Not IsNumeric(grdetalle.GetValue(nombreColumna)) Or grdetalle.GetValue(nombreColumna).ToString = String.Empty) Then
 
-                CType(grdetalle.DataSource, DataTable).Rows(pos).Item("DEVOLUCION") = 0
+                CType(grdetalle.DataSource, DataTable).Rows(pos).Item(nombreColumna) = 0
                 grdetalle.SetValue("TOTAL", CType(grdetalle.DataSource, DataTable).Rows(pos).Item("TOTALCOPIA"))
             Else
-                Dim data As Decimal = grdetalle.GetValue("DEVOLUCION")
+                Dim data As Decimal = grdetalle.GetValue(nombreColumna)
                 Dim TotalCopias As Decimal = grdetalle.GetValue("TOTALCOPIA")
-                If ((data > 0) And (data <= TotalCopias)) Then
+                If ((data >= 0) And (data <= TotalCopias)) Then
 
-                    Dim devolucion As Decimal = IIf(IsDBNull(grdetalle.GetValue("DEVOLUCION")), 0, grdetalle.GetValue("DEVOLUCION"))
-                    Dim total As Decimal = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("TOTALCOPIA") - devolucion
-                    CType(grdetalle.DataSource, DataTable).Rows(pos).Item("TOTAL") = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("TOTALCOPIA") - devolucion
-                    grdetalle.SetValue("TOTAL", total)
-                    'Dim estado As Integer = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado")
+                    Dim totalVentido = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("TOTAL")
+                    Dim totalTraspasoAlAlmacen = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("TOTALCOPIA")
+                    Dim diferenciaTotal = totalTraspasoAlAlmacen - totalVentido
 
-                    'If (estado = 1) Then
-                    '    CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado") = 2
-                    'End If
+                    Dim devolucion As Double = IIf(IsDBNull(grdetalle.GetValue(nombreColumna)), 0, grdetalle.GetValue(nombreColumna))
 
+
+                    If devolucion > diferenciaTotal Then
+                        MensajesDeVentana.MostrarMensajeError(Me, "El saldo a manipular debe ser una cantidad de " + diferenciaTotal.ToString())
+                        CType(grdetalle.DataSource, DataTable).Rows(pos).Item(nombreColumna) = 0
+                        grdetalle.SetValue(nombreColumna, 0)
+                        Return
+                    End If
+
+                    diferenciaTotal = diferenciaTotal - devolucion
+                    CType(grdetalle.DataSource, DataTable).Rows(pos).Item(nombreColumnaACalcular) = diferenciaTotal
+                    grdetalle.SetValue(nombreColumnaACalcular, diferenciaTotal)
                 Else
-
-                    CType(grdetalle.DataSource, DataTable).Rows(pos).Item("DEVOLUCION") = 0
-                    grdetalle.SetValue("TOTAL", CType(grdetalle.DataSource, DataTable).Rows(pos).Item("TOTALCOPIA"))
+                    CType(grdetalle.DataSource, DataTable).Rows(pos).Item(nombreColumna) = 0
+                    grdetalle.SetValue(nombreColumnaACalcular, 0)
                 End If
             End If
             Dim estado As Integer = IIf(IsDBNull(CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado")), 0, CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado"))
@@ -571,9 +580,6 @@ Public Class F0G_MovimientoChoferEntrada
                 CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado") = 2
             End If
         End If
-
-
-
     End Sub
 
     Private Sub grdetalle_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles grdetalle.CellEdited
@@ -582,36 +588,36 @@ Public Class F0G_MovimientoChoferEntrada
         'TablaPrincipal.Columns.Add("DEVOLUCION")
         'TablaPrincipal.Columns.Add("TOTAL")
         'TablaPrincipal.Columns.Add("TOTALCOPIA")
-        If (e.Column.Index = grdetalle.RootTable.Columns("DEVOLUCION").Index) Then
-            If (Not IsNumeric(grdetalle.GetValue("DEVOLUCION")) Or grdetalle.GetValue("DEVOLUCION").ToString = String.Empty) Then
+        'If (e.Column.Index = grdetalle.RootTable.Columns("DEVOLUCION").Index) Then
+        '    If (Not IsNumeric(grdetalle.GetValue("DEVOLUCION")) Or grdetalle.GetValue("DEVOLUCION").ToString = String.Empty) Then
 
-                grdetalle.SetValue("DEVOLUCION", 0)
-                grdetalle.SetValue("TOTAL", grdetalle.GetValue("TOTALCOPIA"))
-            Else
-                Dim data As Decimal = grdetalle.GetValue("DEVOLUCION")
-                Dim TotalCopias As Decimal = grdetalle.GetValue("TOTALCOPIA")
-                If ((data > 0) And (data <= TotalCopias)) Then
+        '        grdetalle.SetValue("DEVOLUCION", 0)
+        '        grdetalle.SetValue("TOTAL", grdetalle.GetValue("TOTALCOPIA"))
+        '    Else
+        '        Dim data As Decimal = grdetalle.GetValue("DEVOLUCION")
+        '        Dim TotalCopias As Decimal = grdetalle.GetValue("TOTALCOPIA")
+        '        If ((data > 0) And (data <= TotalCopias)) Then
 
 
-                Else
+        '        Else
 
-                    grdetalle.SetValue("DEVOLUCION", 0)
-                    grdetalle.SetValue("TOTAL", grdetalle.GetValue("TOTALCOPIA"))
-                End If
-            End If
-            If (gi_adev = 1) Then
-                If (IsDBNull(grdetalle.GetValue("estado"))) Then
-                    If (IIf(IsDBNull(grdetalle.GetValue("DEVOLUCION")), 0, grdetalle.GetValue("DEVOLUCION")) = grdetalle.GetValue("TOTALCOPIA") - IIf(IsDBNull(grdetalle.GetValue("DevCopia")), 0, grdetalle.GetValue("DevCopia"))) Then
-                        CType(grdetalle.DataSource, DataTable).Rows(grdetalle.Row).Item("FiltroEstado") = True
-                        _prCargarIcono(grdetalle.Row, grdetalle.DataSource, True)
-                    Else
-                        CType(grdetalle.DataSource, DataTable).Rows(grdetalle.Row).Item("FiltroEstado") = False
-                        _prCargarIcono(grdetalle.Row, grdetalle.DataSource, False)
-                        MessageBox.Show("LOS SALDOS DE ENTRADA Y SALIDA NO CUADRAN!", "AVERTENCIA", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
-                    End If
-                End If
-            End If
-        End If
+        '            grdetalle.SetValue("DEVOLUCION", 0)
+        '            grdetalle.SetValue("TOTAL", grdetalle.GetValue("TOTALCOPIA"))
+        '        End If
+        '    End If
+        '    If (gi_adev = 1) Then
+        '        If (IsDBNull(grdetalle.GetValue("estado"))) Then
+        '            If (IIf(IsDBNull(grdetalle.GetValue("DEVOLUCION")), 0, grdetalle.GetValue("DEVOLUCION")) = grdetalle.GetValue("TOTALCOPIA") - IIf(IsDBNull(grdetalle.GetValue("DevCopia")), 0, grdetalle.GetValue("DevCopia"))) Then
+        '                CType(grdetalle.DataSource, DataTable).Rows(grdetalle.Row).Item("FiltroEstado") = True
+        '                _prCargarIcono(grdetalle.Row, grdetalle.DataSource, True)
+        '            Else
+        '                CType(grdetalle.DataSource, DataTable).Rows(grdetalle.Row).Item("FiltroEstado") = False
+        '                _prCargarIcono(grdetalle.Row, grdetalle.DataSource, False)
+        '                MessageBox.Show("LOS SALDOS DE ENTRADA Y SALIDA NO CUADRAN!", "AVERTENCIA", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+        '            End If
+        '        End If
+        '    End If
+        'End If
     End Sub
 
     Private Sub grdetalle_MouseClick(sender As Object, e As MouseEventArgs) Handles grdetalle.MouseClick
