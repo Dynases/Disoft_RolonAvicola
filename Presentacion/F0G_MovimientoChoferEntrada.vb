@@ -162,7 +162,7 @@ Public Class F0G_MovimientoChoferEntrada
             MLbFecha.Text = CType(.GetValue("ibfact"), Date).ToString("dd/MM/yyyy")
             MLbHora.Text = .GetValue("ibhact").ToString
             MLbUsuario.Text = .GetValue("ibuact").ToString
-            _prValidar(.GetValue("ieest"))
+            '_prValidar(.GetValue("ieest"))
             _icibid = .GetValue("ibiddc")
         End With
 
@@ -351,7 +351,13 @@ Public Class F0G_MovimientoChoferEntrada
         Dim detalleCopia As DataTable = L_prMovimientoChoferDetalleSalida(-1)
         For i As Integer = 0 To CType(grdetalle.DataSource, DataTable).Rows.Count - 1 Step 1
             'icid,icibid,iccprod ,iccant
-            Dim data As Decimal = IIf(IsDBNull(CType(grdetalle.DataSource, DataTable).Rows(i).Item("DEVOLUCION")), 0, CType(grdetalle.DataSource, DataTable).Rows(i).Item("DEVOLUCION"))
+            Dim data As Decimal = 0
+            If L_prVerificarTipoProducto(CType(grdetalle.DataSource, DataTable).Rows(i).Item("canumi")) Then
+                data = IIf(IsDBNull(CType(grdetalle.DataSource, DataTable).Rows(i).Item("DEVOLUCION")), 0, CType(grdetalle.DataSource, DataTable).Rows(i).Item("DEVOLUCION"))
+            Else
+                data = IIf(IsDBNull(CType(grdetalle.DataSource, DataTable).Rows(i).Item("SALDO")), 0, CType(grdetalle.DataSource, DataTable).Rows(i).Item("SALDO"))
+            End If
+
             Dim estado As Integer = IIf(IsDBNull(CType(grdetalle.DataSource, DataTable).Rows(i).Item("estado")), 0, CType(grdetalle.DataSource, DataTable).Rows(i).Item("estado"))
             'a.icid ,a.icibid ,a.iccprod ,b.cadesc as producto,a.iccant ,Cast(null as image ) as img,1 as estado
             If (estado = 2) Then
@@ -372,6 +378,24 @@ Public Class F0G_MovimientoChoferEntrada
         Next
         Return detalleCopia
     End Function
+    Public Function InsertarTablaDevolucionYSaldos() As DataTable
+        Dim tDevolucionSaldo = L_prObtenerTablaDevolucionYSaldoVacia()
+        Try
+            For Each item As DataRow In CType(grdetalle.DataSource, DataTable).Rows
+
+                tDevolucionSaldo.Rows.Add(0, _codChofer,
+                                          Convert.ToInt32(lbcodigo.Text),
+                                          Convert.ToInt32(item("canumi")),
+                                          item("Devolucion"),
+                                          item("Saldo"),
+                                          1)
+            Next
+            Return tDevolucionSaldo
+        Catch ex As Exception
+            MensajesDeVentana.MostrarMensajeError(Me, ex.Message)
+            Return tDevolucionSaldo
+        End Try
+    End Function
 
     Public Sub _GuardarNuevo()
         'L_prMovimientoChoferGrabar(ByRef _ibid As String, _ibfdoc As String, _ibconcep As Integer, _ibobs As String, _ibidchof As Integer,
@@ -379,9 +403,12 @@ Public Class F0G_MovimientoChoferEntrada
     End Sub
 
     Private Sub _prGuardarModificado()
+        Dim tDevolucionSaldo = InsertarTablaDevolucionYSaldos()
+
         Dim res As Boolean = L_prMovimientoChoferModificarSalida(lbcodigo.Text, tbFecha.Value.ToString("yyyy/MM/dd"),
                                                                  cbConcepto.Value, tbObservacion.Text, _codChofer,
-                                                                 _prGuardarDetalleAbmConciliacion(0), _icibid)
+                                                                 _prGuardarDetalleAbmConciliacion(0), _icibid,
+                                                                 tDevolucionSaldo)
         If res Then
             '----------Se lo comento para que no grabe los pedidos moviles en la conciliación
             'Dim dt As DataTable = New DataTable
@@ -492,10 +519,11 @@ Public Class F0G_MovimientoChoferEntrada
     Private Sub grdetalle_EditingCell(sender As Object, e As EditingCellEventArgs) Handles grdetalle.EditingCell
         If (_fnAccesible()) Then
             If (cbConcepto.Value = 10) Then
-                If (e.Column.Index = grdetalle.RootTable.Columns("DEVOLUCION").Index) Then
+                If (e.Column.Index = grdetalle.RootTable.Columns("DEVOLUCION").Index Or
+                    e.Column.Index = grdetalle.RootTable.Columns("SALDO").Index) Then
                     'e.Cancel = False
                     'Lo cambiamos para que ya no modifiquen la grilla porque ahora calcula automáticamente
-                    e.Cancel = True
+                    e.Cancel = False
                 Else
                     e.Cancel = True
                 End If
@@ -854,6 +882,7 @@ Public Class F0G_MovimientoChoferEntrada
         TablaPrincipal.Columns.Add("DevCopia")
         TablaPrincipal.Columns.Add("FiltroEstado", Type.GetType("System.Boolean"))
         TablaPrincipal.Columns.Add("ImgEstado", Type.GetType("System.Byte[]"))
+        TablaPrincipal.Columns.Add("SALDO")
 
         '''''''''''Aqui inserto los movimientos ya insertados para modificarlos
         Dim ProductosMovimientoSalida As DataTable = L_prConciliacionObtenerProductoTI0021Idnumi(lbcodigo.Text) ''''Estado=3 Conciliacion Chofer
@@ -862,7 +891,13 @@ Public Class F0G_MovimientoChoferEntrada
             Dim result As DataRow() = ProductosMovimientoSalida.Select("iccprod=" + Str(idprod))
             For i As Integer = 0 To result.Length - 1 Step 1
                 Dim rowIndex As Integer = TablaPrincipal.Rows.IndexOf(result(i))
-                TablaPrincipal.Rows(j).Item("DEVOLUCION") = result(i).Item("iccant")
+                If L_prVerificarTipoProducto(idprod) Then
+                    TablaPrincipal.Rows(j).Item("SALDO") = 0
+                    TablaPrincipal.Rows(j).Item("DEVOLUCION") = result(i).Item("iccant")
+                Else
+                    TablaPrincipal.Rows(j).Item("SALDO") = result(i).Item("iccant")
+                    TablaPrincipal.Rows(j).Item("DEVOLUCION") = 0
+                End If
                 TablaPrincipal.Rows(j).Item("estado") = 1
                 TablaPrincipal.Rows(j).Item("icid") = result(i).Item("icid")
             Next
@@ -906,7 +941,13 @@ Public Class F0G_MovimientoChoferEntrada
             Next
             sumaMovil = IIf(IsDBNull(TablaPrincipal.Rows(i).Item("MOVIL")), 0, TablaPrincipal.Rows(i).Item("MOVIL"))
             TablaPrincipal.Rows(i).Item("TOTALCOPIA") = suma '- sumaMovil
-            suma = suma - IIf(IsDBNull(TablaPrincipal.Rows(i).Item("DEVOLUCION")), 0, TablaPrincipal.Rows(i).Item("DEVOLUCION"))
+
+            If L_prVerificarTipoProducto(TablaPrincipal.Rows(i).Item("canumi")) Then
+                suma = suma - IIf(IsDBNull(TablaPrincipal.Rows(i).Item("DEVOLUCION")), 0, TablaPrincipal.Rows(i).Item("DEVOLUCION"))
+            Else
+                suma = suma - IIf(IsDBNull(TablaPrincipal.Rows(i).Item("SALDO")), 0, TablaPrincipal.Rows(i).Item("SALDO"))
+            End If
+
             TablaPrincipal.Rows(i).Item("TOTAL") = suma '- sumaMovil
         Next
 
@@ -918,13 +959,8 @@ Public Class F0G_MovimientoChoferEntrada
         If (dtPedidosEntregados.Rows.Count > 0) Then
             For j As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
                 Dim flag As Boolean = False
-                If (IsDBNull(TablaPrincipal.Rows(j).Item("estado"))) Then
+                If (IsDBNull(TablaPrincipal.Rows(j).Item("estado")) Or TablaPrincipal.Rows(j).Item("estado") = 1) Then
                     flag = True
-                Else
-                    'If (Not TablaPrincipal.Rows(j).Item("estado") = 1) Then
-                    If (TablaPrincipal.Rows(j).Item("estado") = 1) Then
-                        flag = True
-                    End If
                 End If
                 If (flag) Then
                     Dim idprod As Integer = TablaPrincipal.Rows(j).Item("canumi")
@@ -939,10 +975,15 @@ Public Class F0G_MovimientoChoferEntrada
                             TablaPrincipal.Rows(j).Item("ID_TO1") = TablaPrincipal.Rows(j).Item("ID_TO1").ToString + "," + result(i).Item("oanumi").ToString
                         End If
                     Next
-
-                    TablaPrincipal.Rows(j).Item("DEVOLUCION") = IIf(IsDBNull(TablaPrincipal.Rows(j).Item("TOTALCOPIA")), 0, TablaPrincipal.Rows(j).Item("TOTALCOPIA")) - IIf(IsDBNull(TablaPrincipal.Rows(j).Item("DevCopia")), 0, TablaPrincipal.Rows(j).Item("DevCopia"))
-                    TablaPrincipal.Rows(j).Item("FiltroEstado") = (IIf(IsDBNull(TablaPrincipal.Rows(j).Item("TOTALCOPIA")), 0, TablaPrincipal.Rows(j).Item("TOTALCOPIA")) - IIf(IsDBNull(TablaPrincipal.Rows(j).Item("DevCopia")), 0, TablaPrincipal.Rows(j).Item("DevCopia")))
-                    TablaPrincipal.Rows(j).Item("TOTAL") = TablaPrincipal.Rows(j).Item("TOTALCOPIA") - TablaPrincipal.Rows(j).Item("DEVOLUCION")
+                    If L_prVerificarTipoProducto(idprod) Then
+                        TablaPrincipal.Rows(j).Item("DEVOLUCION") = IIf(IsDBNull(TablaPrincipal.Rows(j).Item("TOTALCOPIA")), 0, TablaPrincipal.Rows(j).Item("TOTALCOPIA")) - IIf(IsDBNull(TablaPrincipal.Rows(j).Item("DevCopia")), 0, TablaPrincipal.Rows(j).Item("DevCopia"))
+                        TablaPrincipal.Rows(j).Item("FiltroEstado") = (IIf(IsDBNull(TablaPrincipal.Rows(j).Item("TOTALCOPIA")), 0, TablaPrincipal.Rows(j).Item("TOTALCOPIA")) - IIf(IsDBNull(TablaPrincipal.Rows(j).Item("DevCopia")), 0, TablaPrincipal.Rows(j).Item("DevCopia")))
+                        TablaPrincipal.Rows(j).Item("TOTAL") = TablaPrincipal.Rows(j).Item("TOTALCOPIA") - TablaPrincipal.Rows(j).Item("DEVOLUCION")
+                    Else
+                        TablaPrincipal.Rows(j).Item("SALDO") = IIf(IsDBNull(TablaPrincipal.Rows(j).Item("TOTALCOPIA")), 0, TablaPrincipal.Rows(j).Item("TOTALCOPIA")) - IIf(IsDBNull(TablaPrincipal.Rows(j).Item("DevCopia")), 0, TablaPrincipal.Rows(j).Item("DevCopia"))
+                        TablaPrincipal.Rows(j).Item("FiltroEstado") = (IIf(IsDBNull(TablaPrincipal.Rows(j).Item("TOTALCOPIA")), 0, TablaPrincipal.Rows(j).Item("TOTALCOPIA")) - IIf(IsDBNull(TablaPrincipal.Rows(j).Item("DevCopia")), 0, TablaPrincipal.Rows(j).Item("DevCopia")))
+                        TablaPrincipal.Rows(j).Item("TOTAL") = TablaPrincipal.Rows(j).Item("TOTALCOPIA") - TablaPrincipal.Rows(j).Item("SALDO")
+                    End If
                 End If
             Next
         End If
@@ -1007,7 +1048,7 @@ Public Class F0G_MovimientoChoferEntrada
             .Visible = True
             .FormatString = "0.00"
             .TextAlignment = TextAlignment.Far
-            .Caption = "SALDO"
+            .Caption = "DEVOLUCION"
         End With
         With grdetalle.RootTable.Columns("TOTALCOPIA")
             .Width = 150
@@ -1026,6 +1067,13 @@ Public Class F0G_MovimientoChoferEntrada
             .Caption = "COMPARA".ToUpper
             .CellStyle.ImageHorizontalAlignment = ImageHorizontalAlignment.Center
             .Visible = (gi_adev = 1)
+        End With
+        With grdetalle.RootTable.Columns("SALDO")
+            .Width = 150
+            .Visible = True
+            .FormatString = "0.00"
+            .TextAlignment = TextAlignment.Far
+            .Caption = "SALDO"
         End With
         With grdetalle
             .GroupByBoxVisible = False

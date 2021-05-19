@@ -6713,6 +6713,21 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Function L_prVerificarTipoProducto(productoId As Integer) As Boolean
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@ProductoId", productoId))
+        _Tabla = D_ProcedimientoConParam("sp_MetodosDiAvi", _listParam)
+        If _Tabla.Rows.Count > 0 Then
+            If _Tabla.Rows(0).Item(0) = 1 Then
+                Return True
+            Else
+                Return False
+            End If
+        End If
+        Return False
+    End Function
     Public Shared Function L_prConciliacionObtenerIdNumiTI002(_ibid As Integer) As DataTable
         Dim _Tabla As DataTable
 
@@ -7020,6 +7035,15 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 
+    Public Shared Function L_prObtenerTablaDevolucionYSaldoVacia() As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 29))
+        _listParam.Add(New Datos.DParametro("@ibuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TM001SalidaChofer", _listParam)
+        Return _Tabla
+    End Function
+
     Public Shared Function L_prMovimientoChoferDetalleSalida2(numi As String) As DataTable
         Dim _Tabla As DataTable
 
@@ -7083,7 +7107,9 @@ Public Class AccesoLogica
 
 
 
-    Public Shared Function L_prMovimientoChoferModificarSalida(ByRef _ibid As String, _ibfdoc As String, _ibconcep As Integer, _ibobs As String, _ibidchof As Integer, _detalle As DataTable, _icibid As String) As Boolean
+    Public Shared Function L_prMovimientoChoferModificarSalida(ByRef _ibid As String, _ibfdoc As String, _ibconcep As Integer,
+                                                               _ibobs As String, _ibidchof As Integer, _detalle As DataTable,
+                                                               _icibid As String, tDevolucionYSaldos As DataTable) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -7101,6 +7127,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@ibidvent", 0))
         _listParam.Add(New Datos.DParametro("@TM0011", "", _detalle))
         _listParam.Add(New Datos.DParametro("@ibuact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@SaldoYDevolucion", "", tDevolucionYSaldos))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TM001SalidaChofer", _listParam)
         If _Tabla.Rows.Count > 0 Then
             _resultado = True

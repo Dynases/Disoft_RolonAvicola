@@ -606,7 +606,11 @@ Public Class F0G_MovimientoChoferSalida
 
     End Sub
     Private Sub _prGuardarModificado()
-        Dim res As Boolean = L_prMovimientoChoferModificarSalida(tbCodigo.Text.Trim, tbFecha.Value.ToString("yyyy/MM/dd"), cbConcepto.Value, tbObservacion.Text, _codChofer, CType(grdetalle.DataSource, DataTable), _icibid)
+        Dim tDevolucionSaldo = L_prObtenerTablaDevolucionYSaldoVacia()
+        Dim res As Boolean = L_prMovimientoChoferModificarSalida(tbCodigo.Text.Trim, tbFecha.Value.ToString("yyyy/MM/dd"),
+                                                                 cbConcepto.Value, tbObservacion.Text, _codChofer,
+                                                                 CType(grdetalle.DataSource, DataTable), _icibid,
+                                                                 tDevolucionSaldo)
         If res Then
             _prCargarVenta()
             _prSalir()

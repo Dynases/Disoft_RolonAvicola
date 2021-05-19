@@ -485,6 +485,7 @@
     <Compile Include="Mapas\R0_UTilidadPorProducto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Metodos\MensajesDeVentana.vb" />
     <Compile Include="Parametros.Designer.vb">
       <DependentUpon>Parametros.vb</DependentUpon>
     </Compile>
