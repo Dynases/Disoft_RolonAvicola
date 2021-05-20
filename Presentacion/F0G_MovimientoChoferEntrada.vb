@@ -867,14 +867,22 @@ Public Class F0G_MovimientoChoferEntrada
             TablaPrincipal.Columns.Add(fila.Item("ibid").ToString.Trim)
         Next
         Dim Productos As DataTable = L_prConciliacionObtenerProductoTI0021(lbcodigo.Text)
+        ''por revisar 
+        Dim Saldos As DataTable = L_prConciliacionObtenerProductoSaldos((lbcodigo.Text - 2), _codChofer)
         For j As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
             Dim idprod As Integer = TablaPrincipal.Rows(j).Item("canumi")
             Dim result As DataRow() = Productos.Select("iccprod=" + Str(idprod))
+            Dim resultSaldo As DataRow() = Saldos.Select("ProductoId=" + Str(idprod))
             For i As Integer = 0 To result.Length - 1 Step 1
                 Dim rowIndex As Integer = TablaPrincipal.Rows.IndexOf(result(i))
                 Dim columnnumi As String = result(i).Item("ibid")
+                If resultSaldo.Count = 0 Then
+                    TablaPrincipal.Rows(j).Item(columnnumi) = result(i).Item("iccant")
+                Else
+                    TablaPrincipal.Rows(j).Item(columnnumi) = result(i).Item("iccant") + resultSaldo(i).Item("Saldo")
+                End If
 
-                TablaPrincipal.Rows(j).Item(columnnumi) = result(i).Item("iccant")
+
 
             Next
         Next
@@ -895,13 +903,20 @@ Public Class F0G_MovimientoChoferEntrada
         For j As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
             Dim idprod As Integer = TablaPrincipal.Rows(j).Item("canumi")
             Dim result As DataRow() = ProductosMovimientoSalida.Select("iccprod=" + Str(idprod))
+            Dim resultSaldo1 As DataRow() = Saldos.Select("ProductoId=" + Str(idprod))
             For i As Integer = 0 To result.Length - 1 Step 1
                 Dim rowIndex As Integer = TablaPrincipal.Rows.IndexOf(result(i))
                 If L_prVerificarTipoProducto(idprod) Then
                     TablaPrincipal.Rows(j).Item("SALDO") = 0
                     TablaPrincipal.Rows(j).Item("DEVOLUCION") = result(i).Item("iccant")
                 Else
-                    TablaPrincipal.Rows(j).Item("SALDO") = result(i).Item("iccant")
+                    ''por revisar
+                    If resultSaldo1.Count = 0 Then
+                        TablaPrincipal.Rows(j).Item("SALDO") = result(i).Item("iccant")
+                    Else
+                        TablaPrincipal.Rows(j).Item("SALDO") = result(i).Item("iccant") + resultSaldo1(i).Item("Saldo")
+                    End If
+
                     TablaPrincipal.Rows(j).Item("DEVOLUCION") = 0
                 End If
                 TablaPrincipal.Rows(j).Item("estado") = 1

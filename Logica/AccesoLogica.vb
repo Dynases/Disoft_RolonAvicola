@@ -6753,6 +6753,19 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Function L_prConciliacionObtenerProductoSaldos(_ibid As Integer, codRep As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 30))
+        _listParam.Add(New Datos.DParametro("@ibid", _ibid))
+        _listParam.Add(New Datos.DParametro("@chofer", codRep))
+        _listParam.Add(New Datos.DParametro("@ibuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TM001SalidaChofer", _listParam)
+
+        Return _Tabla
+    End Function
     Public Shared Function L_prConciliacionObtenerProductoTI0021Idnumi(_ibid As Integer) As DataTable
         Dim _Tabla As DataTable
 
