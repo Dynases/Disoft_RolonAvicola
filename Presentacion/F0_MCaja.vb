@@ -705,7 +705,14 @@ Public Class F0_MCaja
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
                 .Visible = False
             End With
-
+            With Dgv_PedidoTotal.RootTable.Columns("Pago")
+                .Caption = "Pago"
+                .Width = 200
+                '.Visible = (gi_vcre2 = 1)
+                .Visible = True
+                .FormatString = "0.00"
+                .AggregateFunction = AggregateFunction.Sum
+            End With
             With Dgv_PedidoTotal
                 .GroupByBoxVisible = False
                 'diseño de la grilla
@@ -969,7 +976,13 @@ Public Class F0_MCaja
                     .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
                     .Visible = False
                 End With
-
+                With Dgv_PedidoTotal.RootTable.Columns("Pago")
+                    .Caption = "Pago"
+                    .Width = 200
+                    .Visible = True
+                    .FormatString = "0.00"
+                    .AggregateFunction = AggregateFunction.Sum
+                End With
                 With Dgv_PedidoTotal
                     .GroupByBoxVisible = False
                     'diseño de la grilla
@@ -1333,18 +1346,21 @@ Public Class F0_MCaja
     Private Sub grtotalpedidos_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles Dgv_PedidoTotal.CellEdited
         Try
             If (e.Column.Key = "credito") Then
+                Dgv_PedidoTotal.UpdateData()
                 If (Not IsNumeric(Dgv_PedidoTotal.GetValue("credito"))) Then
                     Dgv_PedidoTotal.SetValue("credito", 0)
                 Else
-                    If (Dgv_PedidoTotal.GetValue("credito") < 0) Then
-                        Dgv_PedidoTotal.SetValue("credito", 0)
+                    If Dgv_PedidoTotal.GetValue("Pago") <= 0 Then
+                        If (Dgv_PedidoTotal.GetValue("credito") < 0) Then
+                            Dgv_PedidoTotal.SetValue("credito", 0)
+                        End If
+                        'If (Dgv_PedidoTotal.GetValue("credito") > Dgv_PedidoTotal.GetValue("contado")) Then
+                        '    Dgv_PedidoTotal.SetValue("credito", Dgv_PedidoTotal.GetValue("contado"))
+                        'End If
+                        Dgv_PedidoTotal.SetValue("contado", Dgv_PedidoTotal.GetValue("total") - Dgv_PedidoTotal.GetValue("credito"))
                     End If
-                    If (Dgv_PedidoTotal.GetValue("credito") > Dgv_PedidoTotal.GetValue("contado")) Then
-                        Dgv_PedidoTotal.SetValue("credito", Dgv_PedidoTotal.GetValue("contado"))
-                    End If
-                    Dgv_PedidoTotal.SetValue("contado", Dgv_PedidoTotal.GetValue("total") - Dgv_PedidoTotal.GetValue("credito"))
                 End If
-                Dgv_PedidoTotal.UpdateData()
+
                 _prCalcular(0, 1)
             End If
         Catch ex As Exception
