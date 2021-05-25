@@ -1393,9 +1393,9 @@ Public Class AccesoLogica
         If _Modo = 0 Then
             _Where = " obnumi = obnumi"
         Else
-            _Where = "obnumi=" + _idCabecera + " AND obcprod=canumi AND iacprod=obcprod"
+            _Where = "obnumi=" + _idCabecera + " AND obcprod=canumi"
         End If
-        _Tabla = D_Datos_Tabla("obnumi,obcprod, cacod, cadesc,obpcant,obpbase,obptot,obdesc,obtotal,obfamilia, obcampo1, iacant", "TO0011,TC001, TI001", _Where)
+        _Tabla = D_Datos_Tabla("obnumi,obcprod, cacod, cadesc,obpcant,obpbase,obptot,obdesc,obtotal,obfamilia, obcampo1, 1 AS iacant", "TO0011,TC001", _Where)
         Return _Tabla
     End Function
 
