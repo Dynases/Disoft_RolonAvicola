@@ -1259,6 +1259,7 @@ Partial Class F02_PedidoNuevo
         Me.tbMontoCredito.PreventEnterBeep = True
         Me.tbMontoCredito.Size = New System.Drawing.Size(100, 23)
         Me.tbMontoCredito.TabIndex = 43
+        Me.tbMontoCredito.Visible = False
         '
         'swTipoVenta
         '
@@ -1277,6 +1278,7 @@ Partial Class F02_PedidoNuevo
         Me.swTipoVenta.TabIndex = 45
         Me.swTipoVenta.Value = True
         Me.swTipoVenta.ValueObject = "Y"
+        Me.swTipoVenta.Visible = False
         '
         'LabelX12
         '
